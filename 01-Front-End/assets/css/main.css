@@ -744,6 +744,44 @@ section {
   margin-top: 30px;
 }
 
+.btn-login{
+  width: 140px;
+  height: 47px;
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 40px;
+  border-radius: 5px;
+  transition: 0.5s;
+  margin-top: -45px;
+  margin-left: 97px;
+  color: #fff;
+  border: 2px solid #ffffff;
+}
+
+.btn-signup{
+  width: 149px;
+  height: 47px;
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 40px;
+  border-radius: 5px;
+  transition: 0.5s;
+  margin-top: -45px;
+  margin-left: 43px;
+  color: #1F1D2E;
+  background-color: white;
+}
+
+.btn-get-started:hover {
+  background: var(--color-primary);
+}
+
 .services .service-item {
   padding: 40px;
   background: #fff;
