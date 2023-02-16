@@ -892,6 +892,58 @@ section {
   font-weight: 400;
 }
 
+/*--------------------------------------------------------------
+# Car Store
+--------------------------------------------------------------*/
+
+.features{
+  background-color: #14131C;
+}
+
+.features {
+  padding-bottom: 45px;
+}
+
+.features h2 {
+  color: white;
+}
+
+.feature-col {
+  display: flex;
+  padding-bottom: 45px;
+}
+
+.feature-col>div>div {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.feature-col>div>div:last-child {
+  padding-left: 20px;
+}
+
+.car-icon {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 15px;
+  margin-top: 101px;
+  font-size: 24px;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.feature-col h3 {
+  color: white;
+}
+
+.feature-col p {
+  font-family: "Roboto mono";
+  font-size: 14px;
+  color: #ffffff;
+}
 
 /*.btn-get-started:hover {
   background: var(--color-primary);
@@ -2085,7 +2137,7 @@ section {
   display: block;
   width: 80px;
   height: 4px;
-  background: var(--color-primary);
+  background: white;
   left: 0;
   right: 0;
   bottom: 0;
@@ -2114,11 +2166,11 @@ section {
   transition: 0.5s;
   margin: 10px;
   color: #fff;
-  border: 2px solid var(--color-primary);
+  border: 2px solid white;
 }
 
 .hero .info .btn-get-started:hover {
-  background: var(--color-primary);
+  background-color: white;
 }
 
 .hero .carousel-control-prev {
