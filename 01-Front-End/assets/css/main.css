@@ -11,9 +11,9 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --font-default: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-primary: "Roboto", sans-serif;
-  --font-secondary: "Work Sans", sans-serif;
+  --font-default: "Roboto mono", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-primary: "Roboto mono", sans-serif;
+  --font-secondary: "Roboto mono", sans-serif;
 }
 
 /* Colors */
@@ -692,9 +692,9 @@ section {
   }
 }
 
-/*--------------------------------------------------------------
+/*!*--------------------------------------------------------------
 # Constructions Section
---------------------------------------------------------------*/
+--------------------------------------------------------------*!
 .constructions .card-item {
   border: 1px solid rgba(82, 86, 94, 0.2);
   background: #fff;
@@ -723,7 +723,7 @@ section {
 .constructions .card-item p {
   color: var(--color-secondary);
   margin: 0;
-}
+}*/
 
 /*--------------------------------------------------------------
 # Services Section
@@ -731,7 +731,7 @@ section {
 .service-h11{
   font-size: 70px;
   color: white;
-  margin-left: -742px;
+  margin-left: -491px;
   padding-bottom: 10px;
   margin-top: -50px;
 }
@@ -739,13 +739,13 @@ section {
 .service-h12{
   font-size: 70px;
   color: white;
-  margin-left: -593px;
+  margin-left: -280px;
   padding-bottom: 13px;
   margin-top: 30px;
 }
 
 .btn-login{
-  width: 140px;
+  width: 163px;
   height: 47px;
   font-family: var(--font-primary);
   font-weight: 500;
@@ -753,16 +753,16 @@ section {
   letter-spacing: 1px;
   display: inline-block;
   padding: 12px 40px;
-  border-radius: 5px;
+  border-radius: 10px;
   transition: 0.5s;
   margin-top: -45px;
-  margin-left: 97px;
+  margin-left: 171px;
   color: #fff;
   border: 2px solid #ffffff;
 }
 
 .btn-signup{
-  width: 149px;
+  width: 169px;
   height: 47px;
   font-family: var(--font-primary);
   font-weight: 500;
@@ -770,7 +770,7 @@ section {
   letter-spacing: 1px;
   display: inline-block;
   padding: 12px 40px;
-  border-radius: 5px;
+  border-radius: 10px;
   transition: 0.5s;
   margin-top: -45px;
   margin-left: 43px;
@@ -778,7 +778,122 @@ section {
   background-color: white;
 }
 
-.btn-get-started:hover {
+/*--------------------------------------------------------------
+# About Section
+--------------------------------------------------------------*/
+
+.cta {
+  /*background: linear-gradient(rgba(40, 58, 90, 0.9), rgba(40, 58, 90, 0.9)), url("../asserts/image/34664326.jpg") fixed center center;*/
+  background: linear-gradient(rgba(0, 0, 7, 0.56), rgba(0, 3, 9, 0.78)), url("../img/silhouette-black-sports-car-with-headlights-black-background.jpg") fixed center center;
+  background-size: cover;
+  padding: 120px 0;
+  height:467px;
+}
+
+.cta h3 {
+  color: #fff;
+  font-size: 35px;
+  font-weight: 700;
+  margin-left: 20px;
+  margin-top:-70px
+}
+
+.cta p {
+  margin-top: 61px;
+  color: #fff;
+  font-size: 25px;
+  margin-left: 93px;
+}
+
+.cta .cta-btn {
+  font-family: "Roboto mono", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 40px;
+  border-radius: 50px;
+  transition: 0.5s;
+  margin-top: 232px;
+  border: 2px solid #ffff;
+  color: #ffff;
+}
+
+.cta .cta-btn:hover {
+  background: #47b2e4;
+  border: 2px solid #47b2e4;
+}
+
+@media (max-width: 1024px) {
+  .cta {
+    background-attachment: scroll;
+  }
+}
+
+@media (min-width: 769px) {
+  .cta .cta-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
+
+/*--------------------------------------------------------------
+# Services Section
+--------------------------------------------------------------*/
+#services-section{
+  background-color: black;
+}
+
+.section-title{
+  font-size: 30px;
+  color: white;
+  text-align: center;
+  padding-bottom: 10px;
+  margin-top: -50px;
+}
+
+.services .img-box1{
+  margin-top: 20px;
+  margin-left: 287px;
+}
+
+.services .img-box2{
+  margin-top: 190px;
+  margin-left: -276px;
+}
+
+.services .icon-box1 {
+  width: 364px;
+  margin-top: -68px;
+  margin-left: 471px;
+}
+
+.services .icon-box2 {
+  width: 419px;
+  margin-top: -64px;
+  margin-left: -98px;
+}
+
+.services .icon-box h4 {
+  margin-left: 70px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: white;
+}
+
+
+.services .icon-box p {
+  margin-left: 70px;
+  line-height: 24px;
+  font-size: 14px;
+  color: white;
+  font-weight: 400;
+}
+
+
+/*.btn-get-started:hover {
   background: var(--color-primary);
 }
 
@@ -847,11 +962,11 @@ section {
 
 .services .service-item:hover h3 {
   border-color: var(--color-primary);
-}
+}*/
 
-/*--------------------------------------------------------------
+/*!*--------------------------------------------------------------
 # Features Section
---------------------------------------------------------------*/
+--------------------------------------------------------------*!
 .features .nav-tabs {
   border: 0;
 }
@@ -937,11 +1052,11 @@ section {
 
 .features .tab-pane p:last-child {
   margin-bottom: 0;
-}
+}*/
 
-/*--------------------------------------------------------------
+/*!*--------------------------------------------------------------
 # Our Projects Section
---------------------------------------------------------------*/
+--------------------------------------------------------------*!
 .projects .portfolio-flters {
   padding: 0;
   margin: 0 auto 20px auto;
@@ -1049,11 +1164,11 @@ section {
 
 .projects .portfolio-content:hover img {
   transform: scale(1.1);
-}
+}*/
 
-/*--------------------------------------------------------------
+/*!*--------------------------------------------------------------
 # Testimonials Section
---------------------------------------------------------------*/
+--------------------------------------------------------------*!
 .testimonials .testimonial-wrap {
   padding-left: 50px;
 }
@@ -1164,11 +1279,11 @@ section {
     position: static;
     left: auto;
   }
-}
+}*/
 
-/*--------------------------------------------------------------
+/*!*--------------------------------------------------------------
 # Alt Services Section
---------------------------------------------------------------*/
+--------------------------------------------------------------*!
 .alt-services .img-bg {
   background-size: cover;
   background-position: center center;
@@ -1239,11 +1354,11 @@ section {
   line-height: 24px;
   font-size: 14px;
   margin-bottom: 0;
-}
+}*/
 
-/*--------------------------------------------------------------
+/*!*--------------------------------------------------------------
 # About Section
---------------------------------------------------------------*/
+--------------------------------------------------------------*!
 .about h2 {
   font-size: 48px;
   font-weight: 700;
@@ -1335,9 +1450,9 @@ section {
   }
 }
 
-/*--------------------------------------------------------------
+!*--------------------------------------------------------------
 # Stats Counter Section
---------------------------------------------------------------*/
+--------------------------------------------------------------*!
 .stats-counter .stats-item {
   background: #fff;
   box-shadow: 0px 0 30px rgba(82, 86, 94, 0.05);
@@ -1365,9 +1480,9 @@ section {
   font-size: 14px;
 }
 
-/*--------------------------------------------------------------
+!*--------------------------------------------------------------
 # Our Team Section
---------------------------------------------------------------*/
+--------------------------------------------------------------*!
 .team .member {
   position: relative;
 }
@@ -1443,11 +1558,11 @@ section {
   padding-bottom: 0;
   visibility: visible;
   opacity: 1;
-}
+}*/
 
-/*--------------------------------------------------------------
+/*!*--------------------------------------------------------------
 # Servie Cards Section
---------------------------------------------------------------*/
+--------------------------------------------------------------*!
 .services-cards h3 {
   font-size: 20px;
   font-weight: 700;
@@ -1469,11 +1584,11 @@ section {
   font-size: 16px;
   color: var(--color-primary);
   margin-right: 6px;
-}
+}*/
 
-/*--------------------------------------------------------------
+/*!*--------------------------------------------------------------
 # Projet Details Section
---------------------------------------------------------------*/
+--------------------------------------------------------------*!
 .project-details .portfolio-details-slider img {
   width: 100%;
 }
@@ -1637,11 +1752,11 @@ section {
   font-style: italic;
   margin: 0 0 15px 0 0 0;
   padding: 0;
-}
+}*/
 
-/*--------------------------------------------------------------
+/*!*--------------------------------------------------------------
 # Service Details Section
---------------------------------------------------------------*/
+--------------------------------------------------------------*!
 .service-details .services-list {
   padding: 10px 30px;
   border: 1px solid #d5d7da;
@@ -1701,11 +1816,11 @@ section {
   font-size: 20px;
   margin-right: 8px;
   color: var(--color-primary);
-}
+}*/
 
-/*--------------------------------------------------------------
+/*!*--------------------------------------------------------------
 # Contact Section
---------------------------------------------------------------*/
+--------------------------------------------------------------*!
 .contact .info-item {
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.08);
   padding: 20px 0 30px 0;
@@ -1832,11 +1947,11 @@ section {
   100% {
     transform: rotate(360deg);
   }
-}
+}*/
 
-/*--------------------------------------------------------------
+/*!*--------------------------------------------------------------
 # Recent Blog Posts Section
---------------------------------------------------------------*/
+--------------------------------------------------------------*!
 .recent-blog-posts .post-item {
   box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.06);
   transition: 0.3s;
@@ -1907,7 +2022,7 @@ section {
 
 .recent-blog-posts .post-item:hover .post-img img {
   transform: scale(1.1);
-}
+}*/
 
 /*--------------------------------------------------------------
 # Hero Section
@@ -2057,9 +2172,9 @@ section {
   opacity: 0.9;
 }
 
-/*--------------------------------------------------------------
+/*!*--------------------------------------------------------------
 # Blog
---------------------------------------------------------------*/
+--------------------------------------------------------------*!
 .blog .blog-pagination {
   margin-top: 30px;
   color: #838893;
@@ -2096,9 +2211,9 @@ section {
   color: var(--color-white);
 }
 
-/*--------------------------------------------------------------
+!*--------------------------------------------------------------
 # Blog Posts List
---------------------------------------------------------------*/
+--------------------------------------------------------------*!
 .blog .posts-list .post-item {
   box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.06);
   transition: 0.3s;
@@ -2175,9 +2290,9 @@ section {
   transform: scale(1.1);
 }
 
-/*--------------------------------------------------------------
+!*--------------------------------------------------------------
 # Blog Details
---------------------------------------------------------------*/
+--------------------------------------------------------------*!
 .blog .blog-details {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   padding: 30px;
@@ -2362,9 +2477,9 @@ section {
   margin-bottom: 0;
 }
 
-/*--------------------------------------------------------------
+!*--------------------------------------------------------------
 # Blog Sidebar
---------------------------------------------------------------*/
+--------------------------------------------------------------*!
 .blog .sidebar {
   padding: 30px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
@@ -2518,9 +2633,9 @@ section {
   font-size: 14px;
 }
 
-/*--------------------------------------------------------------
+!*--------------------------------------------------------------
 # Blog Comments
---------------------------------------------------------------*/
+--------------------------------------------------------------*!
 .blog .comments {
   margin-top: 30px;
 }
@@ -2628,11 +2743,12 @@ section {
 .blog .comments .reply-form .btn-primary:hover {
   color: var(--color-secondary);
   background-color: var(--color-primary);
-}
+}*/
 
-/*--------------------------------------------------------------
+/*
+!*--------------------------------------------------------------
 # Footer
---------------------------------------------------------------*/
+--------------------------------------------------------------*!
 .footer {
   color: #fff;
   background: url("../img/footer-bg.jpg") top center no-repeat;
@@ -2742,4 +2858,4 @@ section {
 
 .footer .footer-legal .credits a {
   color: var(--color-primary);
-}
+}*/
