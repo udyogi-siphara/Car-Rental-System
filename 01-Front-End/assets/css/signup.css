@@ -1,13 +1,41 @@
-/* Card */
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+.logo {
+    line-height: 1;
+}
+@media (min-width: 1200px) {
+    .logo {
+        width: 280px;
+    }
+}
+
+.logo img {
+    max-height: 50px;
+    margin-right: 6px;
+}
+
+.logo span {
+    font-size: 26px;
+    font-weight: 700;
+    color: #012970;
+    font-family: "Nunito", sans-serif;
+}
+
+.car-img{
+    margin-top: -508px;
+    margin-left: 771px;
+}
+
 .card {
-    margin-bottom: 30px;
+    margin-bottom: -30px;
     border: none;
     border-radius: 5px;
     box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
     /*background: transparent;*/
     background: rgba(255, 255, 255, 0.8);
     /*border: 1px solid #000000;*/
-   /* box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);*/
+    /* box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);*/
 }
 
 .card-header,
@@ -38,9 +66,4 @@
 
 .card-img-overlay {
     background-color: rgba(255, 255, 255, 0.6);
-}
-
-.car-img{
-    margin-left: 4px;
-    margin-top: -462px;
 }
