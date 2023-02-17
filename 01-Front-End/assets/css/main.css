@@ -11,7 +11,7 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --font-default: "Roboto mono", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-default: "Roboto mono",'Space Mono', monospace, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-primary: "Roboto mono", sans-serif;
   --font-secondary: "Roboto mono", sans-serif;
 }
