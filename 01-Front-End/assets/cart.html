@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Cart</title>
+  <title>Cart - Car Rental</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <!-- Google Fonts -->
@@ -10,6 +10,9 @@
   <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,700" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -28,6 +31,44 @@
 
 </head>
 <body>
+<!-- ======= Header ======= -->
+<header id="header" class="header d-flex align-items-center">
+  <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+    <a href="index.html" class="logo d-flex align-items-center">
+      <!-- Uncomment the line below if you also wish to use an image logo -->
+      <!-- <img src="assets/img/logo.png" alt=""> -->
+      <img src="../assets/img/download-removebg-preview.png" alt="">
+    </a>
+
+    <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+    <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li class="dropdown"><a href="carStore.html"><span>Car Store</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <ul>
+            <li><a href="#">General Cars</a></li>
+            <li><a href="#">Premium Cars</a></li>
+            <li><a href="#">Luxury Cars</a></li>
+
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav><!-- .navbar -->
+
+  </div>
+</header><!-- End Header -->
+
+<!-- ======= HeadSlid ======= -->
+<div class="breadcrumbs d-flex align-items-center" style="background-image: url('../assets/img/28530.jpg')">
+  <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade" style="opacity: 1">
+  </div>
+</div><!-- End HeadSlid -->
+
 
 </body>
 </html>
