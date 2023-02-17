@@ -5,17 +5,19 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Login - Car Rental</title>
+  <title>Register - Car Rental</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="../assets/img/favicon.png" rel="icon">
-  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,700" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -29,10 +31,6 @@
   <!-- Template Main CSS File -->
   <link href="../assets/css/main.css" rel="stylesheet">
   <link href="../assets/css/login.css" rel="stylesheet">
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,700" rel="stylesheet">
-
   <!-- =======================================================
   * Template Name: NiceAdmin - v2.5.0
   * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
@@ -42,29 +40,6 @@
 </head>
 
 <body>
-
-<!--<header>
-  <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
-    &lt;!&ndash;<i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-    <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>&ndash;&gt;
-    <nav id="navbar" class="navbar">
-      <ul>
-        <li><a href="index.html" class="active"><i class="bi bi-house-door-fill">Home</a></li>
-        <li class="dropdown"><a href="carStore.html"><span>Car Store</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-          <ul>
-            <li><a href="#">General Cars</a></li>
-            <li><a href="#">Premium Cars</a></li>
-            <li><a href="#">Luxury Cars</a></li>
-
-          </ul>
-        </li>
-        <li><a href="contact.html">Contact Us</a></li>
-      </ul>
-    </nav>&lt;!&ndash; .navbar &ndash;&gt;
-
-  </div>
-</header>-->
 
   <main>
     <div class="container">
@@ -82,59 +57,86 @@
 
               <div class="card mb-3">
 
-
-
                 <div class="card-body">
+
                   <div class="pt-4 pb-2">
-                    <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
+                    <h5 id="register-topic" class="card-title text-center pb-0 fs-4">Register Your Account</h5>
                   </div>
 
                   <form class="row g-3 needs-validation" novalidate>
 
-                    <div class="col-12">
-                      <label for="yourUsername" class="form-label">Username</label>
-                      <div class="input-group has-validation">
-                        <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" name="username" class="form-control" id="yourUsername" required>
-                        <div class="invalid-feedback">Please enter your username.</div>
+                      <div class="col-lg-6">
+                        <input type="text" name="name" class="form-control" id="yourName" required placeholder="full name">
+                        <div class="invalid-feedback">Please, enter your name!</div>
                       </div>
+
+                      <div class="col-lg-6">
+                        <input type="text" name="nic" class="form-control" id="yourNic" required placeholder="nic no">
+                        <div class="invalid-feedback">Please enter a valid NIC number!</div>
+                      </div>
+
+                      <div class="col-lg-6">
+                        <input type="email" name="email" class="form-control" id="yourEmail" required placeholder="email">
+                        <div class="invalid-feedback">Please enter a valid Email address!</div>
+                      </div>
+
+                      <div class="col-lg-6">
+                        <input type="text" name="mobile" class="form-control" id="yourMobile" required placeholder="mobile">
+                        <div class="invalid-feedback">Please enter a valid Mobile number!</div>
+                      </div>
+
+                      <div class="col-lg-6">
+                        <label for="rgDate" class="form-label">Register Date</label>
+                        <input type="date" name="date" class="form-control" id="rgDate" required placeholder="register Date">
+                        <div class="invalid-feedback">Please enter Date</div>
+                      </div>
+
+                    <div class="col-lg-6 mt-5">
+                      <input type="text" name="address" class="form-control" id="yourAddress" required placeholder="address">
+                      <div class="invalid-feedback">Please enter Address!</div>
                     </div>
 
-                    <div class="col-12">
-                      <label for="yourPassword" class="form-label">Password</label>
-                      <input type="password" name="password" class="form-control" id="yourPassword" required>
-                      <div class="invalid-feedback">Please enter your password!</div>
-                    </div>
+                      <div class="col-lg-6">
+                        <label for="yourUsername" class="form-label">Username</label>
+                        <div class="input-group has-validation">
+                          <span class="input-group-text" id="inputGroupPrepend">@</span>
+                          <input type="text" name="username" class="form-control" id="yourUsername" required>
+                          <div class="invalid-feedback">Please choose a username.</div>
+                        </div>
+                      </div>
 
-                    <div class="col-12">
+                      <div class="col-lg-6">
+                        <label for="yourPassword" class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control" id="yourPassword" required>
+                        <div class="invalid-feedback">Please enter your password!</div>
+                      </div>
+
+
+
+
+                    <!--<div class="col-12">
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
-                        <label class="form-check-label" for="rememberMe">Remember me</label>
+                        <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>
+                        <label class="form-check-label" for="acceptTerms">I agree and accept the <a href="#">terms and conditions</a></label>
+                        <div class="invalid-feedback">You must agree before submitting.</div>
                       </div>
+                    </div>-->
+                    <div class="col-lg-6">
+                      <button style="background-color: #1F1D2E" class="btn btn-primary w-100" type="submit">Register</button>
                     </div>
                     <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit">Login</button>
-                      <br>
-                    </div>
-
-                    <div>
-                      <h3 style="text-align: center">OR</h3>
-                    </div>
-
-                    <div class="col-12">
-                      <!--<p class="small mb-0">Don't have account? <a href="pages-register.html">Create an account</a></p>-->
-                      <button class="btn btn-primary w-100" style="background-color: #1F1D2E" type="button"><a style="color: #FFFFFF; text-decoration: none" href="">Register</a></button>
+                      <p class="small mb-0" style="text-align: center;">Already have an account? <a href="pages-login.html">Log in</a></p>
                     </div>
                   </form>
 
                 </div>
               </div>
-
-              <div class="car-img">
-                <img src="../assets/img/67418.jpg" alt="" width="800px" height="500">
+              
+              <div class="img-car">
+                <img src="../assets/img/66815.jpg" alt="" width="700px" height="500px">
               </div>
 
-              <div class="credits">
+              <div class="credits"  style="margin-left: -478px" >
                 <!-- All the links in the footer should remain intact. -->
                 <!-- You can delete the links only if you purchased the pro version. -->
                 <!-- Licensing information: https://bootstrapmade.com/license/ -->

@@ -3,11 +3,11 @@
     margin-bottom: 30px;
     border: none;
     border-radius: 5px;
-    /*box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);*/
+    box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
     /*background: transparent;*/
     background: rgba(255, 255, 255, 0.8);
-    border: 1px solid #000000;
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    /*border: 1px solid #000000;*/
+   /* box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);*/
 }
 
 .card-header,
@@ -43,3 +43,32 @@
 .car-img{
     margin-left: 4px;
     margin-top: -462px;
+}
+
+
+/* Register */
+
+#register-topic{
+    margin-left: -181px;
+    margin-top: -102px;
+    font-weight: bold;
+}
+
+.card-body{
+    margin-bottom: 30px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
+    /*background: transparent;*/
+    background: rgba(255, 255, 255, 0.8);
+    /*border: 1px solid #000000;*/
+    /* box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);*/
+    width: 509px;
+    margin-left: -457px;
+    height: 434px;
+}
+
+.img-car{
+    margin-left: 865px;
+    margin-top: -518px;
+}
