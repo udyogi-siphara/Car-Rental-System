@@ -703,7 +703,7 @@ h6 {
   font-weight: 600;
   color: #4154f1;
   transition: 0.3;
-  background: #f6f9ff;
+  background: #ffffff;
   padding: 10px 15px;
   border-radius: 4px;
 }
@@ -725,7 +725,7 @@ h6 {
 
 .sidebar-nav .nav-link:hover {
   color: #4154f1;
-  background: #f6f9ff;
+  background: #F6F9FF;
 }
 
 .sidebar-nav .nav-link:hover i {
