@@ -2,7 +2,7 @@
  * @author : Udyogi Siphara
  * Project Name: Car _Rental_System
  * Date        : 2/17/2023
- * Time        : 6:32 PM
+ * Time        : 9:26 PM
  */
 
 package lk.ijse.spring;
@@ -27,4 +27,5 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
     protected String[] getServletMappings() {
         return new String[]{"/"};
     }
+
 }

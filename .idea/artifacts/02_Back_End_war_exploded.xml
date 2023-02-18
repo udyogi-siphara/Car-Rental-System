@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="02-Back-End:war exploded">
-    <output-path>$PROJECT_DIR$/../02-Back-End/target/02-Back-End-1.0-SNAPSHOT</output-path>
+    <output-path>$PROJECT_DIR$/02-Back-End/target/02-Back-End-1.0-SNAPSHOT</output-path>
     <properties id="maven-jee-properties">
       <options>
         <exploded>true</exploded>
