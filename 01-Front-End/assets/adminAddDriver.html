@@ -26,6 +26,73 @@
 
 </head>
 <body>
+<div class="carAdminBody container-fluid mt-5 ms-5" style="top: 36px; height: 443px;">
+    <h3 style="margin-left: 26px; margin-top: 23px;">Add Driver</h3>
+    <form id="carAdminForm" style="margin-left: 5px; margin-top: 44px;" >
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-groupCF">
 
+                    <input class="form-control" id="txtCbrnd" placeholder="Brand" type="text">
+                    <span class="control-error" id="lblcbrnd"></span>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="form-groupTF">
+
+                    <input class="form-control" id="txtTrnsm" placeholder="Transmission" type="text">
+                    <span class="control-error" id="lbltrnsm"></span>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-groupTT">
+                    <input class="form-control" id="txtTyp" placeholder="Type" type="text">
+                    <span class="control-error" id="lbltype"></span>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-groupNFP">
+                    <input class="form-control" id="txtNoOPass" placeholder="No Of Passengers" type="text">
+                    <span class="control-error" id="lblnoofpass"></span>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-groupFT">
+                    <input class="form-control" id="txtFuel" placeholder="Fuel" type="text">
+                    <span class="control-error" id="lblfuel"></span>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="form-groupMRT">
+                    <input class="form-control" id="txtMRt" placeholder="Monthly Rate" type="text">
+                    <span class="control-error" id="lblmrt"></span>
+                </div>
+            </div>
+        </div>
+        <br>
+
+    </form>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <button class="btn btn-primary" id="btnAddVehicle" style="background-color: #14131C;color: white; border: none">Add Driver</button>
+        </div>
+    </div>
+
+    <button class="btn btn-primary" id="btnViewVehicle" style="background-color: white;color: blue; border: none; top: -278px"><a href="">View Vehicle</a></button>
+
+</div>
 </body>
 </html>
