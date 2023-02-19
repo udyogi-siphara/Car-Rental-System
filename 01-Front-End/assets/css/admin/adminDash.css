@@ -1234,23 +1234,27 @@ h6 {
 }
 
 /*--------------------------------------------------------------
-# Footer
+# Payment table
 --------------------------------------------------------------*/
-.footer {
-  padding: 20px 0;
-  font-size: 14px;
-  transition: all 0.3s;
-  border-top: 1px solid #cddfff;
+#CustomerAdminBody{
+  position: absolute;
+  box-shadow:0px 0px 20px rgba(1, 10, 24, 0.1);
+  left:19vw;
+  top: -3vh;
+  overflow-x: hidden;
+  width:1050px;
+  height: 580px;
 }
 
-.footer .copyright {
-  text-align: center;
-  color: #012970;
+#CustomerTable{
+  position: absolute;
+  width: 1000px;
+  height: 230px;
+  margin-left: -45px;
+
 }
 
-.footer .credits {
-  padding-top: 5px;
-  text-align: center;
-  font-size: 13px;
-  color: #012970;
+#CustomerAdminBody h1{
+  display: inline-block;
+  font-family: 'Space Mono', monospace;
 }
