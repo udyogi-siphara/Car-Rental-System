@@ -27,14 +27,15 @@ body {
 }
 
 #btnAddVehicle{
-    position: absolute;
-    top: 4vh;
-    left:33vw;
+    position: relative;
+    top: 35px;
+    left: 6px;
+    width: 374px;
 }
 
 #btnViewVehicle{
-    position: absolute;
-    top: 4vh;
-    left: 43vw;
+    position: relative;
+    top: -645px;
+    left: 614px;
     width: 165px;
 }
