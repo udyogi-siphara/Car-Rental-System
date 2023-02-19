@@ -31,6 +31,8 @@ h6 {
   font-family: 'Space Mono', monospace;
 }
 
+
+
 /*--------------------------------------------------------------
 # Main
 --------------------------------------------------------------*/
@@ -39,7 +41,6 @@ h6 {
   padding: 20px 30px;
   transition: all 0.3s;
 }
-
 @media (max-width: 1199px) {
   #main {
     padding: 20px;
@@ -50,7 +51,7 @@ h6 {
 # Page Title
 --------------------------------------------------------------*/
 .pagetitle {
-  margin-top: -65px;
+  margin-top: -56px;
 }
 
 .pagetitle h1 {
