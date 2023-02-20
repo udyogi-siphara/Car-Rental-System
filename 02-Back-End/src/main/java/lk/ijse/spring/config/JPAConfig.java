@@ -24,7 +24,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories()
+@EnableJpaRepositories(basePackageClasses = {})
 public class JPAConfig {
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource ds, JpaVendorAdapter jpa){
