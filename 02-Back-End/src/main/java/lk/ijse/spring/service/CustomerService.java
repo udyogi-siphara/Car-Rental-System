@@ -15,11 +15,11 @@ public interface CustomerService {
 
     void saveCustomer(CustomerDTO customerDTO);
 
-    String updateCustomer(CustomerDTO customerDTO);
+    void updateCustomer(CustomerDTO customerDTO);
 
     void deleteCustomer (String id);
 
-    CustomerDTO getCustomerDetail(String id);
+    CustomerDTO searchCustomer(String id);
 
     List<CustomerDTO> getAllCustomerDetail();
 

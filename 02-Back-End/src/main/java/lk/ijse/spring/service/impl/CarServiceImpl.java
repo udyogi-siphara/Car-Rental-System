@@ -8,11 +8,21 @@
 package lk.ijse.spring.service.impl;
 
 import lk.ijse.spring.dto.CarDTO;
+import lk.ijse.spring.repo.CarRepo;
+import lk.ijse.spring.repo.CustomerRepo;
 import lk.ijse.spring.service.CarService;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 public class CarServiceImpl implements CarService {
+
+    @Autowired
+    private CarRepo carRepo;
+
+    @Autowired
+    private ModelMapper modelMapper;
 
     @Override
     public void saveCar(CarDTO carDTO) {

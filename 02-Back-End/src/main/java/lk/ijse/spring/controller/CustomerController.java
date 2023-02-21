@@ -11,7 +11,11 @@ import lk.ijse.spring.dto.CustomerDTO;
 import lk.ijse.spring.service.CustomerService;
 import lk.ijse.spring.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @CrossOrigin
@@ -21,11 +25,11 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
-    @GetMapping
+   /* @GetMapping
     public String get(){
         System.out.println("Awaaaa");
         return "heee";
-    }
+    }*/
 
     @PostMapping
     public ResponseUtil saveCustomer(@ModelAttribute CustomerDTO dto){
@@ -33,6 +37,34 @@ public class CustomerController {
         return new ResponseUtil("200",dto.getCustomerId()+ " Added.!",null);
     }
 
+    /*@PutMapping
+    public ResponseUtil updateCustomer(@ModelAttribute CustomerDTO dto){
+        customerService.updateCustomer(dto);
+        return new ResponseUtil("200",dto.getCustomerId()+": Updated.!",null);
+    }*/
 
+    @PutMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil updateCustomer(CustomerDTO dto){
+        customerService.updateCustomer(dto);
+        return new ResponseUtil("200",dto.getCustomerId()+": Updated.!",null);
+    }
+
+    @DeleteMapping(params = {"customerId"},produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil deleteCustomer(@RequestParam String customerId){
+        customerService.deleteCustomer(customerId);
+        return new ResponseUtil("200",customerId+" : Deleted.!",null);
+    }
+
+    @GetMapping
+    public ResponseUtil getAllCustomer(){
+        List<CustomerDTO> allCustomers = customerService.getAllCustomerDetail();
+        return new ResponseUtil("200"," Success.!",allCustomers);
+    }
+
+    @GetMapping(params = {"customerId"},produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil searchCustomer(@RequestParam String customerId){
+        CustomerDTO customerDTO = customerService.searchCustomer(customerId);
+        return new ResponseUtil("200","Getting Success!",customerDTO);
+    }
 
 }

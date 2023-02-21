@@ -20,8 +20,22 @@ import javax.persistence.Id;
 @Data
 public class Car {
     @Id
-    private String adminId;
-    private String email;
-    private String userName;
-    private String password;
+    private String registrationId;
+    private String Brand;
+    private String type;
+    private String model;
+    private String fuelType;
+    private String transmissionType;
+    private String color;
+    private int noOfPassenger;
+    private String image1;
+    private String image2;
+    private String image3;
+    private String image4;
+    private long lastServiceMileage;
+    private long freeServiceMileage;
+    private double dailyRate;
+    private double monthlyRate;
+    private double priceForExtraKm;
+    private String availability;
 }
