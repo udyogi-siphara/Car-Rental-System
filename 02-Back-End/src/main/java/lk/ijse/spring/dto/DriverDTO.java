@@ -12,10 +12,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-/*@AllArgsConstructor
+import java.time.LocalDate;
+
+@AllArgsConstructor
 @NoArgsConstructor
 @Data
-@ToString*/
+@ToString
 public class DriverDTO {
-
+    private String driverId;
+    private String name;
+    private String nic;
+    private String drivingLicenseNumber;
+    private LocalDate dob;
+    private String status;
 }
