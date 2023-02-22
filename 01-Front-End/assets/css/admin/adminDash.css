@@ -1258,3 +1258,9 @@ h6 {
   display: inline-block;
   font-family: 'Space Mono', monospace;
 }
+
+/*admin View Schedule*/
+.top-selling{
+  border-radius: 5px;
+  max-width: 100px;
+}
