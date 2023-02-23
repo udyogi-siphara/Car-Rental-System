@@ -8,7 +8,7 @@
 /* Colors */
 :root {
   --color-default: #364d59;
-  --color-primary: #feb900;
+  --color-primary: #ffA500;
   --color-secondary: #52565e;
 }
 
@@ -25,15 +25,16 @@ body {
   color: var(--color-default);
   overflow-x: hidden;
   background-color: white;
+
 }
 
 a {
-  color: var(--color-primary);
+  color: white;
   text-decoration: none;
 }
 
 a:hover {
-  color: #ffc732;
+  color: #47B2E4;
   text-decoration: none;
 }
 
@@ -75,7 +76,7 @@ section {
   content: "";
   width: 50px;
   height: 2px;
-  background: var(--color-primary);
+  background: var(--color-primary);;
   display: inline-block;
 }
 
@@ -131,7 +132,7 @@ section {
   margin: 0;
   font-size: 16px;
   font-weight: 600;
-  color: var(--color-primary);
+  color: white;
 }
 
 .breadcrumbs ol a {
@@ -164,7 +165,7 @@ section {
   right: 15px;
   bottom: 15px;
   z-index: 99999;
-  background: var(--color-primary);
+  background: white;
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -178,7 +179,7 @@ section {
 }
 
 .scroll-top:hover {
-  background: #ffc732;
+  background: #ffffff;
   color: #fff;
 }
 
@@ -326,7 +327,7 @@ section {
     height: 2px;
     bottom: -6px;
     left: 0;
-    background-color: var(--color-primary);
+    background-color: #47B2E4;
     visibility: hidden;
     width: 0px;
     transition: all 0.3s ease-in-out 0s;
@@ -380,7 +381,7 @@ section {
   .navbar .dropdown ul a:hover,
   .navbar .dropdown ul .active:hover,
   .navbar .dropdown ul li:hover>a {
-    color: var(--color-primary);
+    color: black;
   }
 
   .navbar .dropdown:hover>ul {

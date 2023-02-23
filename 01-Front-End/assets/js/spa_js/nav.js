@@ -39,6 +39,17 @@ $('#btnSignupSpa').click(function (){
     $('#spaLoginIndex').css('display','none');
 });
 
+$('#btnGetStartedSpa').click(function (){
+    $('#spaMainIndex').css('display','none');
+    $('#spaCarStoreIndex').css('display','block');
+    $('#spaCartIndex').css('display','none');
+    $('#spaCarDetailsIndex').css('display','none');
+    $('#spaOverviewIndex').css('display','none');
+    $('#spaSignupIndex').css('display','none');
+    $('#spaLoginIndex').css('display','none');
+});
+
+
 /*Car Store Page*/
 $('#navCarStoreHome').click(function (){
     $('#spaMainIndex').css('display','block');
