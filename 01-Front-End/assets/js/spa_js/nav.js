@@ -100,6 +100,18 @@ $('#btnCartSpa3').click(function (){
     $('#spaSignupIndex').css('display','none');
     $('#spaLoginIndex').css('display','block');
 });
+
+$('.iconCarDetail').click(function (){
+    $('#spaMainIndex').css('display','none');
+    $('#spaCarStoreIndex').css('display','none');
+    $('#spaCartIndex').css('display','none');
+    $('#spaCarDetailsIndex').css('display','block');
+    $('#spaOverviewIndex').css('display','none');
+    $('#spaSignupIndex').css('display','none');
+    $('#spaLoginIndex').css('display','none');
+});
+
+
 /*Signup Page*/
 $('#navSignupHome').click(function (){
     $('#spaMainIndex').css('display','block');
