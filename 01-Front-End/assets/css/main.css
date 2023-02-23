@@ -7,9 +7,9 @@
 
 /* Colors */
 :root {
-  --color-default: #364d59;
+  --color-default: #7097ad;
   --color-primary: #ffA500;
-  --color-secondary: #52565e;
+  --color-secondary: #7c8390;
 }
 
 /* Smooth scroll behavior */
@@ -29,12 +29,12 @@ body {
 }
 
 a {
-  color: white;
+  color: black;
   text-decoration: none;
 }
 
 a:hover {
-  color: #47B2E4;
+  color: #7097ad;
   text-decoration: none;
 }
 
@@ -810,8 +810,8 @@ section {
 }
 
 .cta .cta-btn:hover {
-  background: #47b2e4;
-  border: 2px solid #47b2e4;
+  background: #7097ad;
+  border: 2px solid #7097ad;
 }
 
 @media (max-width: 1024px) {

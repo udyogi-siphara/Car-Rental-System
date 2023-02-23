@@ -394,3 +394,36 @@ $(window).on('load',function () {
 });
 
 
+/*==================================================*/
+/*                     Driver                       */
+/*==================================================*/
+//for the Loading Window
+$(window).on('load',function () {
+    $('#spaDriverLogin').css('display', 'block');
+    $('#spaDriverSchedule').css('display', 'none');
+});
+
+$('#btnDriverLoginSpa').click(function (){
+    $('#spaDriverLogin').css('display', 'none');
+    $('#spaDriverSchedule').css('display', 'block');
+});
+
+$('#navDriverScheduleHome').click(function (){
+    $('#spaMainIndex').css('display', 'block');
+    $('#spaCarStoreIndex').css('display', 'none');
+    $('#spaCartIndex').css('display','none');
+    $('#spaCarDetailsIndex').css('display','none');
+    $('#spaOverviewIndex').css('display','none');
+    $('#spaSignupIndex').css('display','none');
+    $('#spaLoginIndex').css('display','none');
+});
+
+$('#navDriverHome').click(function (){
+    $('#spaMainIndex').css('display', 'block');
+    $('#spaCarStoreIndex').css('display', 'none');
+    $('#spaCartIndex').css('display','none');
+    $('#spaCarDetailsIndex').css('display','none');
+    $('#spaOverviewIndex').css('display','none');
+    $('#spaSignupIndex').css('display','none');
+    $('#spaLoginIndex').css('display','none');
+});
