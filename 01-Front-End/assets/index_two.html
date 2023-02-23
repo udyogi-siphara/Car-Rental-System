@@ -852,7 +852,7 @@
                                 <!--Button-->
                                 <div class="row mt-5">
                                     <div class="d-flex align-items-sm-stretch justify-content-around">
-                                        <button class="btn_RentIt p-2" id="goToCartButton">Go to Cart</button>
+                                        <button class="btn_RentIt p-2 goToCartButton" id="btnCartSpa1">Go to Cart</button>
                                     </div>
                                 </div>
 
@@ -1297,7 +1297,7 @@
                                 <!--Button-->
                                 <div class="row mt-5">
                                     <div class="d-flex align-items-sm-stretch justify-content-around">
-                                        <button class="btn_RentIt p-2" id="goToCartButton">Go to Cart</button>
+                                        <button class="btn_RentIt p-2 goToCartButton" id="btnCartSpa2">Go to Cart</button>
                                     </div>
                                 </div>
 
@@ -1662,7 +1662,7 @@
                                 <!--Button-->
                                 <div class="row mt-5">
                                     <div class="d-flex align-items-sm-stretch justify-content-around">
-                                        <button class="btn_RentIt p-2" id="goToCartButton">Go to Cart</button>
+                                        <button class="btn_RentIt p-2 goToCartButton" id="btnCartSpa3">Go to Cart</button>
                                     </div>
                                 </div>
 
@@ -1852,7 +1852,7 @@
                 <!--Button-->
                 <div class="row mb-5">
                     <div class="d-flex align-items-sm-stretch col-xl-12 justify-content-center">
-                        <button class="btn_RentIt" style="width: 300px;height: 40px;background: #14131C;color: #ffffff">Send Rental Request</button>
+                        <button id="btnSendRequest" class="btn_RentIt" style="width: 300px;height: 40px;background: #14131C;color: #ffffff">Send Rental Request</button>
                     </div>
                 </div>
 
@@ -1864,7 +1864,7 @@
 </main>
 
 <!--Cart Details-->
-<main id="spaCartDetailsIndex">
+<main id="spaCarDetailsIndex">
 
     <!-- ======= Header ======= -->
     <header class="header d-flex align-items-center" id="header">
@@ -1880,18 +1880,18 @@
             <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
             <nav class="navbar" id="navbar">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a  href="#">Services</a></li>
-                    <li class="dropdown"><a class="active" href="carStore.html"><span>Car Store</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                    <li id="navCarDetailHome"><a>Home</a></li>
+                    <li id="navCarDetailAbout"><a>About Us</a></li>
+                    <li id="navCarDetailService"><a>Services</a></li>
+                    <li id="navCarDetailCarStore" class="dropdown"><a><span>Car Store</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                         <ul>
-                            <li><a href="#">General Cars</a></li>
-                            <li><a href="#">Premium Cars</a></li>
-                            <li><a href="#">Luxury Cars</a></li>
+                            <li id="navCarDetailGeneral"><a>General Cars</a></li>
+                            <li id="navCarDetailPremium"><a>Premium Cars</a></li>
+                            <li id="navCarDetailLuxury"><a>Luxury Cars</a></li>
 
                         </ul>
                     </li>
-                    <li><a href="#">Contact</a></li>
+                    <li id="navCarDetailContact"><a>Contact</a></li>
                 </ul>
             </nav><!-- .navbar -->
 
@@ -2711,18 +2711,18 @@
             <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li class="dropdown"><a href="carStore.html"><span>Car Store</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                    <li id="navOverViewHome"><a>Home</a></li>
+                    <li id="navOverViewAbout"><a>About Us</a></li>
+                    <li id="navOverViewService"><a>Services</a></li>
+                    <li id="navOverViewCarStore" class="dropdown"><a><span>Car Store</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                         <ul>
-                            <li><a href="#">General Cars</a></li>
-                            <li><a href="#">Premium Cars</a></li>
-                            <li><a href="#">Luxury Cars</a></li>
+                            <li id="navOverViewGeneral"><a>General Cars</a></li>
+                            <li id="navOverViewPremium"><a>Premium Cars</a></li>
+                            <li id="navOverViewLuxury"><a>Luxury Cars</a></li>
 
                         </ul>
                     </li>
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li id="navOverViewContact"><a>Contact Us</a></li>
                 </ul>
             </nav><!-- .navbar -->
 
@@ -2952,7 +2952,7 @@
 
                                             <!--submit btn-->
                                             <div class="col-12">
-                                                <button class="btn btn-primary w-100" style="background-color:#1F1D2E " type="submit">Register</button>
+                                                <button id="btnInSignupSpa" class="btn btn-primary w-100" style="background-color:#1F1D2E " type="button">Register</button>
                                             </div>
 
                                             <!--&lt;!&ndash;OR&ndash;&gt;
@@ -3059,7 +3059,7 @@
                                             </div>
                                         </div>
                                         <div class="col-12">
-                                            <button class="btn btn-primary w-100" type="submit">Login</button>
+                                            <button id="btnInLoginSpa" class="btn btn-primary w-100" type="button">Login</button>
                                             <br>
                                         </div>
 
@@ -3069,7 +3069,7 @@
 
                                         <div class="col-12">
                                             <!--<p class="small mb-0">Don't have account? <a href="pages-register.html">Create an account</a></p>-->
-                                            <button class="btn btn-primary w-100" style="background-color: #1F1D2E" type="button"><a style="color: #FFFFFF; text-decoration: none" href="">Register</a></button>
+                                            <button id="btnInLoginRegisterSpa" class="btn btn-primary w-100" style="background-color: #1F1D2E" type="button"><a style="color: #FFFFFF; text-decoration: none">Register</a></button>
                                         </div>
                                     </form>
 
