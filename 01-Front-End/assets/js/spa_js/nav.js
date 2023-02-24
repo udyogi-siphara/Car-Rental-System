@@ -49,6 +49,27 @@ $('#btnGetStartedSpa').click(function (){
     $('#spaLoginIndex').css('display','none');
 });
 
+$('#navIndexGeneral').click(function (){
+    $('#carStoreServices1').css('display','block');
+    $('#carStoreServices2').css('display','none');
+    $('#carStoreServices3').css('display','none');
+
+});
+
+$('#navIndexPremium').click(function (){
+    $('#carStoreServices1').css('display','none');
+    $('#carStoreServices2').css('display','block');
+    $('#carStoreServices3').css('display','none');
+
+});
+
+$('#navIndexLuxury').click(function (){
+    $('#carStoreServices1').css('display','none');
+    $('#carStoreServices2').css('display','none');
+    $('#carStoreServices3').css('display','block');
+
+});
+
 
 /*Car Store Page*/
 $('#navCarStoreHome').click(function (){
@@ -111,6 +132,28 @@ $('.iconCarDetail').click(function (){
     $('#spaLoginIndex').css('display','none');
 });
 
+$('#navCarStoreGeneral').click(function (){
+    $('#carStoreServices1').css('display','block');
+    $('#carStoreServices2').css('display','none');
+    $('#carStoreServices3').css('display','none');
+
+});
+
+$('#navCarStorePremium').click(function (){
+    $('#carStoreServices1').css('display','none');
+    $('#carStoreServices2').css('display','block');
+    $('#carStoreServices3').css('display','none');
+
+});
+
+$('#navCarStoreLuxury').click(function (){
+    $('#carStoreServices1').css('display','none');
+    $('#carStoreServices2').css('display','none');
+    $('#carStoreServices3').css('display','block');
+
+});
+
+
 
 /*Signup Page*/
 $('#navSignupHome').click(function (){
@@ -141,6 +184,27 @@ $('#btnInSignupSpa').click(function (){
     $('#spaOverviewIndex').css('display','none');
     $('#spaSignupIndex').css('display','none');
     $('#spaLoginIndex').css('display','block');
+});
+
+$('#navSignupGeneral').click(function (){
+    $('#carStoreServices1').css('display','block');
+    $('#carStoreServices2').css('display','none');
+    $('#carStoreServices3').css('display','none');
+
+});
+
+$('#navSignupPremium').click(function (){
+    $('#carStoreServices1').css('display','none');
+    $('#carStoreServices2').css('display','block');
+    $('#carStoreServices3').css('display','none');
+
+});
+
+$('#navSignupLuxury').click(function (){
+    $('#carStoreServices1').css('display','none');
+    $('#carStoreServices2').css('display','none');
+    $('#carStoreServices3').css('display','block');
+
 });
 
 /*Login Page*/
@@ -184,6 +248,27 @@ $('#btnInLoginRegisterSpa').click(function (){
     $('#spaLoginIndex').css('display','none');
 });
 
+$('#navLoginGeneral').click(function (){
+    $('#carStoreServices1').css('display','block');
+    $('#carStoreServices2').css('display','none');
+    $('#carStoreServices3').css('display','none');
+
+});
+
+$('#navLoginPremium').click(function (){
+    $('#carStoreServices1').css('display','none');
+    $('#carStoreServices2').css('display','block');
+    $('#carStoreServices3').css('display','none');
+
+});
+
+$('#navLoginLuxury').click(function (){
+    $('#carStoreServices1').css('display','none');
+    $('#carStoreServices2').css('display','none');
+    $('#carStoreServices3').css('display','block');
+
+});
+
 /*Cart Page*/
 $('#navCartHome').click(function (){
     $('#spaMainIndex').css('display','block');
@@ -215,6 +300,27 @@ $('#btnSendRequest').click(function (){
     $('#spaLoginIndex').css('display','none');
 });
 
+$('#navCartGeneral').click(function (){
+    $('#carStoreServices1').css('display','block');
+    $('#carStoreServices2').css('display','none');
+    $('#carStoreServices3').css('display','none');
+
+});
+
+$('#navCartPremium').click(function (){
+    $('#carStoreServices1').css('display','none');
+    $('#carStoreServices2').css('display','block');
+    $('#carStoreServices3').css('display','none');
+
+});
+
+$('#navCartLuxury').click(function (){
+    $('#carStoreServices1').css('display','none');
+    $('#carStoreServices2').css('display','none');
+    $('#carStoreServices3').css('display','block');
+
+});
+
 /*Over View Page*/
 $('#navOverViewHome').click(function (){
     $('#spaMainIndex').css('display','block');
@@ -236,6 +342,27 @@ $('#navOverViewCarStore').click(function (){
     $('#spaLoginIndex').css('display','none');
 });
 
+$('#navOverViewGeneral').click(function (){
+    $('#carStoreServices1').css('display','block');
+    $('#carStoreServices2').css('display','none');
+    $('#carStoreServices3').css('display','none');
+
+});
+
+$('#navOverViewPremium').click(function (){
+    $('#carStoreServices1').css('display','none');
+    $('#carStoreServices2').css('display','block');
+    $('#carStoreServices3').css('display','none');
+
+});
+
+$('#navOverViewLuxury').click(function (){
+    $('#carStoreServices1').css('display','none');
+    $('#carStoreServices2').css('display','none');
+    $('#carStoreServices3').css('display','block');
+
+});
+
 /*Car Details Page*/
 $('#navCarDetailHome').click(function (){
     $('#spaMainIndex').css('display','block');
@@ -255,6 +382,27 @@ $('#navCarDetailCarStore').click(function (){
     $('#spaOverviewIndex').css('display','none');
     $('#spaSignupIndex').css('display','none');
     $('#spaLoginIndex').css('display','none');
+});
+
+$('#navCarDetailGeneral').click(function (){
+    $('#carStoreServices1').css('display','block');
+    $('#carStoreServices2').css('display','none');
+    $('#carStoreServices3').css('display','none');
+
+});
+
+$('#navCarDetailPremium').click(function (){
+    $('#carStoreServices1').css('display','none');
+    $('#carStoreServices2').css('display','block');
+    $('#carStoreServices3').css('display','none');
+
+});
+
+$('#navCarDetailLuxury').click(function (){
+    $('#carStoreServices1').css('display','none');
+    $('#carStoreServices2').css('display','none');
+    $('#carStoreServices3').css('display','block');
+
 });
 
 //for the Loading Window

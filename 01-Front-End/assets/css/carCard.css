@@ -1,10 +1,21 @@
 /*--------------------------------------------------------------
 # Services
 --------------------------------------------------------------*/
-#services{
+#carStoreServices1{
     background-color: #FFFFFF;
     border: none;
 }
+
+#carStoreServices2{
+    background-color: #FFFFFF;
+    border: none;
+}
+
+#carStoreServices3{
+    background-color: #FFFFFF;
+    border: none;
+}
+
 
 .services .icon-box {
     /*box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);*/
