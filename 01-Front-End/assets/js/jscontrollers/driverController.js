@@ -2,7 +2,8 @@ var driver_nic;
 
 /*Save Driver*/
 $("#btnAddDriver").click(function (){
-
+    saveDriver();
+    loadAllDrivers();
 });
 
 
@@ -10,8 +11,8 @@ $("#btnAddDriver").click(function (){
 function saveDriver(){
     var driverDTO = {
         driverId: $("#save-driver-Id").val(),
-        name: $("#save-driver-nic").val(),
-        nic: $("#save-driver-name").val(),
+        name: $("#save-driver-name").val(),
+        nic: $("#save-driver-nic").val(),
         dob: $("#save-driver-dob").val(),
         address: $("#save-driver-address").val(),
         drivingLicenseNumber: $("#save-driver-license").val(),
@@ -38,20 +39,20 @@ function saveDriver(){
 }
 
 function loadAllDrivers(){
-    $("#admin-all-drivers-table").empty();
+    $("#admin-view-driver").empty();
 
     $.ajax({
-        url: baseUrl + "driver/allDriverDetail",
+        url: baseUrl + "driver",
         method: "GET",
         success: function (resp) {
             for (const driver of resp.data) {
-                let row = `<tr><td>${driver.driverNic}</td><td>${driver.driver_name}</td><td>${driver.address}</td><td>${driver.mobile}</td><td>${driver.join_date}</td></tr>`;
-                $("#admin-all-drivers-table").append(row);
+                let row = `<tr><td>${driver.driverId}</td><td>${driver.name}</td><td>${driver.address}</td><td>${driver.dob}</td><td>${driver.nic}</td><td>${driver.drivingLicenseNumber}</td><td></td></tr>`;
+                $("#admin-view-driver").append(row);
 
-                $("#admin-all-drivers-table>tr").off("click");
-                $("#admin-all-drivers-table>tr").click(function () {
+                $("#admin-view-driver").off("click");
+                $("#admin-view-driver").click(function () {
                     driver_nic = $(this).children(":eq(0)").text();
-                    $("#admin-driver-viewDetailsBtn").prop('disabled', false);
+                    $("#navViewDriver").prop('disabled', false);
                 });
             }
         }
