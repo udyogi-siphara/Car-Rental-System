@@ -32,16 +32,16 @@ public class DriverController {
         return new ResponseUtil("200",dto.getDriverId()+ " Added.!",null);
     }
 
-    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil updateDriver(DriverDTO dto){
+    @PutMapping()
+    public ResponseUtil updateDriver(@RequestBody DriverDTO dto){
         driverService.updateDriver(dto);
         return new ResponseUtil("200",dto.getDriverId()+": Updated.!",null);
     }
 
-    @DeleteMapping(params = {"driverId"},produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil deleteCustomer(@RequestParam String driverId){
-        driverService.deleteDriver(driverId);
-        return new ResponseUtil("200",driverId+" : Deleted.!",null);
+    @DeleteMapping(params = {"id"},produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil deleteDriver(@RequestParam String id){
+        driverService.deleteDriver(id);
+        return new ResponseUtil("200","Driver Deleted",null);
     }
 
     @GetMapping

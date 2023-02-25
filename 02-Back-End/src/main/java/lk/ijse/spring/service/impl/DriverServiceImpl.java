@@ -38,16 +38,6 @@ public class DriverServiceImpl implements DriverService {
         return null;
     }
 
-    /*public void saveDriver(DriverDTO driverDTO) {
-        if(!driverRepo.existsById(driverDTO.getDriverId())){
-            Driver driver = modelMapper.map(driverDTO, Driver.class);
-            driverRepo.save(driver);
-        }else {
-            throw new RuntimeException("This NIC Number Already Exist..!");
-        }
-
-    }*/
-
     @Override
     public void saveDriver(DriverDTO driverDTO) {
         if (driverRepo.existsById(driverDTO.getDriverId())){
@@ -64,16 +54,14 @@ public class DriverServiceImpl implements DriverService {
         }else {
             throw new RuntimeException("Driver " + driverDTO.getDriverId() + " Not Available to Update..!");
         }
-
     }
 
     @Override
     public void deleteDriver(String id) {
-        if (driverRepo.existsById(id)){
-            driverRepo.deleteById(id);
-        }else {
-            throw new RuntimeException("Driver " + id + " Not Available To Delete.");
+        if (!driverRepo.existsById(id)){
+            throw new RuntimeException("Customer "+id+" Not Available To Delete.");
         }
+        driverRepo.deleteById(id);
     }
 
     @Override
