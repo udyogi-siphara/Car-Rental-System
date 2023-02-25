@@ -7,7 +7,7 @@ $('#btnInSignupSpa').click(function (){
     registerCustomer();
 });
 /*Update Customer*/
-$(".btnupdateInfo").click(function (){
+$("#btnUpdateSpa").click(function (){
     updateCustomer();
 })
 
@@ -28,7 +28,7 @@ function registerCustomer(){
     let nicFileName = $("#register-form-NIC-image-signup")[0].files[0].name;
 
     var newDetails = {
-        customerId:"C001",
+        customerId:"C002",
         nic: nic,
         address: address,
         contactNumber: contactNumber,
@@ -75,19 +75,32 @@ function navToLogin(details){
 /*Update Customer*/
 function updateCustomer(){
     var newDetails = {
-        nic: $("#customerNic").val(),
-        address: $("#customerAddress").val(),
-        contactNumber: $("#customerMobile").val(),
-        name: $("#customerName").val(),
-        email: $("#customerEmail").val(),
-        password: customer.password,
-        user_name: customer.user_name,
-        imageLocation: customer.imageLocation,
+        customerId:"C001",
+        nic: $("#update-nic").val(),
+        address: $("#update-address").val(),
+        contactNumber: $("#update-contact").val(),
+        name: $("#update-name").val(),
+        drivingLicenseNumber: $("#update-drivingLicense").val(),
+        email: $("#update-email").val(),
+        password:$("#update-password").val(),
+        userName:$("#update-user-name").val(),
+        imageLocation: $("#update-register-form-NIC-image").val()
+
+        /*customerId:"C001",
+        nic:"235656565",
+        address:"horana",
+        contactNumber: "021223333",
+        name: "sippi",
+        drivingLicenseNumber:"5555555566666",
+        email: "sipp23@gmail.com",
+        password:"55sip",
+        userName:"sip55",
+        imageLocation: "outline_call_black_24dp.png"*/
     }
 
     $.ajax({
         url: baseUrl + "customer",
-        method: "PUT",
+        method: "put",
         contentType: "application/json",
         data: JSON.stringify(newDetails),
         success: function (res) {
@@ -96,9 +109,6 @@ function updateCustomer(){
             } else {
                 alert("Cant update your Details in this moment")
             }
-        },
-        error: function (ob) {
-            console.log(ob.responseJSON.message);
         }
     });
 }
