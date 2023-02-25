@@ -27,12 +27,12 @@ public class DriverController {
     private DriverService driverService;
 
     @PostMapping
-    public ResponseUtil saveDriver(@ModelAttribute DriverDTO dto){
+    public ResponseUtil saveDriver(@RequestBody DriverDTO dto){
         driverService.saveDriver(dto);
         return new ResponseUtil("200",dto.getDriverId()+ " Added.!",null);
     }
 
-    @PutMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil updateDriver(DriverDTO dto){
         driverService.updateDriver(dto);
         return new ResponseUtil("200",dto.getDriverId()+": Updated.!",null);

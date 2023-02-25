@@ -7,10 +7,10 @@
 
 package lk.ijse.spring.service.impl;
 
-import lk.ijse.spring.dto.CustomerDTO;
+
 import lk.ijse.spring.dto.DriverDTO;
 
-import lk.ijse.spring.entity.Customer;
+
 import lk.ijse.spring.entity.Driver;
 
 import lk.ijse.spring.repo.DriverRepo;
@@ -37,6 +37,16 @@ public class DriverServiceImpl implements DriverService {
     public DriverDTO checkDriverLogIn(String name, String password) {
         return null;
     }
+
+    /*public void saveDriver(DriverDTO driverDTO) {
+        if(!driverRepo.existsById(driverDTO.getDriverId())){
+            Driver driver = modelMapper.map(driverDTO, Driver.class);
+            driverRepo.save(driver);
+        }else {
+            throw new RuntimeException("This NIC Number Already Exist..!");
+        }
+
+    }*/
 
     @Override
     public void saveDriver(DriverDTO driverDTO) {
