@@ -544,69 +544,67 @@
         <form id="carAdminForm" style="margin-left: 5px; margin-top: 44px;" >
             <div class="row">
                 <div class="col-sm-6">
-                    <div class="form-groupCF">
+                    <div class="form-groupRNT">
+                        <input class="form-control" id="save-car-reg-id" placeholder="Registration Number" type="text">
+                        <span class="control-error" id="lblrnber"></span>
+                    </div>
+                </div>
 
-                        <input class="form-control" id="txtCbrnd" placeholder="Brand" type="text">
+                <div class="col-sm-6">
+                    <div class="form-groupCF">
+                        <input class="form-control" id="save-car-brand" placeholder="Brand" type="text">
                         <span class="control-error" id="lblcbrnd"></span>
                     </div>
                 </div>
+            </div>
 
+            <br>
+
+
+            <div class="row">
                 <div class="col-sm-6">
                     <div class="form-groupTF">
-
-                        <input class="form-control" id="txtTrnsm" placeholder="Transmission" type="text">
+                        <input class="form-control" id="save-car-transmission" placeholder="Transmission" type="text">
                         <span class="control-error" id="lbltrnsm"></span>
                     </div>
                 </div>
-            </div>
-
-            <br>
-
-
-            <div class="row">
                 <div class="col-sm-6">
                     <div class="form-groupTT">
-                        <input class="form-control" id="txtTyp" placeholder="Type" type="text">
+                        <input class="form-control" id="save-car-type" placeholder="Type" type="text">
                         <span class="control-error" id="lbltype"></span>
                     </div>
                 </div>
+            </div>
+            <br>
+
+            <div class="row">
                 <div class="col-sm-6">
                     <div class="form-groupNFP">
-                        <input class="form-control" id="txtNoOPass" placeholder="No Of Passengers" type="text">
+                        <input class="form-control" id="save-car-passenger" placeholder="No Of Passengers" type="text">
                         <span class="control-error" id="lblnoofpass"></span>
                     </div>
                 </div>
-            </div>
-            <br>
 
-            <div class="row">
                 <div class="col-sm-6">
                     <div class="form-groupFT">
-                        <input class="form-control" id="txtFuel" placeholder="Fuel" type="text">
+                        <input class="form-control" id="save-car-fuel" placeholder="Fuel" type="text">
                         <span class="control-error" id="lblfuel"></span>
                     </div>
                 </div>
-
-                <div class="col-sm-6">
-                    <div class="form-groupMRT">
-                        <input class="form-control" id="txtMRt" placeholder="Monthly Rate" type="text">
-                        <span class="control-error" id="lblmrt"></span>
-                    </div>
-                </div>
             </div>
             <br>
 
             <div class="row">
                 <div class="col-sm-6">
-                    <div class="form-groupDlyT">
-                        <input class="form-control" id="txtMnthlyR" placeholder="Daily Rate" type="text">
-                        <span class="control-error" id="lblmnthlyr"></span>
+                    <div class="form-groupMRT">
+                        <input class="form-control" id="save-car-monthlyRate" placeholder="Monthly Rate" type="text">
+                        <span class="control-error" id="lblmrt"></span>
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <div class="form-groupPRET">
-                        <input class="form-control" id="txtPfExk" placeholder="Price For Extra km" type="text">
-                        <span class="control-error" id="lblpfexk"></span>
+                    <div class="form-groupDlyT">
+                        <input class="form-control" id="save-car-dailyRate" placeholder="Daily Rate" type="text">
+                        <span class="control-error" id="lblmnthlyr"></span>
                     </div>
                 </div>
             </div>
@@ -616,14 +614,14 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-groupFMT">
-                        <input class="form-control" id="txtFmlg" placeholder="Free Mileage" type="text">
+                        <input class="form-control" id="save-car-free-mileage" placeholder="Free Mileage" type="text">
                         <span class="control-error" id="lblfmlg"></span>
                     </div>
                 </div>
 
                 <div class="col-sm-6">
                     <div class="form-groupLSMT">
-                        <input class="form-control" id="txtLSrm" placeholder="Last Service Mileage(km)" type="text">
+                        <input class="form-control" id="save-car-last-km" placeholder="Last Service Mileage(km)" type="text">
                         <span class="control-error" id="lbllsrm"></span>
                     </div>
                 </div>
@@ -634,15 +632,15 @@
 
             <div class="row">
                 <div class="col-sm-6">
-                    <div class="form-groupRNT">
-                        <input class="form-control" id="txtRNber" placeholder="Registration Number" type="text">
-                        <span class="control-error" id="lblrnber"></span>
+                    <div class="form-groupPRET">
+                        <input class="form-control" id="save-car-pr-ex-km" placeholder="Price For Extra km" type="text">
+                        <span class="control-error" id="lblpfexk"></span>
                     </div>
                 </div>
 
                 <div class="col-sm-6">
                     <div class="form-groupCLRT">
-                        <input class="form-control" id="txtClr" placeholder="Color" type="text">
+                        <input class="form-control" id="save-car-color" placeholder="Color" type="text">
                         <span class="control-error" id="lblclr"></span>
                     </div>
                 </div>
@@ -653,36 +651,40 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-groupMDLT">
-                        <input class="form-control" id="txtMdl" placeholder="Model" type="text">
+                        <input class="form-control" id="save-car-model" placeholder="Model" type="text">
                         <span class="control-error" id="lblmdl"></span>
                     </div>
                 </div>
                 <div class="col-sm-6">
+                    <div class="form-groupMDLT">
+                        <input class="form-control" id="save-car-damage" placeholder="Damage Cost" type="text">
+                        <span class="control-error" id="lbldmg"></span>
+                    </div>
                 </div>
 
 
             </div>
             <div class="row">
                 <div class="col-sm-6" id="uploadUBFW">
-                    <label for="register-form-NIC-image" class="form-label ">Upload Back View</label>
-                    <input style="border: 1px solid gray" class="form-control  " type="file" id="uploadBV">
+                    <label for="save-car-brand" class="form-label ">Upload Back View</label>
+                    <input style="border: 1px solid gray" class="form-control  " type="file" id="save-car-back-img">
                 </div>
 
                 <div class="col-sm-6" id="uploadFWI">
-                    <label for="register-form-NIC-image" class="form-label ">Upload Front View</label>
-                    <input style="border: 1px solid gray" class="form-control  " type="file" id="register-form-NIC-image">
+                    <label for="save-car-brand" class="form-label ">Upload Front View</label>
+                    <input style="border: 1px solid gray" class="form-control  " type="file" id="save-car-front-img">
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-sm-6" id="uploadUSVT">
-                    <label for="register-form-NIC-image" class="form-label ">Upload Side View</label>
-                    <input style="border: 1px solid gray" class="form-control  " type="file" id="uploadUSV">
+                    <label for="save-car-brand" class="form-label ">Upload Side View</label>
+                    <input style="border: 1px solid gray" class="form-control  " type="file" id="save-car-side-img">
                 </div>
 
                 <div class="col-sm-6" id="uploadUIVT">
-                    <label for="register-form-NIC-image" class="form-label ">Upload Interior View</label>
-                    <input style="border: 1px solid gray" class="form-control  " type="file" id="uploadUIV">
+                    <label for="save-car-brand" class="form-label ">Upload Interior View</label>
+                    <input style="border: 1px solid gray" class="form-control  " type="file" id="save-car-interior-img">
                 </div>
 
             </div>
@@ -1521,5 +1523,6 @@
 <!--Controller JS-->
 <script src="../assets/js/jscontrollers/customerController.js"></script>
 <script src="../assets/js/jscontrollers/driverController.js"></script>
+<script src="../assets/js/jscontrollers/carController.js"></script>
 </body>
 </html>

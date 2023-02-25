@@ -10,9 +10,9 @@ package lk.ijse.spring.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Entity;
+
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,9 +21,10 @@ import javax.persistence.Id;
 public class Car {
     @Id
     private String registrationId;
-    private String Brand;
+    private String brand;
     private String type;
     private String model;
+    private double damageCost;
     private String fuelType;
     private String transmissionType;
     private String color;
