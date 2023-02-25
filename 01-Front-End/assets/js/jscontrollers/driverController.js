@@ -35,7 +35,6 @@ function saveDriver(){
         dob: $("#save-driver-dob").val(),
         address: $("#save-driver-address").val(),
         drivingLicenseNumber: $("#save-driver-license").val(),
-        status:""
 
     }
 
@@ -101,7 +100,7 @@ function updateDriver(){
             if (res.status === 200) {
                 alert(res.message)
             } else {
-                alert("Cant update your Details in this moment")
+
             }
         }
     });
