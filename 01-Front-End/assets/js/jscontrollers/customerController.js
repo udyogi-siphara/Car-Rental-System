@@ -2,14 +2,20 @@ var customer;
 var customer_nic;
 let baseUrl = "http://localhost:8080/carRental/"
 
+/*Save Customer*/
 $('#btnInSignupSpa').click(function (){
     registerCustomer();
 });
+/*Update Customer*/
+$(".btnupdateInfo").click(function (){
+    updateCustomer();
+})
 
 
 
+/*CUSTOMER FUNCTIONS*/
 
-/*Customer Functions*/
+/*Register Customer*/
 function registerCustomer(){
     let name =  $("#name-signup").val();
     let email= $("#email-signup").val();
@@ -64,4 +70,35 @@ function navToLogin(details){
     $('#spaSignupIndex').css('display','none');
     $('#spaLoginIndex').css('display','block');
 
+}
+
+/*Update Customer*/
+function updateCustomer(){
+    var newDetails = {
+        nic: $("#customerNic").val(),
+        address: $("#customerAddress").val(),
+        contactNumber: $("#customerMobile").val(),
+        name: $("#customerName").val(),
+        email: $("#customerEmail").val(),
+        password: customer.password,
+        user_name: customer.user_name,
+        imageLocation: customer.imageLocation,
+    }
+
+    $.ajax({
+        url: baseUrl + "customer",
+        method: "PUT",
+        contentType: "application/json",
+        data: JSON.stringify(newDetails),
+        success: function (res) {
+            if (res.status === 200) {
+                alert(res.message)
+            } else {
+                alert("Cant update your Details in this moment")
+            }
+        },
+        error: function (ob) {
+            console.log(ob.responseJSON.message);
+        }
+    });
 }

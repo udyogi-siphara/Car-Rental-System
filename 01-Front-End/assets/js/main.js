@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
-  "use strict";
+  /*"use strict";
 
-  /**
+  /!**
    * Preloader
-   */
+   *!/
   const preloader = document.querySelector('#preloader');
   if (preloader) {
     window.addEventListener('load', () => {
@@ -11,9 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /**
+  /!**
    * Mobile nav toggle
-   */
+   *!/
 
   const mobileNavShow = document.querySelector('.mobile-nav-show');
   const mobileNavHide = document.querySelector('.mobile-nav-hide');
@@ -31,9 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileNavHide.classList.toggle('d-none');
   }
 
-  /**
+  /!**
    * Hide mobile nav on same-page/hash links
-   */
+   *!/
   document.querySelectorAll('#navbar a').forEach(navbarlink => {
 
     if (!navbarlink.hash) return;
@@ -49,9 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   });
 
-  /**
+  /!**
    * Toggle mobile nav dropdowns
-   */
+   *!/
   const navDropdowns = document.querySelectorAll('.navbar .dropdown > a');
 
   navDropdowns.forEach(el => {
@@ -68,9 +68,9 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   });
 
-  /**
+  /!**
    * Scroll top button
-   */
+   *!/
   const scrollTop = document.querySelector('.scroll-top');
   if (scrollTop) {
     const togglescrollTop = function() {
@@ -84,16 +84,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }));
   }
 
-  /**
+  /!**
    * Initiate glightbox
-   */
+   *!/
   const glightbox = GLightbox({
     selector: '.glightbox'
   });
 
-  /**
+  /!**
    * Porfolio isotope and filter
-   */
+   *!/
   let portfolionIsotope = document.querySelector('.portfolio-isotope');
 
   if (portfolionIsotope) {
@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
 
-  }
+  }*/
 
   /**
    * Init swiper slider with 1 slide at once in desktop view

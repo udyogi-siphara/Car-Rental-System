@@ -67,7 +67,43 @@
     <img src="../img/icons8-user-48.png" alt="" width="35" height="35">
     <h4 style="color:#ffffff;">Udyogi Siphara</h4>
     <p style="color:#ffffff;">udyogisip1@gmail.com</p>
-    <h6><a style="text-decoration: none; color: #FFFFFF" href="">Update Information <img src="../img/edit-173.png" alt="" width="26" height="26"></a></h6>
+    <!--<h6><a style="text-decoration: none; color: #FFFFFF" href="">Update Information <img src="../img/edit-173.png" alt="" width="26" height="26"></a></h6>-->
+    <div>
+      <!--<h6><a style="text-decoration: none; color: #FFFFFF" href="">Update Information <img src="../img/edit-173.png" alt="" width="26" height="26"></a></h6>-->
+      <button style="background: transparent;position: relative;border:none;top: -15px; left: 23px;" type="button" class="btn mt-1 d-grid text-light col-6 col-md-12 col-sm-6 mx-auto" data-bs-toggle="modal"
+              data-bs-target="#update-info">Update Information <img src="../img/edit-173.png" alt="" style="width: 26px; height: 26px;margin-top: -28px;margin-left: 216px;"></button>
+
+      <div class="modal fade" id="update-info" tabindex="-1" aria-labelledby="updateCusInfo" aria-hidden="true">
+        <div class="modal-dialog-centered modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header text-light" style="background-color: #14131C">
+              <h5 class="modal-title " id="updateCusInfo">Update Your Information</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div >
+                  <label for="customerName" class="col-form-label">Name:</label>
+                  <input id="txtCustomerName" type="text" class="form-control" id="customerName">
+                </div>
+                <div >
+                  <label for="customerAddress" class="col-form-label">Address:</label>
+                  <input id="txtCustomerAddress" type="text" class="form-control" id="customerAddress">
+                </div>
+                <div >
+                  <label for="customerMobile" class="col-form-label">Contact No:</label>
+                  <input id="txtCustomerMobile" type="text" class="form-control" id="customerMobile">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button id="btnUpdate" type="button" class="btn btn-primary">Update</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div><!-- End HeadSlid -->
 
@@ -214,6 +250,7 @@
   </div>
 </div>
 <!-- End Cart -->
-
+<script src="../../assets/js/jquery-3.6.1.min.js"></script>
+<script src="../../assets/boostrap/js/bootstrap.min.js"></script>
 </body>
 </html>
