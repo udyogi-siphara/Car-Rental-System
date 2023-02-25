@@ -565,6 +565,9 @@ $('#navViewCustomer').click(function (){
     $('#adminDriverScheduleSpa').css('display', 'none');
     $('#adminPaymentsSpa').css('display', 'none');
     $('#adminFooterSpa').css('display', 'none');
+
+    viewAllCustomer();
+
 });
 
 $('#navDriverSchedule').click(function (){

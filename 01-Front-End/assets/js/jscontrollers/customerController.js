@@ -9,7 +9,8 @@ $('#btnInSignupSpa').click(function (){
 /*Update Customer*/
 $("#btnUpdateSpa").click(function (){
     updateCustomer();
-})
+});
+
 
 
 
@@ -86,16 +87,6 @@ function updateCustomer(){
         userName:$("#update-user-name").val(),
         imageLocation: $("#update-register-form-NIC-image").val()
 
-        /*customerId:"C001",
-        nic:"235656565",
-        address:"horana",
-        contactNumber: "021223333",
-        name: "sippi",
-        drivingLicenseNumber:"5555555566666",
-        email: "sipp23@gmail.com",
-        password:"55sip",
-        userName:"sip55",
-        imageLocation: "outline_call_black_24dp.png"*/
     }
 
     $.ajax({
@@ -108,6 +99,30 @@ function updateCustomer(){
                 alert(res.message)
             } else {
                 alert("Cant update your Details in this moment")
+            }
+        }
+    });
+}
+
+
+function viewAllCustomer(){
+    $("#customer-view-table").empty();
+
+    $.ajax({
+        url: baseUrl + "customer",
+        method: "GET",
+        success: function (resp){
+            for (const customer of resp.data){
+                let viewImage = customer.imageLocation;
+                let row = `<tr><th scope="row">${customer.customerId}</th><td>${customer.name}</td><td>${customer.address}</td><td>${customer.contactNumber}</td><td>${customer.nic}</td><td>${customer.email}</td><td><a style="cursor: pointer" class="text-info">viewImage</a></td></tr>`;
+                $("#customer-view-table").append(row);
+
+                $("#customer-view-table>tr").off("click");
+                $("#customer-view-table>tr").click(function (){
+                    customer_nic = $(this).children(":eq(1)").text();
+                    console.log(customer_nic)
+                    $("#navViewCustomer").prop('disabled',false);
+                });
             }
         }
     });
