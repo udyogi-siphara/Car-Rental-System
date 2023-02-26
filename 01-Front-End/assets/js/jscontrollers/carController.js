@@ -80,3 +80,7 @@ function registerCar() {
         }
     });
 }
+
+function clearDriverText(){
+    $('#save-driver-Id,#save-driver-name,#save-driver-address,#save-driver-dob,#save-driver-nic,#save-driver-license').val("");
+}

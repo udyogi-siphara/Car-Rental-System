@@ -563,16 +563,53 @@
 
             <div class="row">
                 <div class="col-sm-6">
-                    <div class="form-groupTF">
+                    <!--<div class="form-groupTF">
                         <input class="form-control" id="save-car-transmission" placeholder="Transmission" type="text">
                         <span class="control-error" id="lbltrnsm"></span>
-                    </div>
+                    </div>-->
+                    <!--<div class="dropdown-center">
+                        <button id="save-car-transmission" class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Type
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li id="save-car-auto"><a class="dropdown-item">Auto</a></li>
+                            <li id="save-car-manual"><a class="dropdown-item">Manual</a></li>
+                        </ul>
+                    </div>-->
+                    <select id="save-car-transmission" aria-label="form-select-lg example" class="form-select form-select-ls ">
+                        <option>Transmission</option>
+                        <option value="Auto">Auto</option>
+                        <option value="Manual">Manual</option>
+                    </select>
                 </div>
                 <div class="col-sm-6">
-                    <div class="form-groupTT">
+                    <!--<div class="form-groupTT">
                         <input class="form-control" id="save-car-type" placeholder="Type" type="text">
                         <span class="control-error" id="lbltype"></span>
-                    </div>
+                    </div>-->
+
+                    <!--<div class="dropdown-center">
+                        <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Type
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li id="save-car-general"><a class="dropdown-item">General</a></li>
+                            <li id="save-car-premium"><a class="dropdown-item">Premium</a></li>
+                            <li id="save-car-luxury"><a class="dropdown-item">Luxury</a></li>
+                        </ul>
+                    </div>-->
+
+                   <!-- <select name="combo" id="combobox-car-type" data-mce-placeholder="Type">
+                        <option value="1">General</option>
+                        <option value="1">Premium</option>
+                        <option value="1">Luxury</option>
+                    </select>-->
+                    <select id="save-car-type" aria-label="form-select-lg example" class="form-select form-select-ls ">
+                        <option>Type</option>
+                        <option value="General">General</option>
+                        <option value="Premium">Premium</option>
+                        <option value="Luxury">Luxury</option>
+                    </select>
                 </div>
             </div>
             <br>
@@ -580,16 +617,30 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-groupNFP">
-                        <input class="form-control" id="save-car-passenger" placeholder="No Of Passengers" type="text">
+                        <input class="form-control" id="save-car-passenger" placeholder="No Of Passengers" type="number">
                         <span class="control-error" id="lblnoofpass"></span>
                     </div>
                 </div>
 
                 <div class="col-sm-6">
-                    <div class="form-groupFT">
+                    <!--<div class="form-groupFT">
                         <input class="form-control" id="save-car-fuel" placeholder="Fuel" type="text">
                         <span class="control-error" id="lblfuel"></span>
-                    </div>
+                    </div>-->
+                    <!--<div class="dropdown-center">
+                        <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Type
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li id="save-car-petrol"><a class="dropdown-item">Petrol</a></li>
+                            <li id="save-car-diesel"><a class="dropdown-item">Diesel</a></li>
+                        </ul>
+                    </div>-->
+                    <select id="save-car-fuel" aria-label="form-select-lg example" class="form-select form-select-ls ">
+                        <option>Fuel Type</option>
+                        <option value="Petrol">Petrol</option>
+                        <option value="Diesel">Diesel</option>
+                    </select>
                 </div>
             </div>
             <br>
