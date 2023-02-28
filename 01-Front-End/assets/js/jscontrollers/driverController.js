@@ -1,5 +1,5 @@
 var driver_nic;
-
+let baseUrl = "http://localhost:8080/02_Back_End_war_exploded/"
 /*Save Driver*/
 $("#btnAddDriver").click(function (){
     saveDriver();
@@ -23,7 +23,26 @@ $("#btnDeleteDriver").click(function (){
     clearDriverText();
 });
 
+$('#btnDriverLoginSpa').click(function (){
+    let userName = $('#driver-user-name').val();
+    let password = $('#driver-password').val();
 
+    $.ajax({
+        url: baseUrl + "driverLogin?userName=" + userName,
+        method: "GET",
+        success: function (resp) {
+            console.log(resp.userName + "=" + resp.data.userName)
+            console.log(resp.userName + "=" + userName)
+            if (resp.data.userName === userName && resp.data.password === password) {
+                $('#spaLoginDriver').css('display', 'none');
+                $('#spaScheduleDriver').css('display', 'block');
+            } else {
+                alert("Username or Password Incorrect!.");
+            }
+
+        }
+    });
+});
 
 
 /*FUNCTIONS*/

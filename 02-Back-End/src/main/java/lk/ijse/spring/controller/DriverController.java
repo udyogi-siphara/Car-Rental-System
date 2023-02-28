@@ -8,7 +8,7 @@
 package lk.ijse.spring.controller;
 
 
-import lk.ijse.spring.dto.CustomerDTO;
+
 import lk.ijse.spring.dto.DriverDTO;
 import lk.ijse.spring.service.DriverService;
 import lk.ijse.spring.util.ResponseUtil;

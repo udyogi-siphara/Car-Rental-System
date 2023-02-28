@@ -666,11 +666,6 @@ $(window).on('load',function () {
     $('#spaScheduleDriver').css('display', 'none');
 });
 
-$('#btnDriverLoginSpa').click(function (){
-    $('#spaLoginDriver').css('display', 'none');
-    $('#spaScheduleDriver').css('display', 'block');
-});
-
 $('#navDriverScheduleHome').click(function (){
     $('#spaMainIndex').css('display', 'block');
     $('#spaCarStoreIndex').css('display', 'none');

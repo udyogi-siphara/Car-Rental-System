@@ -68,7 +68,7 @@ public class CustomerController {
     }
 
     @GetMapping(params = {"userName"})
-    public ResponseUtil loginAdmin(@RequestParam String userName){
+    public ResponseUtil loginCustomer(@RequestParam String userName){
         CustomerDTO customerDTO = customerService.checkCustomerLogIn(userName);
         return new ResponseUtil("200","Login Success!",customerDTO);
     }
