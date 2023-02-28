@@ -7,6 +7,7 @@
 
 package lk.ijse.spring.service.impl;
 
+import lk.ijse.spring.dto.AdminDTO;
 import lk.ijse.spring.dto.CustomerDTO;
 import lk.ijse.spring.entity.Customer;
 import lk.ijse.spring.repo.CustomerRepo;
@@ -68,5 +69,10 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public List<CustomerDTO> getTodayRegisteredCustomers() {
         return null;
+    }
+
+    @Override
+    public CustomerDTO checkCustomerLogIn(String userName) {
+        return modelMapper.map(customerRepo.searchCustomerByUserName(userName), CustomerDTO.class);
     }
 }

@@ -11,6 +11,34 @@ $("#btnUpdateSpa").click(function (){
     updateCustomer();
 });
 
+$('#btnInLoginSpa').click(function (){
+    let userName = $('#customer-user-name').val();
+    let password = $('#customer-password').val();
+
+    $.ajax({
+        url: baseUrl + "customer?userName=" + userName,
+        method: "GET",
+        success: function (resp) {
+            console.log(resp.userName + "=" + resp.data.userName)
+            console.log(resp.userName + "=" + userName)
+            if (resp.data.userName === userName && resp.data.password === password) {
+                $('#spaMainIndex').css('display','none');
+                $('#spaCarStoreIndex').css('display','none');
+                $('#spaCartIndex').css('display','block');
+                $('#spaCarDetailsIndex').css('display','none');
+                $('#spaOverviewIndex').css('display','none');
+                $('#spaSignupIndex').css('display','none');
+                $('#spaLoginIndex').css('display','none');
+                $('#spaUpdateIndex').css('display','none');
+            } else {
+                alert("Username or Password Incorrect!.");
+            }
+
+        }
+    });
+});
+
+
 
 
 
@@ -20,7 +48,7 @@ $("#btnUpdateSpa").click(function (){
 function registerCustomer(){
     let name =  $("#name-signup").val();
     let email= $("#email-signup").val();
-    let nic= $("#nic-signup").val();
+    let nic= $("#nic-signup").val();admin
     let address = $("#address-signup").val();
     let contactNumber =$("#contact-signup").val();
     let drivingLicenseNo= $("#driving-license-signup").val();
@@ -29,7 +57,7 @@ function registerCustomer(){
     let nicFileName = $("#register-form-NIC-image-signup")[0].files[0].name;
 
     var newDetails = {
-        customerId:"C002",
+        customerId:"C003",
         nic: nic,
         address: address,
         contactNumber: contactNumber,

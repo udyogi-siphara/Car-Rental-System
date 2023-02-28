@@ -1,4 +1,3 @@
-
 $('#btnAdminLogin1').click(function (){
     let userName = $('#admin-user-name').val();
     let password = $('#admin-password').val();

@@ -99,29 +99,7 @@ $('#navCarStoreCarStore').click(function (){
     $('#spaUpdateIndex').css('display','none');
 });
 
-$('#btnCartSpa1').click(function (){
-    $('#spaMainIndex').css('display','none');
-    $('#spaCarStoreIndex').css('display','none');
-    $('#spaCartIndex').css('display','none');
-    $('#spaCarDetailsIndex').css('display','none');
-    $('#spaOverviewIndex').css('display','none');
-    $('#spaSignupIndex').css('display','none');
-    $('#spaLoginIndex').css('display','block');
-    $('#spaUpdateIndex').css('display','none');
-});
-
-$('#btnCartSpa2').click(function (){
-    $('#spaMainIndex').css('display','none');
-    $('#spaCarStoreIndex').css('display','none');
-    $('#spaCartIndex').css('display','none');
-    $('#spaCarDetailsIndex').css('display','none');
-    $('#spaOverviewIndex').css('display','none');
-    $('#spaSignupIndex').css('display','none');
-    $('#spaLoginIndex').css('display','block');
-    $('#spaUpdateIndex').css('display','none');
-});
-
-$('#btnCartSpa3').click(function (){
+$('.btnGoToCart').click(function (){
     $('#spaMainIndex').css('display','none');
     $('#spaCarStoreIndex').css('display','none');
     $('#spaCartIndex').css('display','none');
@@ -240,17 +218,6 @@ $('#navLoginCarStore').click(function (){
     $('#spaMainIndex').css('display','none');
     $('#spaCarStoreIndex').css('display','block');
     $('#spaCartIndex').css('display','none');
-    $('#spaCarDetailsIndex').css('display','none');
-    $('#spaOverviewIndex').css('display','none');
-    $('#spaSignupIndex').css('display','none');
-    $('#spaLoginIndex').css('display','none');
-    $('#spaUpdateIndex').css('display','none');
-});
-
-$('#btnInLoginSpa').click(function (){
-    $('#spaMainIndex').css('display','none');
-    $('#spaCarStoreIndex').css('display','none');
-    $('#spaCartIndex').css('display','block');
     $('#spaCarDetailsIndex').css('display','none');
     $('#spaOverviewIndex').css('display','none');
     $('#spaSignupIndex').css('display','none');
@@ -606,7 +573,7 @@ $('#navViewCustomer').click(function (){
     $('#adminPaymentsSpa').css('display', 'none');
     $('#adminFooterSpa').css('display', 'none');
 
-
+    viewAllCustomer();
 
 });
 

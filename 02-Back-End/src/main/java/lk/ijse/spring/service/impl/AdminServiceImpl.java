@@ -34,13 +34,4 @@ public class AdminServiceImpl implements AdminService {
     public AdminDTO checkAdminLogIn(String userName) {
         return modelMapper.map(adminRepo.searchAdminByUserName(userName), AdminDTO.class);
     }
-
-   /* @Override
-    public void saveAdmin(AdminDTO adminDTO) {
-        if (adminRepo.existsById(adminDTO.getAdminId())){
-            throw new RuntimeException("Admin "+adminDTO.getAdminId()+" Already Exist..!");
-        }
-        Admin entity = modelMapper.map(adminDTO, Admin.class);
-        adminRepo.save(entity);
-    }*/
 }

@@ -29,9 +29,4 @@ public class AdminController {
         return new ResponseUtil("200","Login Success!",adminDTO);
     }
 
-   /* @PostMapping
-    public ResponseUtil saveAdmin(@RequestBody AdminDTO dto){
-        adminService.saveAdmin(dto);
-        return new ResponseUtil("200",dto.toString()+ " Added",null);
-    }*/
 }

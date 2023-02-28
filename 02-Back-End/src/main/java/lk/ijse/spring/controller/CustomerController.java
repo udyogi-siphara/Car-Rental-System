@@ -7,6 +7,7 @@
 
 package lk.ijse.spring.controller;
 
+import lk.ijse.spring.dto.AdminDTO;
 import lk.ijse.spring.dto.CustomerDTO;
 import lk.ijse.spring.service.CustomerService;
 import lk.ijse.spring.util.ResponseUtil;
@@ -14,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -65,6 +65,12 @@ public class CustomerController {
     public ResponseUtil searchCustomer(@RequestParam String customerId){
         CustomerDTO customerDTO = customerService.searchCustomer(customerId);
         return new ResponseUtil("200","Getting Success!",customerDTO);
+    }
+
+    @GetMapping(params = {"userName"})
+    public ResponseUtil loginAdmin(@RequestParam String userName){
+        CustomerDTO customerDTO = customerService.checkCustomerLogIn(userName);
+        return new ResponseUtil("200","Login Success!",customerDTO);
     }
 
 }
