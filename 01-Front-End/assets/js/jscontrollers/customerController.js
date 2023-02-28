@@ -1,6 +1,6 @@
 var customer;
 var customer_nic;
-let baseUrl = "http://localhost:8080/carRental/"
+let baseUrl = "http://localhost:8080/02_Back_End_war_exploded/"
 
 /*Save Customer*/
 $('#btnInSignupSpa').click(function (){

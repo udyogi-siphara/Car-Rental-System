@@ -8,15 +8,19 @@
 package lk.ijse.spring.service.impl;
 
 import lk.ijse.spring.dto.CarDTO;
+import lk.ijse.spring.dto.DriverDTO;
 import lk.ijse.spring.entity.Car;
+import lk.ijse.spring.entity.Driver;
 import lk.ijse.spring.repo.CarRepo;
 import lk.ijse.spring.repo.CustomerRepo;
 import lk.ijse.spring.service.CarService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -39,7 +43,21 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public void updateCar(CarDTO carDTO) {
+        if (carRepo.existsById(carDTO.getRegistrationId())){
+            carRepo.save( modelMapper.map(carDTO, Car.class));
+        }else {
+            throw new RuntimeException("Car " + carDTO.getRegistrationId() + " Not Available to Update..!");
+        }
+    }
 
+    @Override
+    public void uploadCarImages(String frontPath, String backPath, String sidePath, String interiorPath, String registrationNum) {
+        if (carRepo.existsById(registrationNum)) {
+
+            carRepo.updateCarFilePaths(frontPath, backPath, sidePath,interiorPath, registrationNum);
+        } else {
+            throw new RuntimeException("User Not Found");
+        }
     }
 
     @Override
@@ -54,7 +72,12 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public List<CarDTO> getAllCarDetail() {
-        return null;
+        return modelMapper.map(carRepo.findAll(), new TypeToken<List<CarDTO>>() {}.getType());
+    }
+
+    @Override
+    public List<CarDTO> getViewSomeCarDetail(String brand, String model, double daily, double monthly, double damage) {
+        return modelMapper.map(carRepo.viewSomeDetail(brand, model, daily, monthly, damage),new TypeToken<List<CarDTO>>(){}.getType());
     }
 
     @Override

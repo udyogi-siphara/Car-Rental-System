@@ -11,6 +11,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Doppio+One&family=Roboto:ital,wght@1,100&family=Rubik+Burned&family=Space+Mono&display=swap" rel="stylesheet">
 
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,700" rel="stylesheet">
+
     <!-- Vendor CSS Files -->
     <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -30,10 +33,108 @@
     <link href="css/admin/adminDash.css" rel="stylesheet">
     <link href="../assets/css/admin/addVehicle.css" rel="stylesheet">
     <link href="../assets/css/normalize.css" rel="stylesheet">
-    <!--<link href="../assets/css/main.css" rel="stylesheet">-->
+
+
+
 
 </head>
 <body>
+
+<!--Admin Login-->
+<main id="spaAdminLogin">
+    <!--<header>
+        <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+            <nav id="navbar" class="navbar" style="margin-left: 900px">
+                <ul>
+                    <li id="navAdminHome"><a style="color:#000000;"><i class="bi bi-house-door-fill"></i><span style="margin-left:15px ">Home</span></a></li>
+                    &lt;!&ndash;<i style="left:30px; position: relative" class="bi bi-bag-fill"></i>
+                    <li class="dropdown"><a href="carStore.html"><span style="color:#000000; margin-left: 10px">Car Store</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                      <ul>
+                        <li><a href="#">General Cars</a></li>
+                        <li><a href="#">Premium Cars</a></li>
+                        <li><a href="#">Luxury Cars</a></li>
+
+                      </ul>
+                    </li>&ndash;&gt;
+                    <li id="navAdminContact"><a style="color:#000000;"><i style="left: 0px; position: relative" class="bi bi-telephone-fill"></i><span style="left: 12px; position: relative">Contact Us</span></a></li>
+                </ul>
+            </nav>&lt;!&ndash; .navbar &ndash;&gt;
+
+        </div>
+    </header>&lt;!&ndash;End Header&ndash;&gt;-->
+
+    <main>
+        <div class="container">
+
+            <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center" style="margin-top: -65px">
+
+                            <div class="d-flex justify-content-center py-4">
+                                <a class="logo d-flex align-items-center w-auto">
+                                    <img src="../assets/img/easy_logo.png" alt="">
+                                </a>
+                            </div><!-- End Logo -->
+
+                            <div class="card mb-3">
+
+
+                                <div class="card-body">
+                                    <div class="pt-4 pb-2">
+                                        <h5 class="card-title text-center pb-0 fs-4">Admin Login</h5>
+                                    </div>
+
+                                    <form class="row g-3 needs-validation" novalidate>
+
+                                        <div class="col-12">
+                                            <label for="yourUsername" class="form-label">Username</label>
+                                            <div class="input-group has-validation">
+                                                <span class="input-group-text" id="inputGroupPrepend">@</span>
+                                                <input id="admin-user-name" type="text" name="username" class="form-control" id="yourUsername" required>
+                                                <div class="invalid-feedback">Please enter your username.</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <label for="yourPassword" class="form-label">Password</label>
+                                            <input id="admin-password" type="password" name="password" class="form-control" id="yourPassword" required>
+                                            <div class="invalid-feedback">Please enter your password!</div>
+                                        </div>
+
+                                        <!--<div class="col-12">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
+                                                <label class="form-check-label" for="rememberMe">Remember me</label>
+                                            </div>
+                                        </div>-->
+                                        <div class="col-12">
+                                            <button id="btnAdminLogin1" class="btn btn-primary w-100" type="button">Login</button>
+                                            <br>
+                                        </div>
+
+                                    </form>
+
+                                </div>
+                            </div>
+
+                            <div class="credits">
+                                Designed by <a href="https://github.com/udyogi-siphara/">Udyogi Siphara</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+    </main><!-- End #main -->
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+</main>
+
 <!--Admin Dashboard-->
 <main id="spaAdminDashboard">
     <!-- ======= Sidebar ======= -->
@@ -563,19 +664,6 @@
 
             <div class="row">
                 <div class="col-sm-6">
-                    <!--<div class="form-groupTF">
-                        <input class="form-control" id="save-car-transmission" placeholder="Transmission" type="text">
-                        <span class="control-error" id="lbltrnsm"></span>
-                    </div>-->
-                    <!--<div class="dropdown-center">
-                        <button id="save-car-transmission" class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Type
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li id="save-car-auto"><a class="dropdown-item">Auto</a></li>
-                            <li id="save-car-manual"><a class="dropdown-item">Manual</a></li>
-                        </ul>
-                    </div>-->
                     <select id="save-car-transmission" aria-label="form-select-lg example" class="form-select form-select-ls ">
                         <option>Transmission</option>
                         <option value="Auto">Auto</option>
@@ -583,27 +671,6 @@
                     </select>
                 </div>
                 <div class="col-sm-6">
-                    <!--<div class="form-groupTT">
-                        <input class="form-control" id="save-car-type" placeholder="Type" type="text">
-                        <span class="control-error" id="lbltype"></span>
-                    </div>-->
-
-                    <!--<div class="dropdown-center">
-                        <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Type
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li id="save-car-general"><a class="dropdown-item">General</a></li>
-                            <li id="save-car-premium"><a class="dropdown-item">Premium</a></li>
-                            <li id="save-car-luxury"><a class="dropdown-item">Luxury</a></li>
-                        </ul>
-                    </div>-->
-
-                   <!-- <select name="combo" id="combobox-car-type" data-mce-placeholder="Type">
-                        <option value="1">General</option>
-                        <option value="1">Premium</option>
-                        <option value="1">Luxury</option>
-                    </select>-->
                     <select id="save-car-type" aria-label="form-select-lg example" class="form-select form-select-ls ">
                         <option>Type</option>
                         <option value="General">General</option>
@@ -623,19 +690,6 @@
                 </div>
 
                 <div class="col-sm-6">
-                    <!--<div class="form-groupFT">
-                        <input class="form-control" id="save-car-fuel" placeholder="Fuel" type="text">
-                        <span class="control-error" id="lblfuel"></span>
-                    </div>-->
-                    <!--<div class="dropdown-center">
-                        <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Type
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li id="save-car-petrol"><a class="dropdown-item">Petrol</a></li>
-                            <li id="save-car-diesel"><a class="dropdown-item">Diesel</a></li>
-                        </ul>
-                    </div>-->
                     <select id="save-car-fuel" aria-label="form-select-lg example" class="form-select form-select-ls ">
                         <option>Fuel Type</option>
                         <option value="Petrol">Petrol</option>
@@ -712,8 +766,22 @@
                         <span class="control-error" id="lbldmg"></span>
                     </div>
                 </div>
+            </div>
 
+            <div class="row">
+                <div class="col-sm-6 mt-4" id="uploadUBFW">
+                    <select id="save-car-availability" aria-label="form-select-lg example" class="form-select form-select-ls ">
+                        <option>status</option>
+                        <option value="Available">Available</option>
+                        <option value="Non - Available">Non - Available</option>
+                        <option value="Maintenance">Maintenance</option>
+                        <option value="Under Maintenance">Under Maintenance</option>
+                    </select>
+                </div>
 
+                <div class="col-sm-6">
+
+                </div>
             </div>
             <div class="row">
                 <div class="col-sm-6" id="uploadUBFW">
@@ -763,9 +831,9 @@
                 Short By
             </button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Available</a></li>
-                <li><a class="dropdown-item" href="#">Non-Available</a></li>
-                <li><a class="dropdown-item" href="#">Maintenance</a></li>
+                <li><a class="dropdown-item">Available</a></li>
+                <li><a class="dropdown-item">Non-Available</a></li>
+                <li><a class="dropdown-item">Maintenance</a></li>
             </ul>
         </div>
 
@@ -774,56 +842,56 @@
 
                 <!-- Left side columns -->
                 <div class="col-lg-8">
-                    <div class="row">
+                    <div class="row" id="view-car-container">
 
                         <!-- Sales Card -->
-                        <div class="col-xxl-4 col-md-12">
-                            <div class="card info-card sales-card mt-5">
+                        <!--<div class="col-xxl-4 col-md-12">
+                            <div id="view-car-main-div" class="card info-card sales-card mt-5">
 
                                 <div class="card-body">
                                     <div class="d-flex align-items-center" style="margin-top: 5px; width: 655px">
                                         <div class="col-sm-3">
-                                            <img style="width: 152px;" src="../assets/img/Suzuki-Alto-Manual_clipdrop-background-removal.webp" alt="">
+                                            <img id="view-car-img" style="width: 152px;" src="../assets/img/Suzuki-Alto-Manual_clipdrop-background-removal.webp" alt="">
                                         </div>
 
                                         <div class="col-sm-3">
-                                            <h6 style="color: black; font-size: 15px">Suzuki</h6>
-                                            <p style="font-size: 15px">Alto</p>
+                                            <h6 id="view-car-brand" style="color: black; font-size: 15px">Suzuki</h6>
+                                            <p id="view-car-model" style="font-size: 15px">Alto</p>
                                         </div>
 
                                         <div class="col-sm-3">
-                                            <h6 style="color: black; font-size: 15px">Daily</h6>
-                                            <p style="font-size: 15px">2,500</p>
+                                            <h6 id="view-car-daily" style="color: black; font-size: 15px">Daily</h6>
+                                            <p id="view-car-dprice" style="font-size: 15px">2,500</p>
                                         </div>
 
                                         <div class="col-sm-3">
-                                            <h6 style="color: black; font-size: 15px">Monthly</h6>
-                                            <p style="font-size: 15px">64,350</p>
+                                            <h6 id="view-car-monthly" style="color: black; font-size: 15px">Monthly</h6>
+                                            <p id="view-car-mprice" style="font-size: 15px">64,350</p>
                                         </div>
 
                                         <div class="col-sm-3">
-                                            <h6 style="color: black; font-size: 15px">Damage Cost</h6>
-                                            <p style="font-size: 15px">10,000</p>
+                                            <h6 id="view-car-damage" style="color: black; font-size: 15px">Damage Cost</h6>
+                                            <p id="view-car-dmgcost" style="font-size: 15px">10,000</p>
                                         </div>
 
                                     </div>
 
                                     <div class="d-flex align-items-center" style="margin-left: 60px">
                                         <div class="col-sm-3">
-                                            <button class="btn btn-primary gap-5" id="btnAddMain" style="background-color: orangered;color: white; border: none; width: 203px; margin-left: 353px">Add To Maintenance</button>
+                                            <button class="btn btn-primary gap-5" id="btnAddMaintenance" style="background-color: orangered;color: white; border: none; width: 203px; margin-left: 353px">Add To Maintenance</button>
                                         </div>
 
                                         <div class="col-sm-3">
-                                            <button class="btn btn-primary" id="btnupdate" style="background-color: blue;color: white; border: none; width: 100px; margin-left: 398px">Update</button>
+                                            <button class="btn btn-primary" id="btnViewUpdate" style="background-color: blue;color: white; border: none; width: 100px; margin-left: 398px">Update</button>
                                         </div>
                                     </div>
                                 </div>
 
                             </div>
-                        </div><!-- End Sales Card -->
+                        </div>&lt;!&ndash; End Sales Card &ndash;&gt;
 
 
-                        <!-- Sales Card -->
+                        &lt;!&ndash; Sales Card &ndash;&gt;
                         <div class="col-xxl-4 col-md-12">
                             <div class="card info-card sales-card mt-5">
 
@@ -867,7 +935,7 @@
                                 </div>
 
                             </div>
-                        </div><!-- End Sales Card -->
+                        </div>&lt;!&ndash; End Sales Card &ndash;&gt;-->
 
 
                     </div>
@@ -1569,11 +1637,13 @@
 <script src="../assets/vendor/quill/quill.min.js"></script>
 <script src="../assets/vendor/simple-datatables/simple-datatables.js"></script>
 <script src="../assets/vendor/tinymce/tinymce.min.js"></script>
+<script src="../assets/vendor/bootstrap/js/bootstrap.min.js"></script>
 
 <script src="js/spa_js/nav.js"></script>
 <!--Controller JS-->
 <script src="../assets/js/jscontrollers/customerController.js"></script>
 <script src="../assets/js/jscontrollers/driverController.js"></script>
 <script src="../assets/js/jscontrollers/carController.js"></script>
+<script src="../assets/js/jscontrollers/adminController.js"></script>
 </body>
 </html>

@@ -13,7 +13,7 @@ $("#btnUpdateDriver").click(function (){
 /*Delete Driver*/
 $("#btnDeleteDriver").click(function (){
     $.ajax({
-        url:"http://localhost:8080/carRental/driver?id="+$("#save-driver-Id").val(),
+        url:"http://localhost:8080/02_Back_End_war_exploded/driver?id="+$("#save-driver-Id").val(),
         method:"delete",
         success(resp){
             alert(resp.message);

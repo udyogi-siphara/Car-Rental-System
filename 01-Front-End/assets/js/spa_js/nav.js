@@ -132,16 +132,20 @@ $('#btnCartSpa3').click(function (){
     $('#spaUpdateIndex').css('display','none');
 });
 
-$('.iconCarDetail').click(function (){
-    $('#spaMainIndex').css('display','none');
-    $('#spaCarStoreIndex').css('display','none');
-    $('#spaCartIndex').css('display','none');
-    $('#spaCarDetailsIndex').css('display','block');
-    $('#spaOverviewIndex').css('display','none');
-    $('#spaSignupIndex').css('display','none');
-    $('#spaLoginIndex').css('display','none');
-    $('#spaUpdateIndex').css('display','none');
-});
+
+function iconCarDetail() {
+    $('.iconCarDetail').click(function () {
+        $('#spaMainIndex').css('display', 'none');
+        $('#spaCarStoreIndex').css('display', 'none');
+        $('#spaCartIndex').css('display', 'none');
+        $('#spaCarDetailsIndex').css('display', 'block');
+        $('#spaOverviewIndex').css('display', 'none');
+        $('#spaSignupIndex').css('display', 'none');
+        $('#spaLoginIndex').css('display', 'none');
+        $('#spaUpdateIndex').css('display', 'none');
+    });
+    addToCartClick();
+}
 
 $('#navCarStoreGeneral').click(function (){
     $('#carStoreServices1').css('display','block');
@@ -461,14 +465,36 @@ $(window).on('load',function () {
     $('#spaSignupIndex').css('display', 'none');
     $('#spaLoginIndex').css('display', 'none');
     $('#spaUpdateIndex').css('display','none');
+
+    loadAllCars("allCarDetail");
 });
 
 
 /*==================================================*/
 /*                     Admin                        */
 /*==================================================*/
+
+
+
+
+
+
+
+$('#navAdminHome').click(function (){
+    $('#spaMainIndex').css('display','block');
+    $('#spaCarStoreIndex').css('display','none');
+    $('#spaCartIndex').css('display','none');
+    $('#spaCarDetailsIndex').css('display','none');
+    $('#spaOverviewIndex').css('display','none');
+    $('#spaSignupIndex').css('display','none');
+    $('#spaLoginIndex').css('display','none');
+    $('#spaUpdateIndex').css('display','none');
+});
+
 $('#navReservation').click(function (){
     $('#adminMainSpa').css('display', 'none');
+    $('#sidebar').css('display', 'block');
+    $('#spaAdminLogin').css('display', 'none');
     $('#adminReservationSpa').css('display', 'block');
     $('#adminAddVehicleSpa').css('display', 'none');
     $('#adminViewVehicleSpa').css('display', 'none');
@@ -484,6 +510,8 @@ $('#navReservation').click(function (){
 
 $('#navDashboard').click(function (){
     $('#adminMainSpa').css('display', 'block');
+    $('#sidebar').css('display', 'block');
+    $('#spaAdminLogin').css('display', 'none');
     $('#adminReservationSpa').css('display', 'none');
     $('#adminAddVehicleSpa').css('display', 'none');
     $('#adminViewVehicleSpa').css('display', 'none');
@@ -499,6 +527,8 @@ $('#navDashboard').click(function (){
 
 $('#navAddVehicle').click(function (){
     $('#adminMainSpa').css('display', 'none');
+    $('#sidebar').css('display', 'block');
+    $('#spaAdminLogin').css('display', 'none');
     $('#adminReservationSpa').css('display', 'none');
     $('#adminAddVehicleSpa').css('display', 'block');
     $('#adminViewVehicleSpa').css('display', 'none');
@@ -513,6 +543,8 @@ $('#navAddVehicle').click(function (){
 
 $('#navViewVehicle').click(function (){
     $('#adminMainSpa').css('display', 'none');
+    $('#sidebar').css('display', 'block');
+    $('#spaAdminLogin').css('display', 'none');
     $('#adminReservationSpa').css('display', 'none');
     $('#adminAddVehicleSpa').css('display', 'none');
     $('#adminViewVehicleSpa').css('display', 'block');
@@ -523,10 +555,14 @@ $('#navViewVehicle').click(function (){
     $('#adminDriverScheduleSpa').css('display', 'none');
     $('#adminPaymentsSpa').css('display', 'none');
     $('#adminFooterSpa').css('display', 'none');
+
+    viewCars("allCarDetail");
 });
 
 $('#navViewSchedule').click(function (){
     $('#adminMainSpa').css('display', 'none');
+    $('#sidebar').css('display', 'block');
+    $('#spaAdminLogin').css('display', 'none');
     $('#adminReservationSpa').css('display', 'none');
     $('#adminAddVehicleSpa').css('display', 'none');
     $('#adminViewVehicleSpa').css('display', 'none');
@@ -541,6 +577,8 @@ $('#navViewSchedule').click(function (){
 
 $('#navVerificationCustomer').click(function (){
     $('#adminMainSpa').css('display', 'none');
+    $('#sidebar').css('display', 'block');
+    $('#spaAdminLogin').css('display', 'none');
     $('#adminReservationSpa').css('display', 'none');
     $('#adminAddVehicleSpa').css('display', 'none');
     $('#adminViewVehicleSpa').css('display', 'none');
@@ -555,7 +593,9 @@ $('#navVerificationCustomer').click(function (){
 
 $('#navViewCustomer').click(function (){
     $('#adminMainSpa').css('display', 'none');
+    $('#sidebar').css('display', 'block');
     $('#adminReservationSpa').css('display', 'none');
+    $('#spaAdminLogin').css('display', 'none');
     $('#adminAddVehicleSpa').css('display', 'none');
     $('#adminViewVehicleSpa').css('display', 'none');
     $('#adminVehicleScheduleSpa').css('display', 'none');
@@ -566,12 +606,14 @@ $('#navViewCustomer').click(function (){
     $('#adminPaymentsSpa').css('display', 'none');
     $('#adminFooterSpa').css('display', 'none');
 
-    viewAllCustomer();
+
 
 });
 
 $('#navDriverSchedule').click(function (){
     $('#adminMainSpa').css('display', 'none');
+    $('#sidebar').css('display', 'block');
+    $('#spaAdminLogin').css('display', 'none');
     $('#adminReservationSpa').css('display', 'none');
     $('#adminAddVehicleSpa').css('display', 'none');
     $('#adminViewVehicleSpa').css('display', 'none');
@@ -586,6 +628,8 @@ $('#navDriverSchedule').click(function (){
 
 $('#navViewDriver').click(function (){
     $('#adminMainSpa').css('display', 'none');
+    $('#sidebar').css('display', 'block');
+    $('#spaAdminLogin').css('display', 'none');
     $('#adminReservationSpa').css('display', 'none');
     $('#adminAddVehicleSpa').css('display', 'none');
     $('#adminViewVehicleSpa').css('display', 'none');
@@ -602,6 +646,8 @@ $('#navViewDriver').click(function (){
 
 $('#navPayments').click(function (){
     $('#adminMainSpa').css('display', 'none');
+    $('#sidebar').css('display', 'block');
+    $('#spaAdminLogin').css('display', 'none');
     $('#adminReservationSpa').css('display', 'none');
     $('#adminAddVehicleSpa').css('display', 'none');
     $('#adminViewVehicleSpa').css('display', 'none');
@@ -616,6 +662,7 @@ $('#navPayments').click(function (){
 
 $('#navLogout').click(function (){
     $('#spaMainIndex').css('display','block');
+    $('#spaAdminLogin').css('display', 'none');
     $('#spaCarStoreIndex').css('display','none');
     $('#spaCartIndex').css('display','none');
     $('#spaCarDetailsIndex').css('display','none');
@@ -626,7 +673,9 @@ $('#navLogout').click(function (){
 
 //for the Loading Window
 $(window).on('load',function () {
-    $('#adminMainSpa').css('display', 'block');
+    $('#adminMainSpa').css('display', 'none');
+    $('#sidebar').css('display', 'none');
+    $('#spaAdminLogin').css('display', 'block')
     $('#adminReservationSpa').css('display', 'none');
     $('#adminAddVehicleSpa').css('display', 'none');
     $('#adminViewVehicleSpa').css('display', 'none');
@@ -636,6 +685,8 @@ $(window).on('load',function () {
     $('#adminViewDriverSpa').css('display', 'none');
     $('#adminDriverScheduleSpa').css('display', 'none');
     $('#adminPaymentsSpa').css('display', 'none');
+    $('#adminFooterSpa').css('display', 'none');
+
 });
 
 
@@ -644,13 +695,13 @@ $(window).on('load',function () {
 /*==================================================*/
 //for the Loading Window
 $(window).on('load',function () {
-    $('#spaDriverLogin').css('display', 'block');
-    $('#spaDriverSchedule').css('display', 'none');
+    $('#spaLoginDriver').css('display', 'block');
+    $('#spaScheduleDriver').css('display', 'none');
 });
 
 $('#btnDriverLoginSpa').click(function (){
-    $('#spaDriverLogin').css('display', 'none');
-    $('#spaDriverSchedule').css('display', 'block');
+    $('#spaLoginDriver').css('display', 'none');
+    $('#spaScheduleDriver').css('display', 'block');
 });
 
 $('#navDriverScheduleHome').click(function (){

@@ -74,13 +74,29 @@
 }
 
 /*Button*/
-.btn_RentIt{
+.btnAddToCart{
     width: 166px;
     border-radius: 7px;
     border-color: #333333;
     background: white;
 }
-.btn_RentIt:hover{
+.btnAddToCart:hover{
+    width: 146px;
+    border-radius: 7px;
+    border-color: #231FED;
+    /*5e6bef*/
+    background: #231FED;
+    color: white;
+}
+
+.btnGoToCart{
+    width: 166px;
+    border-radius: 7px;
+    border-color: #333333;
+    background: white;
+}
+
+.btnGoToCart:hover{
     width: 146px;
     border-radius: 7px;
     border-color: #231FED;

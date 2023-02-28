@@ -20,7 +20,11 @@ public interface CarService {
 
     CarDTO getCarDetail(String id);
 
+    void uploadCarImages(String frontPath, String backPath, String sidePath, String interiorPath, String registrationNum);
+
     List<CarDTO> getAllCarDetail();
+
+    List<CarDTO>getViewSomeCarDetail(String brand,String model,double daily,double monthly,double damage);
 
     List<CarDTO> getCarsUnderMaintain();
 

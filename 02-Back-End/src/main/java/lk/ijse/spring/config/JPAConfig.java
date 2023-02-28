@@ -7,6 +7,7 @@
 
 package lk.ijse.spring.config;
 
+import lk.ijse.spring.repo.AdminRepo;
 import lk.ijse.spring.repo.CustomerRepo;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
