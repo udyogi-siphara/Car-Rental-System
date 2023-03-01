@@ -1,6 +1,6 @@
 var customer;
 var customer_nic;
-let baseUrl = "http://localhost:8080/02_Back_End_war_exploded/"
+let baseUrl = "http://localhost:8080/02_Back_End_war_exploded/";
 
 /*Save Customer*/
 $('#btnInSignupSpa').click(function (){
@@ -45,10 +45,72 @@ $('#btnInLoginSpa').click(function (){
 /*CUSTOMER FUNCTIONS*/
 
 /*Register Customer*/
+/*function registerCustomer(){
+    var Vdata = new FormData();
+
+    let nicFileName =$("#register-form-NIC-image-signup")[0].files[0].name;
+
+    let nicImg =$("#register-form-NIC-image-signup")[0].files[0];
+
+    let customerId;
+    let name =  $("#name-signup").val();
+    let email= $("#email-signup").val();
+    let nic= $("#nic-signup").val();
+    let address = $("#address-signup").val();
+    let contactNumber =$("#contact-signup").val();
+    let drivingLicenseNo= $("#driving-license-signup").val();
+    let password =$("#password-signup").val();
+    let user_name= $("#username-signup").val();
+    let image = nicFileName;
+
+    var CustomerDTO = {
+        customerId:"C005",
+        nic: nic,
+        address: address,
+        contactNumber: contactNumber,
+        name: name,
+        drivingLicenseNumber: drivingLicenseNo,
+        email: email,
+        password:password,
+        userName:user_name,
+        image:"uploads/"+ image,
+    }
+
+    Vdata.append("nImageFile" , nicImg)
+    Vdata.append("customer", new Blob([JSON.stringify(CustomerDTO)], {type: "application/json"}))
+
+    $.ajax({
+        url: baseUrl + "customer",
+        method: "post",
+        async: true,
+        contentType: false,
+        processData: false,
+        data: Vdata,
+        success: function (resp) {
+            if (resp.status === 200) {
+                alert(resp.message);
+                // loadAllCars("allCarDetail");
+
+                uploadCarImages(customerId);
+                console.log(resp.data.customerId+"="+customerId);
+
+                autoGenCustomer();
+                navToLogin(resp.data);
+
+            }
+        },
+        error: function (err) {
+            alert(err.responseJSON.message)
+            console.log(err);
+        }
+    });
+
+}*/
+
 function registerCustomer(){
     let name =  $("#name-signup").val();
     let email= $("#email-signup").val();
-    let nic= $("#nic-signup").val();admin
+    let nic= $("#nic-signup").val();
     let address = $("#address-signup").val();
     let contactNumber =$("#contact-signup").val();
     let drivingLicenseNo= $("#driving-license-signup").val();
@@ -57,7 +119,7 @@ function registerCustomer(){
     let nicFileName = $("#register-form-NIC-image-signup")[0].files[0].name;
 
     var newDetails = {
-        customerId:"C003",
+        customerId:'C003',
         nic: nic,
         address: address,
         contactNumber: contactNumber,
@@ -78,7 +140,7 @@ function registerCustomer(){
             console.log(resp);
             alert(resp.message);
             navToLogin(resp.data);
-           /* loadImage();*/
+            /* loadImage();*/
 
         },
         error: function(error) {
@@ -88,7 +150,6 @@ function registerCustomer(){
     });
 
 }
-
 
 function navToLogin(details){
     $('#spaMainIndex').css('display','none');
@@ -104,7 +165,7 @@ function navToLogin(details){
 /*Update Customer*/
 function updateCustomer(){
     var newDetails = {
-        customerId:"C001",
+        customerId:"C003",
         nic: $("#update-nic").val(),
         address: $("#update-address").val(),
         contactNumber: $("#update-contact").val(),
@@ -126,7 +187,7 @@ function updateCustomer(){
             if (res.status === 200) {
                 alert(res.message)
             } else {
-                alert("Cant update your Details in this moment")
+                alert("Update Your Account!..")
             }
         }
     });
@@ -152,6 +213,9 @@ function viewAllCustomer(){
                     $("#navViewCustomer").prop('disabled',false);
                 });
             }
+            autoGenCustomer();
         }
     });
 }
+
+

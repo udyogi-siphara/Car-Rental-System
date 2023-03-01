@@ -1,6 +1,6 @@
-var vehicle_no;
+var registrationId;
 var carList;
-
+let vNameAr=[];
 /*Save Car*/
 $('#btnAddVehicle').click(function () {
     let registrationId1 = $("#save-car-reg-id").val();
@@ -12,6 +12,9 @@ $('#navViewVehicle').click(function () {
     viewCars();
 });
 
+/*$('.btnViewUpdate').click(function (){
+   getCarIds();
+});*/
 
 /*FUNCTIONS*/
 
@@ -162,7 +165,6 @@ function clearCarText() {
 
 function viewCars(path) {
     /*$("#view-car-main-div").empty();*/
-
     $("#view-car-container").empty();
 
     $.ajax({
@@ -176,7 +178,7 @@ function viewCars(path) {
                             <div class="card info-card sales-card mt-5" style="width: 901px">
 
                                 <div class="card-body">
-                                    <div class="d-flex align-items-center" style="margin-top: 5px; width: 800px">
+                                    <div class="d-flex align-items-center" style="margin-top: 5px; width: 782px">
                                         <div class="col-sm-3">
                                             <img style="width: 152px;" src=${"http://localhost:8080/02_Back_End_war_exploded/"+car.image3} alt="">
                                         </div>
@@ -234,6 +236,7 @@ function viewCars(path) {
                             </div>
                             <div class="modal-body">
                                 <form>
+                                     
                                     <div>
                                         <label for="vhId" class="col-form-label">Vehicle Id : </label>
                                         <input type="text" class="txtVehicleId-update form-control" id="vhId" disabled>
@@ -324,7 +327,7 @@ function loadAllCars(path) {
                                 <!--Title/V Name-->
                                 <div class="row">
                                     <div class="d-flex justify-content-center">
-                                        <div class="icon"><img alt="" src=${"http://localhost:8080/02_Back_End_war_exploded/"+car.image3} style="width: 250px;height: 175px"></i></div>
+                                        <div class="icon"><img id="car-img" alt="" src=${"http://localhost:8080/02_Back_End_war_exploded/"+car.image3} style="width: 250px;height: 175px"></i></div>
                                     </div>
                                 </div>
 
@@ -332,7 +335,7 @@ function loadAllCars(path) {
                                 <!--Title/V Name-->
                                 <div class="row">
                                     <div class="d-flex justify-content-center">
-                                        <h6 style="text-align: center"><a href="">${car.brand} ${car.model}</a></h6>
+                                        <h6 id="car-model" style="text-align: center"><a href="">${car.brand} ${car.model}</a></h6>
                                     </div>
                                 </div>
 
@@ -346,24 +349,18 @@ function loadAllCars(path) {
                                 <!--Line-->
                                 <div id="lineHome"></div>
 
-                                <!--<div class="row">
-                                    <div class="d-flex ">
-                                        <p class="mt-5 mb-3 ps-4 justify-content-center">The Toyota Premio is a compact
-                                            sedan known for comfort,
-                                            technology, and efficiency</p>
-                                    </div>
-                                </div>-->
+                               
 
 
                                 <!--Price-->
                                 <div class="row mt-5">
-                                    <div class="d-flex align-items-sm-stretch col-xl-4 text-danger justify-content-center"
+                                    <div id="car-dailyRate" class="d-flex align-items-sm-stretch col-xl-4 text-danger justify-content-center"
                                          style="font-weight: 900">${car.dailyRate}
                                     </div>
-                                    <div class="d-flex align-items-sm-stretch col-xl-4 text-danger justify-content-center"
+                                    <div id="car-monthlyRate" class="d-flex align-items-sm-stretch col-xl-4 text-danger justify-content-center"
                                          style="font-weight: 900">${car.monthlyRate}
                                     </div>
-                                    <div class="d-flex align-items-sm-stretch col-xl-4 text-danger justify-content-center"
+                                    <div id="car-damageCost" class="d-flex align-items-sm-stretch col-xl-4 text-danger justify-content-center"
                                          style="font-weight: 900">${car.damageCost}
                                     </div>
                                 </div>
@@ -383,7 +380,7 @@ function loadAllCars(path) {
                                 <!--Button-->
                                 <div class="row mt-5">
                                     <div class="d-flex align-items-sm-stretch col-xl-8 justify-content-around">
-                                        <button class="btnAddToCart">Add To Cart</button>
+                                        <button data-dtaImg="${car.image3}" data-dtaModel="${car.modal}" data-dtaDailyRate="${car.dailyRate}" data-dtaMonthlyRate="${car.monthlyRate}" data-dtaWawier="${car.damageCost}" class="btnAddToCart">Add To Cart</button>
                                     </div>
                                     <div class="d-flex align-items-sm-stretch col-xl-4 justify-content-center">
                                         <img class="iconCarDetail" alt="" height="35" src="../assets/img/icons8-popup-50.png" width="35">
@@ -393,7 +390,7 @@ function loadAllCars(path) {
 
                             </div>
                         </div>`;
-                /*$("#general-car-store-container").append(div);*/
+
                 if (car.type === "General") {
                     $("#general-car-store-container").append(div);
                 } else if (car.type === "Premium") {
@@ -413,6 +410,7 @@ function addToCartClick() {
     /*alert("hi");*/
     $(".btnAddToCart").click(function () {
         /*alert("hi");*/
+        console.log($(this).attr("data-btnAddToCart"));
         var bgColor = $(this).css("background-color");
         console.log(bgColor);
         $(this).text("Added");
@@ -445,6 +443,7 @@ function addToCartClick() {
                 "border-color":"#D50137"
             });
         }
+        setBrandToArray(this);
     })
 }
 
@@ -461,6 +460,60 @@ function colorsAreEqual(color1, color2) {
     }
     return true;  // The colors are equal
 }
+
+function setBrandToArray(param) {
+    let bool=true;
+
+    let elementToRemove = $(param).attr("data-btnAddToCart");
+    let index = vNameAr.indexOf(elementToRemove);
+
+
+    for(let i=0;i<vNameAr.length;i++){
+        if(vNameAr[i]===$(param).attr("data-btnAddToCart")){
+            console.log(vNameAr[i]+"==="+$(param).attr("data-btnAddToCart"));
+            bool=false;
+        }
+    }
+
+    if(bool){
+        vNameAr.push($(param).attr("data-btnAddToCart"));
+    }else{
+        console.log("index-"+index )
+        if (index > -1) {
+            vNameAr.splice(index, 1);
+        }
+    }
+
+}
+
+/*function getCarIds(){
+    $("#cmbVehicleId").empty();
+
+    $.ajax({
+        url: baseUrl + "car",
+        method: "GET",
+        success: function (resp) {
+            for (const car of resp.data) {
+                let row = `<select id="cmbVehicleId" aria-label="form-select-lg example" class="form-select form-select-ls ">
+                                            <option>Vehicle Id</option>
+                                            <option></option>
+                                            
+                                        </select>`;
+                console.log(car.registrationId);
+                $("#cmbVehicleId").append(row);
+
+                $("#cmbVehicleId").off("click");
+                $("#cmbVehicleId").click(function () {
+                    driver_nic = $(this).children(":eq(0)").text();
+                    $("#navViewDriver").prop('disabled', false);
+                });
+            }
+            bindRowClickEvents();
+        }
+    });
+}*/
+
+
 
 
 

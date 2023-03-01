@@ -37,4 +37,6 @@ public interface CarService {
     void setCarStatusUnavailableOrAvailable(String id, String status);
 
     List<CarDTO> sortCarsByAttributes(CarDTO carDTO);
+
+    List<CarDTO> getCurRegIds(CarDTO carDTO);
 }

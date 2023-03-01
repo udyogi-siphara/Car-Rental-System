@@ -110,4 +110,9 @@ public class CarController {
         return new ResponseUtil("200", "Done", carService.getAllCarDetail());
     }
 
+    @GetMapping
+    public ResponseUtil getAllCarIds(CarDTO carDTO){
+        return new ResponseUtil("200","Get IDs",carDTO.getRegistrationId());
+    }
+
 }

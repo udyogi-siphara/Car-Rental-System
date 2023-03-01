@@ -7,8 +7,9 @@
 
 package lk.ijse.spring.service;
 
-import lk.ijse.spring.dto.AdminDTO;
+
 import lk.ijse.spring.dto.CustomerDTO;
+
 
 import java.util.List;
 
@@ -27,4 +28,8 @@ public interface CustomerService {
     List<CustomerDTO> getTodayRegisteredCustomers();
 
     CustomerDTO checkCustomerLogIn(String userName);
+
+    /*void uploadNicImages(MultipartFile nicImage, String customerId);
+
+    CustomerDTO autoGenCustomerId(String customerId);*/
 }

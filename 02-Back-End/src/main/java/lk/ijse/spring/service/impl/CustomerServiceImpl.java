@@ -7,7 +7,6 @@
 
 package lk.ijse.spring.service.impl;
 
-import lk.ijse.spring.dto.AdminDTO;
 import lk.ijse.spring.dto.CustomerDTO;
 import lk.ijse.spring.entity.Customer;
 import lk.ijse.spring.repo.CustomerRepo;
@@ -16,6 +15,7 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -75,4 +75,19 @@ public class CustomerServiceImpl implements CustomerService {
     public CustomerDTO checkCustomerLogIn(String userName) {
         return modelMapper.map(customerRepo.searchCustomerByUserName(userName), CustomerDTO.class);
     }
+
+    /*@Override
+    public void uploadNicImages(MultipartFile nicImage, String customerId) {
+        if (customerRepo.existsById(customerId)) {
+
+            customerRepo.updateCarFilePaths(nicImage,customerId);
+        } else {
+            throw new RuntimeException("Image Not Found");
+        }
+    }
+
+    @Override
+    public CustomerDTO autoGenCustomerId(String customerId) {
+        return modelMapper.map(customerRepo.getCustomerByCustomerId(customerId), CustomerDTO.class);
+    }*/
 }

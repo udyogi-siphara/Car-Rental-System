@@ -1,5 +1,5 @@
 var driver_nic;
-let baseUrl = "http://localhost:8080/02_Back_End_war_exploded/"
+
 /*Save Driver*/
 $("#btnAddDriver").click(function (){
     saveDriver();
@@ -146,5 +146,9 @@ function bindRowClickEvents() {
 }
 
 function clearDriverText(){
-    $('#save-driver-Id,#save-driver-name,#save-driver-address,#save-driver-dob,#save-driver-nic,#save-driver-license').val("");
+    $('#save-driver-name').val("");
+    $('#save-driver-address').val("");
+    $('#save-driver-dob').val("");
+    $('#save-driver-nic').val("");
+    $('#save-driver-license').val("");
 }
