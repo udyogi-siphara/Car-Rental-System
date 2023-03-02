@@ -122,7 +122,7 @@ function iconCarDetail() {
         $('#spaLoginIndex').css('display', 'none');
         $('#spaUpdateIndex').css('display', 'none');
     });
-    addToCartClick();
+    rentItClick();
 }
 
 $('#navCarStoreGeneral').click(function (){

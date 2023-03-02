@@ -30,6 +30,8 @@ $('#btnInLoginSpa').click(function (){
                 $('#spaSignupIndex').css('display','none');
                 $('#spaLoginIndex').css('display','none');
                 $('#spaUpdateIndex').css('display','none');
+                sendVehicleNameToCart();
+                loadCart();
             } else {
                 alert("Username or Password Incorrect!.");
             }

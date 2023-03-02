@@ -768,16 +768,17 @@
                             <div class="news">
                                 <div class="post-item clearfix mb-3">
                                     <div class="form-floating">
-                                        <input class="form-control border-secondary car_Store_pickup_date"
+                                        <input id="car_Store_pickup_date-gen" class="form-control border-secondary"
                                                type="date">
                                         <label>Date</label>
                                     </div>
                                 </div>
 
                                 <h6 class="card-title">Return <span>| Date</span></h6>
+
                                 <div class="post-item clearfix mb-4">
                                     <div class="form-floating">
-                                        <input class="form-control border-secondary car_Store_Return_date"
+                                        <input id="car_Store_return_date-gen" class="form-control border-secondary"
                                                type="date">
                                         <label>Date</label>
                                     </div>
@@ -1214,7 +1215,7 @@
                             <div class="news">
                                 <div class="post-item clearfix mb-3">
                                     <div class="form-floating">
-                                        <input class="form-control border-secondary car_Store_pickup_date"
+                                        <input id="car_Store_pickup_date-pre" class="form-control border-secondary"
                                                type="date">
                                         <label>Date</label>
                                     </div>
@@ -1223,7 +1224,7 @@
                                 <h6 class="card-title">Return <span>| Date</span></h6>
                                 <div class="post-item clearfix mb-4">
                                     <div class="form-floating">
-                                        <input class="form-control border-secondary car_Store_Return_date"
+                                        <input id="car_Store_Return_date-pre" class="form-control border-secondary"
                                                type="date">
                                         <label>Date</label>
                                     </div>
@@ -1579,7 +1580,7 @@
                             <div class="news">
                                 <div class="post-item clearfix mb-3">
                                     <div class="form-floating">
-                                        <input class="form-control border-secondary car_Store_pickup_date"
+                                        <input id="car_Store_pickup_date-lux" class="form-control border-secondary"
                                                type="date">
                                         <label>Date</label>
                                     </div>
@@ -1588,7 +1589,7 @@
                                 <h6 class="card-title">Return <span>| Date</span></h6>
                                 <div class="post-item clearfix mb-4">
                                     <div class="form-floating">
-                                        <input class="form-control border-secondary car_Store_Return_date"
+                                        <input id="car_Store_Return_date-lux" class="form-control border-secondary"
                                                type="date">
                                         <label>Date</label>
                                     </div>
@@ -1754,7 +1755,7 @@
                     </tr>
                     </thead>
                     <tbody id="cart-table">
-                    <tr class="bg-light shadow-sm">
+                    <!--<tr class="bg-light shadow-sm">
                         <th scope="row"><a href="#"><img src="../assets/img/suzuki-alto-trans_clipdrop-background-removal.webp" alt="" ></a></th>
                         <td><a href="#" class="text-primary fw-bold">2,500</a></td>
                         <td>25,000</td>
@@ -1769,7 +1770,7 @@
                         </td>
 
                         <td><div class="w-100">
-                            <!--<label for="register-form-NIC-image" class="form-label ">Upload Slip</label>-->
+                            &lt;!&ndash;<label for="register-form-NIC-image" class="form-label ">Upload Slip</label>&ndash;&gt;
                             <input style="border: 1px solid gray" class="form-control" type="file" id="register-form-NIC-image">
                         </div></td>
                         <td><i class="bi bi-x-circle-fill"></i></td>
@@ -1784,17 +1785,17 @@
                         <td>03/03/2023</td>
                         <td>
                             <div class="input-group-text">
-                                <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">&nbsp;Need
+                                <input class="cart-driver-chex-box form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">&nbsp;Need
                             </div>
                         </td>
                         <td>
                             <div class="w-100">
-                                <!--<label for="register-form-NIC-image" class="form-label ">Upload Slip</label>-->
+                                &lt;!&ndash;<label for="register-form-NIC-image" class="form-label ">Upload Slip</label>&ndash;&gt;
                                 <input style="border: 1px solid gray" class="form-control" type="file" id="register-form-NIC-image">
                             </div>
                         </td>
-                        <td><i class="bi bi-x-circle-fill"></i></td>
-                    </tr>
+                        <td><i class="icon-cart-close bi bi-x-circle-fill"></i></td>
+                    </tr>-->
 
                     </tbody>
                 </table>
@@ -3285,5 +3286,6 @@
 <script src="../assets/js/jscontrollers/customerController.js"></script>
 
 <script src="../assets/js/jscontrollers/carController.js"></script>
+<script src="../assets/js/jscontrollers/cartController.js"></script>
 </body>
 </html>

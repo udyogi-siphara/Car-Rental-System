@@ -380,7 +380,7 @@ function loadAllCars(path) {
                                 <!--Button-->
                                 <div class="row mt-5">
                                     <div class="d-flex align-items-sm-stretch col-xl-8 justify-content-around">
-                                        <button data-dtaImg="${car.image3}" data-dtaModel="${car.modal}" data-dtaDailyRate="${car.dailyRate}" data-dtaMonthlyRate="${car.monthlyRate}" data-dtaWawier="${car.damageCost}" class="btnAddToCart">Add To Cart</button>
+                                        <button  data-dtaImg="${car.image3}"  data-dtaDailyRate="${car.dailyRate}" data-dtaMonthlyRate="${car.monthlyRate}" data-dtaWawier="${car.damageCost}" data-btnRentIt="${car.model}" class="btnAddToCart">Add To Cart</button>
                                     </div>
                                     <div class="d-flex align-items-sm-stretch col-xl-4 justify-content-center">
                                         <img class="iconCarDetail" alt="" height="35" src="../assets/img/icons8-popup-50.png" width="35">
@@ -406,85 +406,7 @@ function loadAllCars(path) {
     });
 }
 
-function addToCartClick() {
-    /*alert("hi");*/
-    $(".btnAddToCart").click(function () {
-        /*alert("hi");*/
-        console.log($(this).attr("data-btnAddToCart"));
-        var bgColor = $(this).css("background-color");
-        console.log(bgColor);
-        $(this).text("Added");
-        $(this).css({
-            "background":"#231FED",
-            "color":"#ffffff"
-        });
 
-        /*rgb(240, 240, 240)*/
-        /*rgb(213, 1, 55)*/
-
-        if(colorsAreEqual(bgColor, "rgb(35, 31, 237)")){
-            $(this).text(" Added ");
-            $(this).css({
-                "background":"#ffffff",
-                "color":"#D50137",
-                "border-color":"#D50137"
-            });
-        }else if(colorsAreEqual(bgColor, "rgb(255,255,255)")){
-            $(this).text("Add To Cart");
-            $(this).css({
-                "background":"#DBDCECFF",
-                "color":"#444444",
-            });
-        }else if(colorsAreEqual(bgColor, "rgb(219,220,236)")){
-            $(this).text("Added");
-            $(this).css({
-                "background":"#ffffff",
-                "color":"#D50137",
-                "border-color":"#D50137"
-            });
-        }
-        setBrandToArray(this);
-    })
-}
-
-function colorsAreEqual(color1, color2) {
-    var rgb1 = color1.match(/\d+/g);  // Get the RGB values of color1
-    var rgb2 = color2.match(/\d+/g);  // Get the RGB values of color2
-    if (rgb1.length !== 3 || rgb2.length !== 3) {
-        return false;  // Invalid input - not a valid color
-    }
-    for (var i = 0; i < 3; i++) {
-        if (parseInt(rgb1[i]) !== parseInt(rgb2[i])) {
-            return false;  // The colors are not equal
-        }
-    }
-    return true;  // The colors are equal
-}
-
-function setBrandToArray(param) {
-    let bool=true;
-
-    let elementToRemove = $(param).attr("data-btnAddToCart");
-    let index = vNameAr.indexOf(elementToRemove);
-
-
-    for(let i=0;i<vNameAr.length;i++){
-        if(vNameAr[i]===$(param).attr("data-btnAddToCart")){
-            console.log(vNameAr[i]+"==="+$(param).attr("data-btnAddToCart"));
-            bool=false;
-        }
-    }
-
-    if(bool){
-        vNameAr.push($(param).attr("data-btnAddToCart"));
-    }else{
-        console.log("index-"+index )
-        if (index > -1) {
-            vNameAr.splice(index, 1);
-        }
-    }
-
-}
 
 /*function getCarIds(){
     $("#cmbVehicleId").empty();
@@ -512,6 +434,147 @@ function setBrandToArray(param) {
         }
     });
 }*/
+
+
+
+
+
+function rentItClick() {
+    const buttons = document.querySelectorAll('.btn_RentIt');
+
+
+    $(".btnAddToCart").click(function () {
+        var bgColor = $(this).css("background-color");
+        console.log(bgColor)
+
+        // let x=$(this).dataset.btnRentIt;
+        console.log($(this).attr("data-btnRentIt"));
+        setBrandToArray(this);
+
+        /*console.log(colorsAreEqual(bgColor, "rgb(35, 31, 237)"))*/
+
+        if(colorsAreEqual(bgColor, "rgb(35, 31, 237)")){ //firstTime With hover
+            $(this).text("Added");
+            console.log($(this).text("Added"));
+            $(this).css({
+                "background":"#ffffff",
+                "color":"#D50137",
+                "border-color":"#D50137"
+            });
+
+        }else if(colorsAreEqual(bgColor, "rgb(255,255,255)")){ //red
+            $(this).text("Add To Cart");
+            console.log('awa');
+            $(this).css({
+                "background":"#DBDCECFF",
+                "color":"#444444",
+            });
+        }else if(colorsAreEqual(bgColor, "rgb(219,220,236)")){ //red turn to past value
+            $(this).text("Added");
+            $(this).css({
+                "background":"#ffffff",
+                "color":"#D50137",
+                "border-color":"#D50137"
+            });
+        }
+    });
+
+
+}
+
+function colorsAreEqual(color1, color2) {
+    var rgb1 = color1.match(/\d+/g);  // Get the RGB values of color1
+    var rgb2 = color2.match(/\d+/g);  // Get the RGB values of color2
+    if (rgb1.length !== 3 || rgb2.length !== 3) {
+        return false;  // Invalid input - not a valid color
+    }
+    for (var i = 0; i < 3; i++) {
+        if (parseInt(rgb1[i]) !== parseInt(rgb2[i])) {
+            return false;  // The colors are not equal
+        }
+    }
+    return true;  // The colors are equal
+}
+
+function setBrandToArray(param) {
+    let bool=true;
+    let isDateAdd=false;
+
+    var rDate="";
+    var pDate="";
+
+    if($("#car_Store_pickup_date-gen").val() && $("#car_Store_return_date-gen").val() ){
+        console.log("Value "+"======"+$("#car_Store_pickup_date-gen").val())
+        isDateAdd=true;
+        pDate=$("#car_Store_pickup_date-gen").val();
+        rDate=$("#car_Store_return_date-gen").val();
+
+    }else if($("#car_Store_pickup_date-pre").val() && $("#car_Store_Return_date-pre").val() ){
+        console.log("Value "+"======"+$("#car_Store_pickup_date-pre").val());
+        isDateAdd=true;
+        pDate=$("#car_Store_pickup_date-pre").val()
+        rDate=$("#car_Store_Return_date-pre").val();
+
+    }else if($("#car_Store_pickup_date-lux").val() && $("#car_Store_Return_date-lux").val()) {
+        console.log("Value "+"======"+$("#car_Store_Return_date-lux").val());
+        isDateAdd=true;
+        pDate=$("#car_Store_pickup_date-lux").val()
+        rDate=$("#car_Store_Return_date-lux").val()
+    }
+
+
+
+    var cus={
+        model:$(param).attr("data-btnRentIt"),
+        imag:$(param).attr("data-dtaImg") ,
+        dRate:$(param).attr("data-dtaDailyRate") ,
+        mRate:$(param).attr("data-dtaMonthlyRate") ,
+        dWaiver:$(param).attr("data-dtaWawier") ,
+        tnRent:$(param).attr("data-btnRentIt") ,
+        pickupD:pDate,
+        returnD:rDate,
+    }
+
+    // let elementToRemove = $(param).attr("data-btnRentIt");
+    // alert(elementToRemove);
+    // let index = vNameAr.indexOf(elementToRemove.parentElement);
+
+
+    for(let i=0;i<vNameAr.length;i++){
+        console.log(vNameAr[i].model+"==="+$(param).attr("data-btnRentIt"));
+        if(vNameAr[i].model===$(param).attr("data-btnRentIt")){
+            //console.log(vNameAr[i]+"==="+$(param).attr("data-btnRentIt"));
+            bool=false;
+        }
+    }
+
+
+    if(bool){
+        // vNameAr.push($(param).attr("data-btnRentIt"));
+        vNameAr.push(cus);
+    }else{
+        /*console.log("index-"+index )
+        if (index > -1) {
+            vNameAr.splice(index, 1);
+        }*/
+
+        for (var i = 0; i < vNameAr.length; i++) {
+            if (vNameAr[i].model === $(param).attr("data-btnRentIt")) {
+                vNameAr.splice(i, 1);
+                break;
+            }
+        }
+
+    }
+
+    /*======================*/
+
+}
+
+function sendVehicleNameToCart() {
+    return vNameAr;
+}
+
 
 
 
