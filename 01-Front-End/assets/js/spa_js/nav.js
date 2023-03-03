@@ -442,11 +442,6 @@ $(window).on('load',function () {
 /*==================================================*/
 
 
-
-
-
-
-
 $('#navAdminHome').click(function (){
     $('#spaMainIndex').css('display','block');
     $('#spaCarStoreIndex').css('display','none');

@@ -9,7 +9,7 @@ package lk.ijse.spring.controller;
 
 
 import lk.ijse.spring.dto.CarDTO;
-import lk.ijse.spring.dto.DriverDTO;
+
 import lk.ijse.spring.service.CarService;
 import lk.ijse.spring.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.List;
+
 
 @RestController
 @CrossOrigin
@@ -94,25 +94,23 @@ public class CarController {
         }
     }
 
-    @PutMapping()
+    @PutMapping
     public ResponseUtil updateCar(@RequestBody CarDTO dto){
         carService.updateCar(dto);
-        return new ResponseUtil("200",dto.getRegistrationId()+": Updated.!",null);
+        return new ResponseUtil("200",dto.getRegistrationId()+"Updated.!",null);
     }
 
-    @GetMapping(params = {"brand,model,daily,monthly,damage"})
-    public ResponseUtil viewSomeCarDetail(@RequestParam String brand, String model, double daily, double monthly, double damage){
-        List<CarDTO> someCarDetail = carService.getViewSomeCarDetail(brand, model, daily, monthly, damage);
-        return new ResponseUtil("200"," Success.!",someCarDetail);
+    @DeleteMapping(params = {"id"},produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil deleteCar(@RequestParam String id){
+        carService.deleteCar(id);
+        return new ResponseUtil("200","Car Deleted",null);
     }
+
     @GetMapping(path = "allCarDetail", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil getAllCarDetail() {
         return new ResponseUtil("200", "Done", carService.getAllCarDetail());
     }
 
-    @GetMapping
-    public ResponseUtil getAllCarIds(CarDTO carDTO){
-        return new ResponseUtil("200","Get IDs",carDTO.getRegistrationId());
-    }
+
 
 }

@@ -12,12 +12,55 @@ $('#navViewVehicle').click(function () {
     viewCars();
 });
 
-/*$('.btnViewUpdate').click(function (){
-   getCarIds();
-});*/
+/*Update Car*/
+$('#btnUpdateCar').click(function (){
+    viewUpdate();
+});
+
+/*Delete Car*/
+$('#btnDeleteCar').click(function (){
+    $.ajax({
+        url:"http://localhost:8080/02_Back_End_war_exploded/car?id="+$("#update-car-Id").val(),
+        method:"delete",
+        success(resp){
+            alert(resp.message);
+            viewCars();
+        }
+    });
+    clearCarTextUpdate();
+});
+
+
 
 /*FUNCTIONS*/
+/*function getCarIds(){
+    $("#cmbVehicleId").empty();
 
+    $.ajax({
+        url: baseUrl + "car",
+        method: "GET",
+        success: function (resp) {
+            for (const car of resp.data) {
+                let row = `<select id="cmbVehicleId" aria-label="form-select-lg example" class="form-select form-select-ls ">
+                                            <option>Vehicle Id</option>
+                                            <option></option>
+
+                                        </select>`;
+                console.log(car.registrationId);
+                $("#cmbVehicleId").append(row);
+
+                $("#cmbVehicleId").off("click");
+                $("#cmbVehicleId").click(function () {
+                    driver_nic = $(this).children(":eq(0)").text();
+                    $("#navViewDriver").prop('disabled', false);
+                });
+            }
+            bindRowClickEvents();
+        }
+    });
+}*/
+
+/*Admin Car Functions*/
 function saveCar() {
     var Vdata = new FormData();
 
@@ -159,159 +202,280 @@ function uploadCarImages(registrationId) {
     });
 }
 
-function clearCarText() {
-    $('#save-car-reg-id,#save-car-brand,#save-car-type,#save-car-model,#save-car-transmission,#save-car-color,#save-car-passenger,#save-car-last-km,#save-car-free-mileage,#save-car-fuel,#save-car-dailyRate,#save-car-monthlyRate,#save-car-pr-ex-km,#save-car-damage,#save-car-availability').val("");
+function viewUpdate(){
+
+        let registrationId= $('#update-car-Id').val();
+        let dailyRate= $('#update-car-dailyRate').val();
+        let monthlyRate= $('#update-car-monthlyRate').val();
+        let damageCost= $('#update-car-damagecost').val();
+        let lastServiceMileage= $('#update-car-lastmileage').val();
+        let freeServiceMileage= $('#update-car-freemileage').val();
+        let priceForExtraKm= $('#update-car-exkm').val();
+        let color= $('#update-car-color').val();
+        let availability= $('#update-car-status').val();
+
+    var view= {
+        registrationId: registrationId,
+        dailyRate:dailyRate,
+        monthlyRate: monthlyRate,
+        damageCost: damageCost,
+        lastServiceMileage: lastServiceMileage,
+        freeServiceMileage: freeServiceMileage,
+        priceForExtraKm: priceForExtraKm,
+        color: color,
+        availability:availability,
+
+        model:model,
+        brand:brand,
+        type:type,
+        noOfPassenger: noOfPassenger,
+        transmissionType:transmissonType,
+        fuelType:fuelType,
+        image1:image1,
+        image2:image2,
+        image3:image3,
+        image4:image4,
+
+
+
+    }
+
+    $.ajax({
+        url: baseUrl + "car",
+        method: "put",
+        contentType: "application/json",
+        data: JSON.stringify(view),
+        success: function (res) {
+            viewCars();
+            if (res.status === 200) {
+                alert(res.message)
+            } else {
+                alert('Updated!');
+                clearCarTextUpdate();
+            }
+        }
+    });
+
+
 }
 
 function viewCars(path) {
-    /*$("#view-car-main-div").empty();*/
-    $("#view-car-container").empty();
+    $("#admin-view-car").empty();
+    /* $("#view-car-container").empty();*/
 
     $.ajax({
         url: baseUrl + "car/" + path,
         method: "GET",
         success: function (resp) {
+            model=resp.model;
+            brand=resp.brand;
+            type=resp.type;
+            noOfPassenger=resp.noOfPassenger;
+            transmissonType=resp.transmissionType;
+            fuelType=resp.fuelType;
+            image1=resp.image1;
+            image2=resp.image2;
+            image3=resp.image3;
+            image4=resp.image4;
+
             for (const car of resp.data) {
+                let row = `<tr><td>${car.registrationId}</td><td>${car.dailyRate}</td><td>${car.monthlyRate}</td><td>${car.damageCost}</td><td>${car.lastServiceMileage}</td><td>${car.freeServiceMileage}</td><td>${car.priceForExtraKm}</td><td>${car.color}</td><td>${car.availability}</td></tr>`;
+                $("#admin-view-car").append(row);
 
-                let div = ` <!-- Sales Card -->
-                        <div class="col-xxl-4 col-md-12">
-                            <div class="card info-card sales-card mt-5" style="width: 901px">
+                $("#admin-view-car").off("click");
+                $("#admin-view-car").click(function () {
+                    driver_nic = $(this).children(":eq(0)").text();
+                    $("#navViewVehicle").prop('disabled', false);
+                });
+            }
+            bindRowClickEvents();
 
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center" style="margin-top: 5px; width: 782px">
-                                        <div class="col-sm-3">
-                                            <img style="width: 152px;" src=${"http://localhost:8080/02_Back_End_war_exploded/"+car.image3} alt="">
-                                        </div>
-                                        
-                                        <div class="col-sm-3" style="margin-left: 20px">
-                                            <h6 style="color: black; font-size: 15px">Vehicle Id</h6>
-                                            <p style="font-size: 15px">${car.registrationId}</p>
-                                        </div>
 
-                                        <div class="col-sm-3" style="margin-left: -70px">
-                                            <h6 style="color: black; font-size: 15px">${car.brand}</h6>
-                                            <p style="font-size: 15px">${car.model}</p>
-                                        </div>
 
-                                        <div class="col-sm-3" style="margin-left: -96px;">
-                                            <h6 style="color: black; font-size: 15px">Daily</h6>
-                                            <p style="font-size: 15px">${car.dailyRate}</p>
-                                        </div>
+            /*let div = ` <!-- Sales Card -->
+                    <div class="col-xxl-4 col-md-12">
+                        <div class="card info-card sales-card mt-5" style="width: 901px">
 
-                                        <div class="col-sm-3" style="margin-left: -96px;">
-                                            <h6 style="color: black; font-size: 15px">Monthly</h6>
-                                            <p style="font-size: 15px">${car.monthlyRate}</p>
-                                        </div>
-
-                                        <div class="col-sm-3" style="margin-left: -86px;">
-                                            <h6 style="color: black; font-size: 15px">Damage Cost</h6>
-                                            <p style="font-size: 15px">${car.damageCost}</p>
-                                        </div>
-                                        
-                                        <div class="col-sm-3" style="margin-left: -61px">
-                                            <h6 style="color: black; font-size: 15px">Status</h6>
-                                            <p style="font-size: 15px">${car.availability}</p>
-                                        </div>
-
+                            <div class="card-body">
+                                <div class="d-flex align-items-center" style="margin-top: 5px; width: 782px">
+                                    <div class="col-sm-3">
+                                        <img style="width: 152px;" src=${"http://localhost:8080/02_Back_End_war_exploded/"+car.image3} alt="">
                                     </div>
 
-                                    <div class="d-flex align-items-center" style="margin-left: 60px">
-                                        <div class="col-sm-3">
-                                            <button class="btnAddMaintenance btn btn-primary gap-5" style="background-color: orangered;color: white; border: none; width: 203px; margin-left: 465px">Add To Maintenance</button>
-                                        </div>
+                                    <div class="col-sm-3" style="margin-left: 20px">
+                                        <h6 style="color: black; font-size: 15px">Vehicle Id</h6>
+                                        <p style="font-size: 15px">${car.registrationId}</p>
+                                    </div>
 
-                                        <div class="col-sm-3">
-                                            <button class="btn btn-primary btnViewUpdate" data-bs-toggle="modal" 
-                                            data-bs-target=".addItemModal" 
-                                            style="background-color: blue;color: white; border: none; width: 100px; margin-left: 500px">
-                                            Update</button>
-                                        </div>
-                                        
-                                        <div class="modal fade addItemModal" tabindex="-1" aria-labelledby="addItemModalLabel" aria-hidden="true">
-                    <div class="modal-dialog-centered modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header text-light" style="background-color:#1F1D2E ">
-                                <h5 class="modal-title " id="addItemModalLabel">Update & Delete Car</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <form>
-                                     
-                                    <div>
-                                        <label for="vhId" class="col-form-label">Vehicle Id : </label>
-                                        <input type="text" class="txtVehicleId-update form-control" id="vhId" disabled>
+                                    <div class="col-sm-3" style="margin-left: -70px">
+                                        <h6 style="color: black; font-size: 15px">${car.brand}</h6>
+                                        <p style="font-size: 15px">${car.model}</p>
                                     </div>
-                                    <div >
-                                        <label for="vhBrand" class="col-form-label">Vehicle Brand : </label>
-                                        <input type="text" class="txtVehicleBrand-update form-control vhBrand">
+
+                                    <div class="col-sm-3" style="margin-left: -96px;">
+                                        <h6 style="color: black; font-size: 15px">Daily</h6>
+                                        <p style="font-size: 15px">${car.dailyRate}</p>
                                     </div>
-                                    <div >
-                                        <label for="vhModel" class="col-form-label">Vehicle Model : </label>
-                                        <input type="text" class="txtVehicleModel-update form-control vhModel">
+
+                                    <div class="col-sm-3" style="margin-left: -96px;">
+                                        <h6 style="color: black; font-size: 15px">Monthly</h6>
+                                        <p style="font-size: 15px">${car.monthlyRate}</p>
                                     </div>
-                                    <div >
-                                        <label for="vhDaily" class="col-form-label">Daily Rate:</label>
-                                        <input type="text" class="txtVehicleDaily-update form-control vhDaily">
+
+                                    <div class="col-sm-3" style="margin-left: -86px;">
+                                        <h6 style="color: black; font-size: 15px">Damage Cost</h6>
+                                        <p style="font-size: 15px">${car.damageCost}</p>
                                     </div>
-                                    <div >
-                                        <label for="vhMonthly" class="col-form-label">Monthly Rate:</label>
-                                        <input type="text" class="txtVehicleMonthly-update form-control vhMonthly">
+
+                                    <div class="col-sm-3" style="margin-left: -61px">
+                                        <h6 style="color: black; font-size: 15px">Status</h6>
+                                        <p style="font-size: 15px">${car.availability}</p>
                                     </div>
-                                    <div >
-                                        <label for="vhDamage" class="col-form-label">Damage Cost:</label>
-                                        <input type="text" class="txtVehicleDamage-update form-control vhDamage">
+
+                                </div>
+
+                                <div class="d-flex align-items-center" style="margin-left: 60px">
+                                    <div class="col-sm-3">
+                                        <button class="btnAddMaintenance btn btn-primary gap-5" style="background-color: orangered;color: white; border: none; width: 203px; margin-left: 465px">Add To Maintenance</button>
                                     </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btnUpdateCar btn btn-primary data-bs-dismiss="modal">Update</button>
-                                <button id="btnDeleteCar" type="button" class="btn btn-danger">Delete</button>
-                            </div>
+
+                                    <div class="col-sm-3">
+                                        <button data-dtaRegId="${car.registrationId}" data-dtaBrand="${car.brand}" data-dtaModel="${car.model}" data-dtaDrate="${car.dailyRate}" data-dtaMrate="${car.monthlyRate}" data-dtaDamage="${car.damageCost}" data-dtaStatus="${car.status}" class="btn btn-primary btnViewUpdate" data-bs-toggle="modal"
+                                        data-bs-target=".addItemModal"
+                                        style="background-color: blue;color: white; border: none; width: 100px; margin-left: 500px">
+                                        Update</button>
+                                    </div>
+
+                                    <div class="modal fade addItemModal" tabindex="-1" aria-labelledby="addItemModalLabel" aria-hidden="true">
+                <div class="modal-dialog-centered modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header text-light" style="background-color:#1F1D2E ">
+                            <h5 class="modal-title " id="addItemModalLabel">Update & Delete Car</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+
+                                <div>
+                                    <label for="vhId" class="col-form-label">Vehicle Id : </label>
+                                    <input type="text" class="txtVehicleId-update form-control vhId">
+                                </div>
+                                <div >
+                                    <label for="vhBrand" class="col-form-label">Vehicle Brand : </label>
+                                    <input type="text" class="txtVehicleBrand-update form-control vhBrand">
+                                </div>
+                                <div >
+                                    <label for="vhModel" class="col-form-label">Vehicle Model : </label>
+                                    <input type="text" class="txtVehicleModel-update form-control vhModel">
+                                </div>
+                                <div >
+                                    <label for="vhDaily" class="col-form-label">Daily Rate:</label>
+                                    <input type="text" class="txtVehicleDaily-update form-control vhDaily">
+                                </div>
+                                <div >
+                                    <label for="vhMonthly" class="col-form-label">Monthly Rate:</label>
+                                    <input type="text" class="txtVehicleMonthly-update form-control vhMonthly">
+                                </div>
+                                <div >
+                                    <label for="vhDamage" class="col-form-label">Damage Cost:</label>
+                                    <input type="text" class="txtVehicleDamage-update form-control vhDamage">
+                                </div>
+                                <div >
+                                    <label for="vhStatus" class="col-form-label">Status:</label>
+                                    <input type="text" class="txtVehicleStatus-update form-control vhStatus">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btnUpdateCar btn btn-primary data-bs-dismiss="modal">Update</button>
+                            <button type="button" class="btnDeleteCar btn btn-danger">Delete</button>
                         </div>
                     </div>
                 </div>
-             </div>
+            </div>
          </div>
-    </div>
- </div><!-- End Sales Card -->`;
-                $("#view-car-container").append(div);
+     </div>
+</div>
+</div><!-- End Sales Card -->`;*/
+            /*$("#view-car-container").append(div);*/
 
-                function viewUpdateCar() {
-                    var newDetails = {
-                        registrationId: $('.txtVehicleId-update').val(car.registrationId),
-                        brand: $('.txtVehicleBrand-update').val(car.brand),
-                        model: $('.txtVehicleModel-update').val(car.model),
-                        dailyRate: $('.txtVehicleDaily-update').val(car.dailyRate),
-                        monthlyRate: $('.txtVehicleMonthly-update').val(car.monthlyRate),
-                        damageCost: $('.txtVehicleDamage-update').val(car.damageCost)
 
-                    }
 
-                    $.ajax({
-                        url: baseUrl + "car",
-                        method: "put",
-                        contentType: "application/json",
-                        data: JSON.stringify(newDetails),
-                        success: function (res) {
-                            if (res.status === 200) {
-                                alert(res.message)
-                            } else {
-
-                            }
-                        }
-                    });
+            /*function viewUpdateCar() {
+                var view= {
+                    regId: $('.txtVehicleId-update').attr('value',car.registrationId),
+                    brand: $('.txtVehicleBrand-update').attr('value','data-dtaBrand'),
+                    model: $('.txtVehicleModel-update').attr('value','data-dtaModel'),
+                    drate: $('.txtVehicleDaily-update').attr('value','data-dtaDrate'),
+                    mrate: $('.txtVehicleMonthly-update').attr('value','data-dtaMrate'),
+                    damCost: $('.txtVehicleDamage-update').attr('value','data-dtaDamage'),
+                    status: $('.txtVehicleStatus-update').attr('value','data-dtaStatus')
                 }
 
-                $('.btnViewUpdate').click(function () {
-                    viewUpdateCar();
-                });
+                console.log($('.txtVehicleId-update').attr("data-dtaRegId"));
 
-            }
+                $.ajax({
+                    url: baseUrl + "car",
+                    method: "put",
+                    contentType: "application/json",
+                    data: JSON.stringify(view),
+                    success: function (res) {
+                        if (res.status === 200) {
+                            alert(res.message)
+                        } else {
+                            alert('Cannot Update.');
+                        }
+                    }
+                });
+            }*/
+
+            /*$('.btnViewUpdate').click(function () {
+                viewUpdateCar();
+            });*/
 
         }
+
+
     });
 }
 
+function clearCarTextUpdate() {
+    $('#update-car-Id,#update-car-dailyRate,#update-car-monthlyRate,#update-car-damagecost,#update-car-lastmileage,#update-car-freemileage,#update-car-exkm,#update-car-color,#update-car-status').val("");
+}
+
+
+function clearCarText() {
+    $('#save-car-reg-id,#save-car-brand,#save-car-type,#save-car-model,#save-car-transmission,#save-car-color,#save-car-passenger,#save-car-last-km,#save-car-free-mileage,#save-car-fuel,#save-car-dailyRate,#save-car-monthlyRate,#save-car-pr-ex-km,#save-car-damage,#save-car-availability').val("");
+}
+
+function bindRowClickEvents() {
+    $("#admin-view-car>tr").click(function () {
+        let id = $(this).children(":eq(0)").text();
+        let dRate = $(this).children(":eq(1)").text();
+        let mRate = $(this).children(":eq(2)").text();
+        let damage = $(this).children(":eq(3)").text();
+        let last = $(this).children(":eq(4)").text();
+        let free = $(this).children(":eq(5)").text();
+        let extra = $(this).children(":eq(6)").text();
+        let color = $(this).children(":eq(7)").text();
+        let status = $(this).children(":eq(8)").text();
+
+
+        $('#update-car-Id').val(id);
+        $('#update-car-dailyRate').val(dRate);
+        $('#update-car-monthlyRate').val(mRate);
+        $('#update-car-damagecost').val(damage);
+        $('#update-car-lastmileage').val(last);
+        $('#update-car-freemileage').val(free);
+        $('#update-car-exkm').val(extra);
+        $('#update-car-color').val(color);
+        $('#update-car-status').val(status);
+
+    });
+}
+
+
+/*Cart And Car Store Functions*/
 function loadAllCars(path) {
     $("#luxury-car-store-container").empty();
 
@@ -319,6 +483,7 @@ function loadAllCars(path) {
         url: baseUrl + "car/" + path,
         method: "GET",
         success: function (resp) {
+
             for (const car of resp.data) {
                 let div = `<div class="col-xl-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="zoom-in"
                              data-aos-delay="100">
@@ -406,39 +571,6 @@ function loadAllCars(path) {
     });
 }
 
-
-
-/*function getCarIds(){
-    $("#cmbVehicleId").empty();
-
-    $.ajax({
-        url: baseUrl + "car",
-        method: "GET",
-        success: function (resp) {
-            for (const car of resp.data) {
-                let row = `<select id="cmbVehicleId" aria-label="form-select-lg example" class="form-select form-select-ls ">
-                                            <option>Vehicle Id</option>
-                                            <option></option>
-                                            
-                                        </select>`;
-                console.log(car.registrationId);
-                $("#cmbVehicleId").append(row);
-
-                $("#cmbVehicleId").off("click");
-                $("#cmbVehicleId").click(function () {
-                    driver_nic = $(this).children(":eq(0)").text();
-                    $("#navViewDriver").prop('disabled', false);
-                });
-            }
-            bindRowClickEvents();
-        }
-    });
-}*/
-
-
-
-
-
 function rentItClick() {
     const buttons = document.querySelectorAll('.btn_RentIt');
 
@@ -504,19 +636,19 @@ function setBrandToArray(param) {
     var pDate="";
 
     if($("#car_Store_pickup_date-gen").val() && $("#car_Store_return_date-gen").val() ){
-        console.log("Value "+"======"+$("#car_Store_pickup_date-gen").val())
+       /* console.log("Value "+"======"+$("#car_Store_pickup_date-gen").val())*/
         isDateAdd=true;
         pDate=$("#car_Store_pickup_date-gen").val();
         rDate=$("#car_Store_return_date-gen").val();
 
     }else if($("#car_Store_pickup_date-pre").val() && $("#car_Store_Return_date-pre").val() ){
-        console.log("Value "+"======"+$("#car_Store_pickup_date-pre").val());
+        /*console.log("Value "+"======"+$("#car_Store_pickup_date-pre").val());*/
         isDateAdd=true;
         pDate=$("#car_Store_pickup_date-pre").val()
         rDate=$("#car_Store_Return_date-pre").val();
 
     }else if($("#car_Store_pickup_date-lux").val() && $("#car_Store_Return_date-lux").val()) {
-        console.log("Value "+"======"+$("#car_Store_Return_date-lux").val());
+        /*console.log("Value "+"======"+$("#car_Store_Return_date-lux").val());*/
         isDateAdd=true;
         pDate=$("#car_Store_pickup_date-lux").val()
         rDate=$("#car_Store_Return_date-lux").val()
@@ -574,6 +706,8 @@ function setBrandToArray(param) {
 function sendVehicleNameToCart() {
     return vNameAr;
 }
+
+
 
 
 

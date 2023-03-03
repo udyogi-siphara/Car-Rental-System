@@ -837,15 +837,15 @@
             </ul>
         </div>
 
-        <section class="section dashboard" style="margin-left: 68px; width: 1217px;">
+        <!--<section class="section dashboard" style="margin-left: 68px; width: 1217px;">
             <div class="row">
 
-                <!-- Left side columns -->
+                &lt;!&ndash; Left side columns &ndash;&gt;
                 <div class="col-lg-8">
                     <div class="row" id="view-car-container">
 
-                        <!-- Sales Card -->
-                        <!--<div class="col-xxl-4 col-md-12">
+                        &lt;!&ndash; Sales Card &ndash;&gt;
+                        &lt;!&ndash;<div class="col-xxl-4 col-md-12">
                             <div id="view-car-main-div" class="card info-card sales-card mt-5">
 
                                 <div class="card-body">
@@ -935,13 +935,115 @@
                                 </div>
 
                             </div>
-                        </div>&lt;!&ndash; End Sales Card &ndash;&gt;-->
+                        </div>&lt;!&ndash; End Sales Card &ndash;&gt;&ndash;&gt;
 
 
                     </div>
-                </div><!-- End Left side columns -->
+                </div>&lt;!&ndash; End Left side columns &ndash;&gt;
             </div>
-        </section>
+        </section>-->
+
+        <form id="carViewForm" style="margin-left: 5px; margin-top: 44px;" >
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-groupCF">
+                        <input class="form-control" id="update-car-Id" placeholder="Registration Id" type="text" disabled>
+                        <span class="control-error" id="lblVReg"></span>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-groupNFP">
+                        <input class="form-control" id="update-car-dailyRate" placeholder="Daily Rate" type="text">
+                        <span class="control-error" id="lblVDailyRate"></span>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-groupFT">
+                        <input class="form-control" id="update-car-monthlyRate" placeholder="Monthly Rate" type="text">
+                        <span class="control-error" id="lblVMonthlyRate"></span>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-groupMRT">
+                        <input class="form-control" id="update-car-damagecost" placeholder="Damage Cost" type="text">
+                        <span class="control-error" id="lblDmCost"></span>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-groupNFP">
+                        <input class="form-control" id="update-car-lastmileage" placeholder="Last Service Mileage" type="text">
+                        <span class="control-error" id="lblVLast"></span>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-groupFT">
+                        <input class="form-control" id="update-car-freemileage" placeholder="Free Service Mileage" type="text">
+                        <span class="control-error" id="lblVFree"></span>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-groupMRT">
+                        <input class="form-control" id="update-car-exkm" placeholder="Price For Extra(KM)" type="text">
+                        <span class="control-error" id="lblexkm"></span>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-groupFT">
+                        <input class="form-control" id="update-car-color" placeholder="Color" type="text">
+                        <span class="control-error" id="lblVcolor"></span>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="form-groupMRT">
+                        <input class="form-control" id="update-car-status" placeholder="Status" type="text">
+                        <span class="control-error" id="lblstatus"></span>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+        </form>
+
+        <div class="row">
+            <div class="col-sm-3" style="margin-left: 9px">
+                <button class="btn btn-primary" id="btnUpdateCar" style="background-color: navy;color: white; border: none">Update</button>
+            </div>
+
+            <div class="col-sm-3" style="margin-left: -152px">
+                <button class="btn btn-primary" id="btnDeleteCar" style="background-color: orangered;color: white; border: none">Delete</button>
+            </div>
+        </div>
+
+        <div class="col-sm-9 mt-lg-3">
+
+            <table style="width: 997px;margin-left: -10px; margin-top: 46px;" class="table table-borderless">
+                <thead class="bg-dark shadow-lg" style="background-color:white; color: black;">
+                <tr>
+                    <th scope="col" class="text-light">Registration Id</th>
+                    <th scope="col" class="text-light">Daily Rate</th>
+                    <th scope="col" class="text-light">Monthly Rate</th>
+                    <th scope="col" class="text-light">Damage Cost</th>
+                    <th scope="col" class="text-light">Last Service Mileage</th>
+                    <th scope="col" class="text-light">Free Service Mileage</th>
+                    <th scope="col" class="text-light">Price For Extra(Km)</th>
+                    <th scope="col" class="text-light">Color</th>
+                    <th scope="col" class="text-light">Status</th>
+                </tr>
+                </thead>
+                <tbody id="admin-view-car"></tbody>
+            </table>
+        </div>
 
     </main><!-- End #main -->
 </main>
@@ -1305,38 +1407,7 @@
                         <th scope="col" class="text-light">Status</th>
                     </tr>
                     </thead>
-                    <tbody id="admin-view-driver">
-                    <!--<tr class="bg-light shadow-sm">
-                        <td>DR-001</td>
-                        <td>Udyogi Siphara</td>
-                        <td>No:78,Perera Mawatha,Panadura</td>
-                        <td>05/02/1999</td>
-                        <td>199925365v</td>
-                        <td>25632125333</td>
-                        <td>Available</td>
-                    </tr>-->
-
-                    <!--<tr class="bg-light shadow-sm">
-                        <td>DR-001</td>
-                        <td>Udyogi Siphara</td>
-                        <td>No:78,Perera Mawatha,Panadura</td>
-                        <td>05/02/1999</td>
-                        <td>199925365v</td>
-                        <td>25632125333</td>
-                        <td>Non-Available</td>
-                    </tr>
-
-                    <tr class="bg-light shadow-sm">
-                        <td>DR-001</td>
-                        <td>Udyogi Siphara</td>
-                        <td>No:78,Perera Mawatha,Panadura</td>
-                        <td>05/02/1999</td>
-                        <td>199925365v</td>
-                        <td>25632125333</td>
-                        <td>Non-Available</td>
-                    </tr>-->
-
-                    </tbody>
+                    <tbody id="admin-view-driver"></tbody>
                 </table>
             </div>
         </div>

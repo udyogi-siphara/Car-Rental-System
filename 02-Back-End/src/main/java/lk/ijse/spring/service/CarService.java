@@ -24,8 +24,6 @@ public interface CarService {
 
     List<CarDTO> getAllCarDetail();
 
-    List<CarDTO>getViewSomeCarDetail(String brand,String model,double daily,double monthly,double damage);
-
     List<CarDTO> getCarsUnderMaintain();
 
     List<CarDTO> getCarsNeedMaintain();
@@ -38,5 +36,5 @@ public interface CarService {
 
     List<CarDTO> sortCarsByAttributes(CarDTO carDTO);
 
-    List<CarDTO> getCurRegIds(CarDTO carDTO);
+
 }

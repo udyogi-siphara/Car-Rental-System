@@ -22,6 +22,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -44,9 +45,19 @@ public class CarServiceImpl implements CarService {
     @Override
     public void updateCar(CarDTO carDTO) {
         if (carRepo.existsById(carDTO.getRegistrationId())){
-            carRepo.save( modelMapper.map(carDTO, Car.class));
+            Optional<Car> updateCar = carRepo.findById(carDTO.getRegistrationId());
+            Car car = updateCar.get();
+            car.setPriceForExtraKm(carDTO.getPriceForExtraKm());
+            car.setDailyRate(carDTO.getDailyRate());
+            car.setMonthlyRate(carDTO.getMonthlyRate());
+            car.setLastServiceMileage(carDTO.getLastServiceMileage());
+            car.setFreeServiceMileage(carDTO.getFreeServiceMileage());
+            car.setDamageCost(carDTO.getDamageCost());
+            car.setAvailability(carDTO.getAvailability());
+            car.setColor(carDTO.getColor());
+            carRepo.save(updateCar.get());
         }else {
-            throw new RuntimeException("Car " + carDTO.getRegistrationId() + " Not Available to Update..!");
+            throw new RuntimeException("Car"+carDTO.getRegistrationId()+"Not Available to Update..!");
         }
     }
 
@@ -62,7 +73,10 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public void deleteCar(String id) {
-
+        if (!carRepo.existsById(id)){
+            throw new RuntimeException("Car "+id+" Not Available To Delete.");
+        }
+        carRepo.deleteById(id);
     }
 
     @Override
@@ -73,11 +87,6 @@ public class CarServiceImpl implements CarService {
     @Override
     public List<CarDTO> getAllCarDetail() {
         return modelMapper.map(carRepo.findAll(), new TypeToken<List<CarDTO>>() {}.getType());
-    }
-
-    @Override
-    public List<CarDTO> getViewSomeCarDetail(String brand, String model, double daily, double monthly, double damage) {
-        return modelMapper.map(carRepo.viewSomeDetail(brand, model, daily, monthly, damage),new TypeToken<List<CarDTO>>(){}.getType());
     }
 
     @Override
@@ -110,8 +119,5 @@ public class CarServiceImpl implements CarService {
         return null;
     }
 
-    @Override
-    public List<CarDTO> getCurRegIds(CarDTO carDTO) {
-        return modelMapper.map(carRepo.getCarByRegistrationId(carDTO.getRegistrationId()),new TypeToken<List<CarDTO>>(){}.getType());
-    }
+
 }
