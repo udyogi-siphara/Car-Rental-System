@@ -148,7 +148,7 @@ function saveCar() {
             console.log(err);
         }
     });
-    //clearSaveCarForm();
+    clearCarText();
 }
 
 function uploadCarImages(registrationId) {
@@ -200,6 +200,7 @@ function uploadCarImages(registrationId) {
                });*/
         }
     });
+    clearCarText();
 }
 
 function viewUpdate(){
