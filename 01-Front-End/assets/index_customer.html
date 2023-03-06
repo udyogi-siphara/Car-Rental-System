@@ -1804,16 +1804,16 @@
                     <div class="d-flex col-xl-6">
                         <!--pickup-->
                         <div class="form-group col-lg-6 mb-2">
-                            <label class="form-label" for="addressSignIn">PickUp Location</label>
-                            <input type="text" placeholder="Pickup Location" name="name" class="form-control" id="addressSignIn" required>
+                            <label class="form-label" for="addressPickUp">PickUp Location</label>
+                            <input type="text" placeholder="Pickup Location" name="name" class="form-control" id="addressPickUp" required>
                         </div>
                     </div>
 
                     <div class="d-flex col-xl-6 justify-content-end">
                         <!--Return-->
                         <div class="form-group col-lg-6 mb-5">
-                            <label class="form-label " for="addressPickup">Return Location</label>
-                            <input type="text" placeholder="Pickup Location" name="name" class="form-control" id="addressPickup" required>
+                            <label class="form-label " for="addressReturn">Return Location</label>
+                            <input type="text" placeholder="Return Location" name="name" class="form-control" id="addressReturn" required>
                         </div>
                     </div>
                 </div>
@@ -1827,7 +1827,7 @@
                         </div>
                         <!--price-->
                         <div class="d-flex col-xl-3" style="color: #FF0000" >
-                            <h6>LKR 2,000</h6>
+                            <h6>LKR <span id="driverCost">00.000</span></h6>
                         </div>
                     </div>
                 </div>
@@ -1841,7 +1841,7 @@
                         </div>
                         <!--price-->
                         <div class="d-flex col-xl-3" style="color: #FF0000">
-                            <h6>LKR 40,000</h6>
+                            <h6>LKR <span>28,000</span> </h6>
                         </div>
                     </div>
                 </div>
@@ -1855,7 +1855,35 @@
                         </div>
                         <!--price-->
                         <div class="d-flex col-xl-3" style="color: #FF0000">
-                            <h6>LKR 20,000</h6>
+                            <h6>LKR <span>20,000</span></h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-4" >
+                    <!--DD-->
+                    <div class="d-flex col-xl 12 row">
+                        <!--DD-->
+                        <div class="d-flex col-xl-3">
+                            <h6 class="fw-bold">Driver payment Per Day &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6>
+                        </div>
+                        <!--price-->
+                        <div class="d-flex col-xl-3" style="margin-right:500px; color: #FF0000">
+                            <h6>LKR 1,000</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!--DD-->
+                    <div class="d-flex col-xl 12 row">
+                        <!--DD-->
+                        <div class="d-flex col-xl-3">
+                            <h6 class="fw-bold">Total days &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6>
+                        </div>
+                        <!--price-->
+                        <div class="d-flex col-xl-3" style="margin-right:500px; color: #FF0000">
+                            <h6 id="clzTTDays">1,000</h6>
                         </div>
                     </div>
                 </div>
@@ -3067,6 +3095,7 @@
                                             <div class="input-group has-validation">
                                                 <span class="input-group-text" id="inputGroupPrepend">@</span>
                                                 <input type="text" name="username" class="form-control" id="customer-user-name" required>
+                                                <p><small class="text-danger pl-1" id="lblCusLoginUser"></small></p>
                                                 <div class="invalid-feedback">Please enter your username.</div>
                                             </div>
                                         </div>
@@ -3074,6 +3103,7 @@
                                         <div class="col-12">
                                             <label for="customer-password" class="form-label">Password</label>
                                             <input type="password" name="password" class="form-control" id="customer-password" required>
+                                            <p><small class="text-danger pl-1" id="lblCusLoginPassword"></small></p>
                                             <div class="invalid-feedback">Please enter your password!</div>
                                         </div>
 

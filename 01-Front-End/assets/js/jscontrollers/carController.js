@@ -545,7 +545,7 @@ function loadAllCars(path) {
                                 <!--Button-->
                                 <div class="row mt-5">
                                     <div class="d-flex align-items-sm-stretch col-xl-8 justify-content-around">
-                                        <button  data-dtaImg="${car.image3}"  data-dtaDailyRate="${car.dailyRate}" data-dtaMonthlyRate="${car.monthlyRate}" data-dtaWawier="${car.damageCost}" data-btnRentIt="${car.model}" class="btnAddToCart">Add To Cart</button>
+                                        <button data-registrationId="${car.registrationId}" data-dtaImg="${car.image3}"  data-dtaDailyRate="${car.dailyRate}" data-dtaMonthlyRate="${car.monthlyRate}" data-dtaWawier="${car.damageCost}" data-btnRentIt="${car.model}" class="btnAddToCart">Add To Cart</button>
                                     </div>
                                     <div class="d-flex align-items-sm-stretch col-xl-4 justify-content-center">
                                         <img class="iconCarDetail" alt="" height="35" src="../assets/img/icons8-popup-50.png" width="35">
@@ -665,6 +665,7 @@ function setBrandToArray(param) {
         tnRent:$(param).attr("data-btnRentIt") ,
         pickupD:pDate,
         returnD:rDate,
+        regId:$(param).attr("data-registrationId")
     }
 
     // let elementToRemove = $(param).attr("data-btnRentIt");
@@ -706,12 +707,6 @@ function setBrandToArray(param) {
 function sendVehicleNameToCart() {
     return vNameAr;
 }
-
-
-
-
-
-
 
 
 

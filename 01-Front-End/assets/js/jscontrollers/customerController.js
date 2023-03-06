@@ -3,15 +3,15 @@ var customer_nic;
 let baseUrl = "http://localhost:8080/02_Back_End_war_exploded/";
 
 /*Save Customer*/
-$('#btnInSignupSpa').click(function (){
+$('#btnInSignupSpa').click(function () {
     registerCustomer();
 });
 /*Update Customer*/
-$("#btnUpdateSpa").click(function (){
+$("#btnUpdateSpa").click(function () {
     updateCustomer();
 });
 
-$('#btnInLoginSpa').click(function (){
+$('#btnInLoginSpa').click(function () {
     let userName = $('#customer-user-name').val();
     let password = $('#customer-password').val();
 
@@ -22,14 +22,14 @@ $('#btnInLoginSpa').click(function (){
             console.log(resp.userName + "=" + resp.data.userName)
             console.log(resp.userName + "=" + userName)
             if (resp.data.userName === userName && resp.data.password === password) {
-                $('#spaMainIndex').css('display','none');
-                $('#spaCarStoreIndex').css('display','none');
-                $('#spaCartIndex').css('display','block');
-                $('#spaCarDetailsIndex').css('display','none');
-                $('#spaOverviewIndex').css('display','none');
-                $('#spaSignupIndex').css('display','none');
-                $('#spaLoginIndex').css('display','none');
-                $('#spaUpdateIndex').css('display','none');
+                $('#spaMainIndex').css('display', 'none');
+                $('#spaCarStoreIndex').css('display', 'none');
+                $('#spaCartIndex').css('display', 'block');
+                $('#spaCarDetailsIndex').css('display', 'none');
+                $('#spaOverviewIndex').css('display', 'none');
+                $('#spaSignupIndex').css('display', 'none');
+                $('#spaLoginIndex').css('display', 'none');
+                $('#spaUpdateIndex').css('display', 'none');
                 sendVehicleNameToCart();
                 loadCart();
             } else {
@@ -41,12 +41,10 @@ $('#btnInLoginSpa').click(function (){
 });
 
 
-
-
-
 /*CUSTOMER FUNCTIONS*/
 
 /*Register Customer*/
+
 /*function registerCustomer(){
     var Vdata = new FormData();
 
@@ -109,35 +107,35 @@ $('#btnInLoginSpa').click(function (){
 
 }*/
 
-function registerCustomer(){
-    let name =  $("#name-signup").val();
-    let email= $("#email-signup").val();
-    let nic= $("#nic-signup").val();
+function registerCustomer() {
+    let name = $("#name-signup").val();
+    let email = $("#email-signup").val();
+    let nic = $("#nic-signup").val();
     let address = $("#address-signup").val();
-    let contactNumber =$("#contact-signup").val();
-    let drivingLicenseNo= $("#driving-license-signup").val();
-    let password =$("#password-signup").val();
-    let user_name= $("#username-signup").val();
+    let contactNumber = $("#contact-signup").val();
+    let drivingLicenseNo = $("#driving-license-signup").val();
+    let password = $("#password-signup").val();
+    let user_name = $("#username-signup").val();
     let nicFileName = $("#register-form-NIC-image-signup")[0].files[0].name;
 
     var newDetails = {
-        customerId:'C003',
+        customerId: 'C003',
         nic: nic,
         address: address,
         contactNumber: contactNumber,
         name: name,
         drivingLicenseNumber: drivingLicenseNo,
         email: email,
-        password:password,
-        userName:user_name,
+        password: password,
+        userName: user_name,
         imageLocation: nicFileName
     }
 
     $.ajax({
-        url: baseUrl+"customer",
-        method :"post",
-        data : JSON.stringify(newDetails),
-        contentType:"application/json",
+        url: baseUrl + "customer",
+        method: "post",
+        data: JSON.stringify(newDetails),
+        contentType: "application/json",
         success: function (resp) {
             console.log(resp);
             alert(resp.message);
@@ -145,7 +143,7 @@ function registerCustomer(){
             /* loadImage();*/
 
         },
-        error: function(error) {
+        error: function (error) {
             let prase = JSON.parse(error.responseText);
             alert(prase.message);
         }
@@ -153,29 +151,29 @@ function registerCustomer(){
 
 }
 
-function navToLogin(details){
-    $('#spaMainIndex').css('display','none');
-    $('#spaCarStoreIndex').css('display','none');
-    $('#spaCartIndex').css('display','none');
-    $('#spaCarDetailsIndex').css('display','none');
-    $('#spaOverviewIndex').css('display','none');
-    $('#spaSignupIndex').css('display','none');
-    $('#spaLoginIndex').css('display','block');
+function navToLogin(details) {
+    $('#spaMainIndex').css('display', 'none');
+    $('#spaCarStoreIndex').css('display', 'none');
+    $('#spaCartIndex').css('display', 'none');
+    $('#spaCarDetailsIndex').css('display', 'none');
+    $('#spaOverviewIndex').css('display', 'none');
+    $('#spaSignupIndex').css('display', 'none');
+    $('#spaLoginIndex').css('display', 'block');
 
 }
 
 /*Update Customer*/
-function updateCustomer(){
+function updateCustomer() {
     var newDetails = {
-        customerId:"C003",
+        customerId: "C003",
         nic: $("#update-nic").val(),
         address: $("#update-address").val(),
         contactNumber: $("#update-contact").val(),
         name: $("#update-name").val(),
         drivingLicenseNumber: $("#update-drivingLicense").val(),
         email: $("#update-email").val(),
-        password:$("#update-password").val(),
-        userName:$("#update-user-name").val(),
+        password: $("#update-password").val(),
+        userName: $("#update-user-name").val(),
         imageLocation: $("#update-register-form-NIC-image").val()
 
     }
@@ -195,23 +193,23 @@ function updateCustomer(){
     });
 }
 
-function viewAllCustomer(){
+function viewAllCustomer() {
     $("#customer-view-table").empty();
 
     $.ajax({
         url: baseUrl + "customer",
         method: "GET",
-        success: function (resp){
-            for (const customer of resp.data){
+        success: function (resp) {
+            for (const customer of resp.data) {
                 let viewImage = customer.imageLocation;
                 let row = `<tr><th scope="row">${customer.customerId}</th><td>${customer.name}</td><td>${customer.address}</td><td>${customer.contactNumber}</td><td>${customer.nic}</td><td>${customer.email}</td><td><a style="cursor: pointer" class="text-info">viewImage</a></td></tr>`;
                 $("#customer-view-table").append(row);
 
                 $("#customer-view-table>tr").off("click");
-                $("#customer-view-table>tr").click(function (){
+                $("#customer-view-table>tr").click(function () {
                     customer_nic = $(this).children(":eq(1)").text();
                     console.log(customer_nic)
-                    $("#navViewCustomer").prop('disabled',false);
+                    $("#navViewCustomer").prop('disabled', false);
                 });
             }
             autoGenCustomer();
@@ -220,11 +218,8 @@ function viewAllCustomer(){
 }
 
 
-
-
-
 /*VALIDATIONS*/
-//validation start
+//validation start For Registration
 
 const cusNICRegEx = /^[0-9/A-z]{10,15}$/;
 const cusDrivingRegEx = /^[0-9/A-z]{9}$/;
