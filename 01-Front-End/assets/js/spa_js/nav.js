@@ -1,3 +1,5 @@
+var loggedCustomerId;
+
 /*Home page*/
 $('#navIndexHome').click(function (){
     $('#spaMainIndex').css('display','block');
@@ -289,6 +291,8 @@ $('#btnSendRequest').click(function (){
     $('#spaSignupIndex').css('display','none');
     $('#spaLoginIndex').css('display','none');
     $('#spaUpdateIndex').css('display','none');
+
+    saveRental();
 });
 
 $('#btnupdateInfoCart').click(function (){

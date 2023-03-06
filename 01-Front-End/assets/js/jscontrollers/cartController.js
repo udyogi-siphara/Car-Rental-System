@@ -3,6 +3,7 @@ var carNames = sendVehicleNameToCart(); /*Benz, BMW, Premio */
 var rentalAr = [];
 var dayCount = 0;
 var driverPayment = 0;
+var amount=0;
 
 
 var curDay = function (sp) {
@@ -38,7 +39,7 @@ function loadCart() {
 
                         <td>
                             <div class="w-100">
-                                <input class="form-control register-form-NIC-image1" id="" style="border: 1px solid gray"
+                                <input data-slip="${carNames[i].regId}" data-sf="${this}" class="form-control register-form-NIC-image1" id="" style="border: 1px solid gray"
                                        type="file">
                             </div>
                         </td>
@@ -59,6 +60,8 @@ function loadCart() {
     deleteCartItem();
     getDateRange();
     getAmount();
+    getLocations();
+    setSlip();
 }
 
 function deleteCartItem() {
@@ -152,6 +155,7 @@ function addRentalTOTheRentAr() {
             totalDamageWaiverPayment: carNames[i].dWaiver,
             cusId: "C001",
             driver: "No",
+            img:new FormData(),
         }
         rentalAr.push(rentalObj);
     }
@@ -174,10 +178,138 @@ function getDateRange() {
 
 
 function getAmount() {
-    if (dayCount%30===0 || dayCount%60===0){
-        console.log("driver Selected ="+dayCount)
-    }else{
-        console.log("dayCount ="+ dayCount);
+    for (let i = 0; i < carNames.length; i++) {
+        if (dayCount%30===0 || dayCount%60===0){
+            console.log("driver Selected ="+dayCount);
+            /*dRate: $(param).attr("data-dtaDailyRate"),
+                mRate*/
+
+            if(dayCount===30){
+                // pa
+                amount=parseInt(amount)+parseInt(carNames[i].mRate);
+                rentalAr[i].amount=parseInt(carNames[i].mRate);
+            }else if(dayCount===60){
+                amount=2*(parseInt(amount)+(parseInt(carNames[i].mRate)));
+                rentalAr[i].amount=2*(parseInt(carNames[i].mRate));
+            }
+
+        }else{
+            console.log("dayCount ="+ dayCount);
+            amount=parseInt(amount)+(parseInt(carNames[i].dRate)*dayCount);
+            rentalAr[i].amount=parseInt(carNames[i].dRate)*dayCount;
+        }
     }
+
+    $("#totalRentAmount").text(amount);
+}
+
+function getLocations() {
+
+    $("#addressPickUp").keyup(function () {
+        // console.log($("#addressPickup").val());
+        for (let i = 0; i < rentalAr.length; i++) {
+            rentalAr[i].pickupLocation=$("#addressPickUp").val();
+        }
+    })
+
+    $("#addressReturn").keyup(function () {
+        // console.log($("#addressReturn").val());
+        for (let i = 0; i < rentalAr.length; i++) {
+            rentalAr[i].returnLocation=$("#addressReturn").val();
+        }
+    })
+}
+
+
+function setSlip() {
+    $(".slipPicker").change(function () {
+        for (let i = 0; i < rentalAr.length; i++) {
+            console.log(rentalAr[i].rentalId + "==========================" + $(this).attr("data-slip"));
+
+            if (rentalAr[i].rentalId === $(this).attr("data-slip")) {
+                var data = new FormData();
+                let slip_img = $(this)[0].files[0];
+                // console.log("slip name 1 : "+$(this)[0].files[0]);
+                // console.log("slip name 2 : "+$(".slipPicker")[0].files[0]);
+                // console.log("slip name 3 : "+$(this).attr("data-sf"));
+                // console.log("slip name 3 : "+$(this).attr("data-sf")[0].files[0]);
+
+                // let slipFileName = slip_img.name;
+
+                // console.log("slip eke")
+                // data.append("file", slip_img);
+                rentalAr[i].img.append("file",slip_img);
+            }
+        }
+    })
+}
+
+function saveRental() {
+    var now = new Date();
+    var day = ("0" + now.getDate()).slice(-2);
+    var month = ("0" + (now.getMonth() + 1)).slice(-2);
+    var today = now.getFullYear() + "-" + (month) + "-" + (day);
+
+    // console.log("save REntal Ekeeeeeeeeeeeeeeeeeeeeeeeeeee");
+    // console.log("value eka - "+$(".slipPicker").attr("data-slip"))
+
+    for (let i = 0; i < rentalAr.length; i++) {
+        var data = new FormData();
+
+        /*let slip_img = $("#slip-image")[0].files[0];
+        let slipFileName = slip_img.name;
+
+        data.append("file", slip_img);*/
+
+        // var driver_status;
+        /*if ($('#customer-reservation-customer-driverCheck').is(":checked")) {
+            driver_status = "YES"
+        } else {
+            driver_status = "NO"
+        }*/
+
+        let reservation = {
+            rentalId: "R001",
+            date: today,
+            pickupDate: rentalAr[i].pickupDate,
+            amount: rentalAr[i].amount,
+            returnDate: rentalAr[i].rentalDate,
+            totalDamageWaiverPayment: rentalAr[i].totalDamageWaiverPayment,
+            pickupLocation: rentalAr[i].pickupLocation,
+            returnLocation: rentalAr[i].returnLocation,
+            bankSlip:rentalAr[i].img,
+            noOfDays:dayCount,
+            reservationStatus: "Pending",
+            driverStatus: rentalAr[i].driver,
+            customer: {
+                nic:loggedCustomerId
+            },
+            car: {
+                registrationId: rentalAr[i].rentalId
+            },
+        }
+        data.append("reservation", new Blob([JSON.stringify(reservation)], {type: "application/json"}));
+
+        $.ajax({
+            url: baseUrl + "reservation",
+            method: 'post',
+            async: true,
+            contentType:  false,
+            processData: false,
+            data: data,
+            success: function (resp) {
+                console.log(resp.data)
+                // alert(resp.message);
+                // listNo=0;
+                // getAvailableCar();
+                // $("#bookNowModel").modal("toggle");
+            },
+            error: function (err) {
+                console.log(err);
+                // getAvailableCar();
+            }
+        });
+    }
+
 }
 

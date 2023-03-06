@@ -10,8 +10,12 @@ package lk.ijse.spring.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Id;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 
 @NoArgsConstructor
@@ -39,4 +43,7 @@ public class Car {
     private double monthlyRate;
     private double priceForExtraKm;
     private String availability;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Rental> reservations;
 }

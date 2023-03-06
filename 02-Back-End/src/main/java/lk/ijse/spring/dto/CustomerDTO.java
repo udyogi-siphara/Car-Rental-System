@@ -7,10 +7,13 @@
 
 package lk.ijse.spring.dto;
 
+import lk.ijse.spring.entity.Rental;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -27,4 +30,6 @@ public class CustomerDTO {
     private String password;
     private String imageLocation;
     private String userName;
+
+    private List<Rental> rentalDetail;
 }
