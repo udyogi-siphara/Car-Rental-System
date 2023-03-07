@@ -151,7 +151,7 @@ function addRentalTOTheRentAr() {
             totalDamageWaiverPayment: carNames[i].dWaiver,
             cusId: "C001",
             driver: "No",
-            img:new FormData(),
+            img:"",
         }
         rentalAr.push(rentalObj);
     }
