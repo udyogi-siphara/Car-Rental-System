@@ -7,11 +7,13 @@
 
 package lk.ijse.spring.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 @AllArgsConstructor
@@ -20,9 +22,12 @@ import java.time.LocalDate;
 @ToString
 public class ReservationDTO {
     private String rentalId;
-    private LocalDate date;
-    private LocalDate pickupDate;
-    private LocalDate returnDate;
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "Asia/Kolkata")
+    private Date date;
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "Asia/Kolkata")
+    private Date pickupDate;
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "Asia/Kolkata")
+    private Date returnDate;
     private double amount;
     private double total_damage_viewer_payment;
     private String pickupLocation;
