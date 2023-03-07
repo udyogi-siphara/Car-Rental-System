@@ -54,7 +54,7 @@ public class ReservationServiceImpl implements ReservationService {
             if (true) {
 
                 Rental carReservation = mapper.map(reservationDTO, Rental.class);
-                
+
                 Customer customer = customerRepo.findById(reservationDTO.getCustomer().getCustomerId()).get();
                 Car car = carRepo.findById(reservationDTO.getCar().getRegistrationId()).get();
 

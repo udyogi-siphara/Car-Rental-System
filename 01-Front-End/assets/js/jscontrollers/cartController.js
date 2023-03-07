@@ -1,9 +1,9 @@
-var carNames = sendVehicleNameToCart(); /*Benz, BMW, Premio */
-// console.log(carNames);
+var carNames = sendVehicleNameToCart();
 var rentalAr = [];
 var dayCount = 0;
 var driverPayment = 0;
 var amount=0;
+var cusId;
 
 
 var curDay = function (sp) {
@@ -107,20 +107,16 @@ function btnColourRemover(pr) {
 
 function checkDriver() {
     $(".cart-driver-chex-box").click(function () {
-        console.log($(this).attr("data-cartDriverCheckBoxRegId"));
-        // rentalAr.push()
-        // console.log(carNames.length);
-
+        /*console.log($(this).attr("data-cartDriverCheckBoxRegId"));*/
 
         for (let i = 0; i < rentalAr.length; i++) {
-            console.log(rentalAr[i].rentalId + "==========================" + $(this).attr("data-cartDriverCheckBoxRegId"));
+            /*console.log(rentalAr[i].rentalId + "==========================" + $(this).attr("data-cartDriverCheckBoxRegId"));*/
 
             if (rentalAr[i].rentalId === $(this).attr("data-cartDriverCheckBoxRegId")) {
-                //console.log(vNameAr[i]+"==="+$(param).attr("data-btnRentIt"));
-                // rentalAr[i].driver="Need"
+
 
                 if (rentalAr[i].driver === "No") {
-                    // alert("if eke")
+
                     rentalAr[i].driver = "Yes";
                     driverPayment = parseInt(driverPayment) + (1000 * parseInt(dayCount));
                     $("#driverCost").text(driverPayment);
@@ -130,7 +126,7 @@ function checkDriver() {
                     driverPayment = parseInt(driverPayment) - (1000 * parseInt(dayCount));
                     $("#driverCost").text(driverPayment);
 
-                    // alert("else of eke")
+
                     rentalAr[i].driver = "No";
 
                 }
@@ -146,7 +142,7 @@ function addRentalTOTheRentAr() {
         console.log("Rent Id : " + carNames[i].regId);
         var rentalObj = {
             rentalId: carNames[i].regId,
-            amount: 0,
+            amount: amount,
             date: curDay("-"),
             pickupDate: carNames[i].pickupD,
             pickupLocation: $("#addressPickUp").val(),
@@ -181,8 +177,6 @@ function getAmount() {
     for (let i = 0; i < carNames.length; i++) {
         if (dayCount%30===0 || dayCount%60===0){
             console.log("driver Selected ="+dayCount);
-            /*dRate: $(param).attr("data-dtaDailyRate"),
-                mRate*/
 
             if(dayCount===30){
                 // pa
@@ -206,14 +200,14 @@ function getAmount() {
 function getLocations() {
 
     $("#addressPickUp").keyup(function () {
-        // console.log($("#addressPickup").val());
+
         for (let i = 0; i < rentalAr.length; i++) {
             rentalAr[i].pickupLocation=$("#addressPickUp").val();
         }
     })
 
     $("#addressReturn").keyup(function () {
-        // console.log($("#addressReturn").val());
+
         for (let i = 0; i < rentalAr.length; i++) {
             rentalAr[i].returnLocation=$("#addressReturn").val();
         }
@@ -221,28 +215,19 @@ function getLocations() {
 }
 
 
-function setSlip() {
+/*function setSlip() {
     $(".slipPicker").change(function () {
         for (let i = 0; i < rentalAr.length; i++) {
-            console.log(rentalAr[i].rentalId + "==========================" + $(this).attr("data-slip"));
 
             if (rentalAr[i].rentalId === $(this).attr("data-slip")) {
                 var data = new FormData();
                 let slip_img = $(this)[0].files[0];
-                // console.log("slip name 1 : "+$(this)[0].files[0]);
-                // console.log("slip name 2 : "+$(".slipPicker")[0].files[0]);
-                // console.log("slip name 3 : "+$(this).attr("data-sf"));
-                // console.log("slip name 3 : "+$(this).attr("data-sf")[0].files[0]);
 
-                // let slipFileName = slip_img.name;
-
-                // console.log("slip eke")
-                // data.append("file", slip_img);
                 rentalAr[i].img.append("file",slip_img);
             }
         }
     })
-}
+}*/
 
 function saveRental() {
     var now = new Date();
@@ -250,23 +235,10 @@ function saveRental() {
     var month = ("0" + (now.getMonth() + 1)).slice(-2);
     var today = now.getFullYear() + "-" + (month) + "-" + (day);
 
-    // console.log("save REntal Ekeeeeeeeeeeeeeeeeeeeeeeeeeee");
-    // console.log("value eka - "+$(".slipPicker").attr("data-slip"))
-
     for (let i = 0; i < rentalAr.length; i++) {
         var data = new FormData();
 
-        /*let slip_img = $("#slip-image")[0].files[0];
-        let slipFileName = slip_img.name;
-
-        data.append("file", slip_img);*/
-
-        // var driver_status;
-        /*if ($('#customer-reservation-customer-driverCheck').is(":checked")) {
-            driver_status = "YES"
-        } else {
-            driver_status = "NO"
-        }*/
+        data.append("file", rentalAr[i].img);
 
         let reservation = {
             rentalId: "R001",
@@ -282,7 +254,7 @@ function saveRental() {
             reservationStatus: "Pending",
             driverStatus: rentalAr[i].driver,
             customer: {
-                nic:loggedCustomerId
+                customerId:loggedCustomerId
             },
             car: {
                 registrationId: rentalAr[i].rentalId
@@ -299,17 +271,27 @@ function saveRental() {
             data: data,
             success: function (resp) {
                 console.log(resp.data)
-                // alert(resp.message);
-                // listNo=0;
-                // getAvailableCar();
-                // $("#bookNowModel").modal("toggle");
             },
             error: function (err) {
                 console.log(err);
-                // getAvailableCar();
+
             }
         });
     }
 
+}
+
+function setSlip(){
+    $('.slipPicker').on('change', () => {
+        $('#tblCartDetail tr').each((index, element) => {
+            console.log(index+"========="+element);
+
+            const selectedFile = $(element).find('.slipPicker').prop('files')[0];
+
+            rentalAr[index].img=selectedFile;
+
+
+        });
+    });
 }
 
