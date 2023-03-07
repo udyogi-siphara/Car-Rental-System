@@ -11,6 +11,7 @@ import lk.ijse.spring.dto.ReservationDTO;
 import lk.ijse.spring.service.ReservationService;
 import lk.ijse.spring.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -27,6 +28,7 @@ public class ReservationController {
     @Autowired
     ReservationService carReservationService;
 
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(consumes = {MediaType.MULTIPART_FORM_DATA_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseUtil requestReservation(@RequestPart("reservation") ReservationDTO carReservation, @RequestPart("file") MultipartFile file) {
         carReservation.setBankSlip("uploads/" + carReservation.getBankSlip());
