@@ -54,6 +54,7 @@ function saveDriver(){
         dob: $("#save-driver-dob").val(),
         address: $("#save-driver-address").val(),
         drivingLicenseNumber: $("#save-driver-license").val(),
+        status:"Available"
 
     }
 

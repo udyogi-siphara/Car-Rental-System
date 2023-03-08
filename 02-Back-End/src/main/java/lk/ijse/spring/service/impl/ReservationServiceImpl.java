@@ -63,75 +63,56 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Override
     public void requestReservation(ReservationDTO reservationDTO) {
-//        if (!carReservationRepo.existsById(reservationDTO.getRentalId())) {
-            /*if (true) {
+        if (!carReservationRepo.existsById(reservationDTO.getRentalId())) {
+            Rental carReservation = mapper.map(reservationDTO, Rental.class);
 
-                Rental carReservation = mapper.map(reservationDTO, Rental.class);
+            Customer customer = customerRepo.findById(reservationDTO.getCustomer().getCustomerId()).get();
 
-                Customer customer = customerRepo.findById(reservationDTO.getCustomer().getCustomerId()).get();
-                Car car = carRepo.findById(reservationDTO.getCar().getRegistrationId()).get();
-                System.out.println("cus -- "+customer);
-                System.out.println("car - "+car);
+            Car car = carRepo.findById(reservationDTO.getCar().getRegistrationId()).get();
+
+
+            if (reservationDTO.getDriverStatus().equalsIgnoreCase("YES")) {
+
                 carReservation.setCustomer(mapper.map(customer,Customer.class));
                 carReservation.setCar(car);
 
-                carReservationRepo.save(carReservation);
-            } else {
-                throw new RuntimeException("Your Reservation Request can't Send in this moment,Try Again..!");
-            }*/
 
+                Driver driver = driverRepo.getDriverByDriverStatus();
+                if(driver!=null){
+                    DriverScheduleDTO driverScheduleDTO = new DriverScheduleDTO(
+                            reservationDTO.getRentalId(),
+                            reservationDTO.getPickupDate(),
+                            reservationDTO.getReturnDate(),
+                            mapper.map(driver, DriverDTO.class),
+                            mapper.map(carReservation, ReservationDTO.class));
 
-        if (!carReservationRepo.existsById(reservationDTO.getRentalId())) {
-                Rental carReservation = mapper.map(reservationDTO, Rental.class);
+                    driverScheduleRepo.save(mapper.map(driverScheduleDTO, DriverSchedule.class));
 
-                Customer customer = customerRepo.findById(reservationDTO.getCustomer().getCustomerId()).get();
-//            System.out.println("Customer ID :"+reservationDTO.getCustomer().getCustomerId());
-                Car car = carRepo.findById(reservationDTO.getCar().getRegistrationId()).get();
-
-
-                if (reservationDTO.getDriverStatus().equalsIgnoreCase("YES")) {
 
                     carReservation.setCustomer(mapper.map(customer,Customer.class));
                     carReservation.setCar(car);
 
 
-                    Driver driver = driverRepo.getDriverByDriverStatus();
-                    if(driver!=null){
-                        DriverScheduleDTO driverScheduleDTO = new DriverScheduleDTO(
-                                reservationDTO.getRentalId(),
-                                reservationDTO.getPickupDate(),
-                                reservationDTO.getReturnDate(),
-                                mapper.map(driver, DriverDTO.class),
-                                mapper.map(carReservation, ReservationDTO.class));
 
-                        driverScheduleRepo.save(mapper.map(driverScheduleDTO, DriverSchedule.class));
-
-
-                        carReservation.setCustomer(mapper.map(customer,Customer.class));
-                        carReservation.setCar(car);
-
-
-//      carReservationRepo.save(carReservation);
-                        carReservationRepo.save(carReservation);
-
-                    }else{
-                        System.out.println("You Can't assign Driver at that movement");
-                    }
-
-
-                }else{
-                    carReservation.setCustomer(mapper.map(customer,Customer.class));
-                    carReservation.setCar(car);
                     carReservationRepo.save(carReservation);
 
-
-//                System.out.println("Driver eke ======="+reservationDTO.getDriverStatus());
-//            Rental entity = mapper.map(reservationDTO, Rental.class);
+                }else{
+                    System.out.println("You Can't assign Driver at that movement");
                 }
 
-            } else {
-                throw new RuntimeException("Your Reservation Request can't Send in this moment,Try Again..!");
+
+            }else{
+                carReservation.setCustomer(mapper.map(customer,Customer.class));
+                carReservation.setCar(car);
+                carReservationRepo.save(carReservation);
+
             }
+
+        } else {
+            throw new RuntimeException("Your Reservation Request can't Send in this moment,Try Again..!");
+        }
+
+
       }
 
 
