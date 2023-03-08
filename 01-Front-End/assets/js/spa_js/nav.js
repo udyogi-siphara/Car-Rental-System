@@ -472,6 +472,8 @@ $('#navReservation').click(function (){
     $('#adminPaymentsSpa').css('display', 'none');
     $('#adminFooterSpa').css('display', 'none');
 
+    rentalVerification();
+
 });
 
 $('#navDashboard').click(function (){

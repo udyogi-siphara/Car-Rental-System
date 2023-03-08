@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.sql.Date;
-import java.time.LocalDate;
+
 
 @NoArgsConstructor
 @AllArgsConstructor

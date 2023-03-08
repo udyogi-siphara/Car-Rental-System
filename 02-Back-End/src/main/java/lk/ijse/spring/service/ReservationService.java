@@ -26,5 +26,7 @@ public interface ReservationService {
 
     List<ReservationDTO> getAllTodayPickUps();
 
+    List<ReservationDTO> getAllReservation();
+
     List<ReservationDTO> getCustomerReservationByStatus(String id, String status);
 }
