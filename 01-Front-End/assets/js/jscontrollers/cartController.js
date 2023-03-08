@@ -39,7 +39,7 @@ function loadCart() {
 
                         <td>
                             <div class="w-100">
-                                <input data-slip="${carNames[i].regId}" data-sf="${this}" class="form-control register-form-NIC-image1" id="" style="border: 1px solid gray"
+                                <input data-slip="${carNames[i].regId}" data-sf="${this}" class="form-control register-form-NIC-image1 slipPicker" id="" style="border: 1px solid gray"
                                        type="file">
                             </div>
                         </td>
@@ -246,10 +246,10 @@ function saveRental() {
             pickupDate: rentalAr[i].pickupDate,
             amount: rentalAr[i].amount,
             returnDate: rentalAr[i].rentalDate,
-            totalDamageWaiverPayment: rentalAr[i].totalDamageWaiverPayment,
+            total_damage_viewer_payment: rentalAr[i].totalDamageWaiverPayment,
             pickupLocation: rentalAr[i].pickupLocation,
             returnLocation: rentalAr[i].returnLocation,
-            bankSlip:rentalAr[i].img,
+            bankSlip:rentalAr[i].img.name,
             noOfDays:dayCount,
             reservationStatus: "Pending",
             driverStatus: rentalAr[i].driver,
@@ -283,7 +283,7 @@ function saveRental() {
 
 function setSlip(){
     $('.slipPicker').on('change', () => {
-        $('#tblCartDetail tr').each((index, element) => {
+        $('#cart-table tr').each((index, element) => {
             console.log(index+"========="+element);
 
             const selectedFile = $(element).find('.slipPicker').prop('files')[0];

@@ -579,11 +579,11 @@ function rentItClick() {
         var bgColor = $(this).css("background-color");
         console.log(bgColor)
 
-        // let x=$(this).dataset.btnRentIt;
+
         console.log($(this).attr("data-btnRentIt"));
         setBrandToArray(this);
 
-        /*console.log(colorsAreEqual(bgColor, "rgb(35, 31, 237)"))*/
+
 
         if(colorsAreEqual(bgColor, "rgb(35, 31, 237)")){ //firstTime With hover
             $(this).text("Added");
@@ -636,19 +636,19 @@ function setBrandToArray(param) {
     var pDate="";
 
     if($("#car_Store_pickup_date-gen").val() && $("#car_Store_return_date-gen").val() ){
-       /* console.log("Value "+"======"+$("#car_Store_pickup_date-gen").val())*/
+
         isDateAdd=true;
         pDate=$("#car_Store_pickup_date-gen").val();
         rDate=$("#car_Store_return_date-gen").val();
 
     }else if($("#car_Store_pickup_date-pre").val() && $("#car_Store_Return_date-pre").val() ){
-        /*console.log("Value "+"======"+$("#car_Store_pickup_date-pre").val());*/
+
         isDateAdd=true;
         pDate=$("#car_Store_pickup_date-pre").val()
         rDate=$("#car_Store_Return_date-pre").val();
 
     }else if($("#car_Store_pickup_date-lux").val() && $("#car_Store_Return_date-lux").val()) {
-        /*console.log("Value "+"======"+$("#car_Store_Return_date-lux").val());*/
+
         isDateAdd=true;
         pDate=$("#car_Store_pickup_date-lux").val()
         rDate=$("#car_Store_Return_date-lux").val()
@@ -668,28 +668,19 @@ function setBrandToArray(param) {
         regId:$(param).attr("data-registrationId")
     }
 
-    // let elementToRemove = $(param).attr("data-btnRentIt");
-    // alert(elementToRemove);
-    // let index = vNameAr.indexOf(elementToRemove.parentElement);
-
-
     for(let i=0;i<vNameAr.length;i++){
         console.log(vNameAr[i].model+"==="+$(param).attr("data-btnRentIt"));
         if(vNameAr[i].model===$(param).attr("data-btnRentIt")){
-            //console.log(vNameAr[i]+"==="+$(param).attr("data-btnRentIt"));
+
             bool=false;
         }
     }
 
 
     if(bool){
-        // vNameAr.push($(param).attr("data-btnRentIt"));
+
         vNameAr.push(cus);
     }else{
-        /*console.log("index-"+index )
-        if (index > -1) {
-            vNameAr.splice(index, 1);
-        }*/
 
         for (var i = 0; i < vNameAr.length; i++) {
             if (vNameAr[i].model === $(param).attr("data-btnRentIt")) {
@@ -700,7 +691,7 @@ function setBrandToArray(param) {
 
     }
 
-    /*======================*/
+
 
 }
 

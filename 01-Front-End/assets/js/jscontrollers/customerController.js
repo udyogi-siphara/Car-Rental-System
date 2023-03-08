@@ -19,9 +19,10 @@ $('#btnInLoginSpa').click(function () {
         url: baseUrl + "customer?userName=" + userName,
         method: "GET",
         success: function (resp) {
-            console.log(resp.userName + "=" + resp.data.userName)
-            console.log(resp.userName + "=" + userName)
+
             if (resp.data.userName === userName && resp.data.password === password) {
+                alert(resp.data.customerId);
+                loggedCustomerId=resp.data.customerId;
                 $('#spaMainIndex').css('display', 'none');
                 $('#spaCarStoreIndex').css('display', 'none');
                 $('#spaCartIndex').css('display', 'block');

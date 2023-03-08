@@ -45,19 +45,20 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Override
     public String generateReservationId() {
-        return null;
+        return "R001";
     }
 
     @Override
     public void requestReservation(ReservationDTO reservationDTO) {
-        if (!carReservationRepo.existsById(reservationDTO.getRentalId())) {
+//        if (!carReservationRepo.existsById(reservationDTO.getRentalId())) {
             if (true) {
 
                 Rental carReservation = mapper.map(reservationDTO, Rental.class);
 
                 Customer customer = customerRepo.findById(reservationDTO.getCustomer().getCustomerId()).get();
                 Car car = carRepo.findById(reservationDTO.getCar().getRegistrationId()).get();
-
+                System.out.println("cus -- "+customer);
+                System.out.println("car - "+car);
                 carReservation.setCustomer(mapper.map(customer,Customer.class));
                 carReservation.setCar(car);
 
@@ -66,7 +67,7 @@ public class ReservationServiceImpl implements ReservationService {
                 throw new RuntimeException("Your Reservation Request can't Send in this moment,Try Again..!");
             }
         }
-    }
+
 
     @Override
     public void updateReservationStatus(String reserve_id, String driver_id, String status) {
