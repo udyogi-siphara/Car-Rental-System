@@ -27,9 +27,9 @@ public class DriverSchedule {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int schedule_id;
 
-    private Time start_time;
-    private Date start_date;
-    private Date end_date;
+
+    private Date pickup_date;
+    private Date return_date;
 
     @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH})
     @JoinColumn(name="driverId")
