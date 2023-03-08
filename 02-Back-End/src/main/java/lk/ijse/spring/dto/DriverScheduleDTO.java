@@ -20,7 +20,7 @@ import java.sql.Date;
 @Data
 @ToString
 public class DriverScheduleDTO {
-    private int schedule_id;
+    private String schedule_id;
 
     @JsonFormat(pattern = "yyyy-MM-dd",timezone = "Asia/Kolkata")
     private Date pickup_date;

@@ -24,8 +24,7 @@ import java.sql.Time;
 public class DriverSchedule {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int schedule_id;
+    private String schedule_id;
 
 
     private Date pickup_date;
