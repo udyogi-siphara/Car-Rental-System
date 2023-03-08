@@ -46,7 +46,19 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Override
     public String generateReservationId() {
-        return "R001";
+        String id = carReservationRepo.generateReservationId();
+        if (!(id == null)) {
+
+            String prefix = id.substring(0, 1);  // extract the prefix, e.g. "C"
+            int number = Integer.parseInt(id.substring(1));  // extract the numeric portion and parse it as an integer
+            number++;  // increment the number
+            return prefix + String.format("%03d", number);
+
+
+        } else {
+            return "R001";
+        }
+
     }
 
     @Override

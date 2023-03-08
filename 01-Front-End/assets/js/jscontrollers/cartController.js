@@ -229,6 +229,69 @@ function getLocations() {
     })
 }*/
 
+/*function saveRental() {
+    var now = new Date();
+    var day = ("0" + now.getDate()).slice(-2);
+    var month = ("0" + (now.getMonth() + 1)).slice(-2);
+    var today = now.getFullYear() + "-" + (month) + "-" + (day);
+
+    for (let i = 0; i < rentalAr.length; i++) {
+
+        $.ajax({
+            url: baseUrl + "reservation",
+            method: 'get',
+            async: true,
+            contentType:  false,
+            processData: false,
+            data: data,
+            success: function (resp) {
+                console.log(resp.data)
+
+                var data = new FormData();
+
+                data.append("file", rentalAr[i].img);
+
+                let reservation = {
+                    rentalId: resp.data,
+                    date: today,
+                    pickupDate: rentalAr[i].pickupDate,
+                    amount: rentalAr[i].amount,
+                    returnDate: rentalAr[i].rentalDate,
+                    total_damage_viewer_payment: rentalAr[i].totalDamageWaiverPayment,
+                    pickupLocation: rentalAr[i].pickupLocation,
+                    returnLocation: rentalAr[i].returnLocation,
+                    bankSlip:rentalAr[i].img.name,
+                    noOfDays:dayCount,
+                    reservationStatus: "Pending",
+                    driverStatus: rentalAr[i].driver,
+                    customer: {
+                        customerId:loggedCustomerId,
+                        name:"",
+                        address:"",
+                        nic:"",
+                        drivingLicenseNumber:"",
+                        contactNumber:"",
+                        email:"",
+                        password:"",
+                        imageLocation:"",
+                        userName:""
+                    },
+                    car: {
+                        registrationId: rentalAr[i].rentalId
+                    },
+                }
+                data.append("reservation", new Blob([JSON.stringify(reservation)], {type: "application/json"}));
+
+            },
+            error: function (err) {
+                console.log(err);
+
+            }
+        });
+    }
+
+}*/
+
 function saveRental() {
     var now = new Date();
     var day = ("0" + now.getDate()).slice(-2);
@@ -236,56 +299,69 @@ function saveRental() {
     var today = now.getFullYear() + "-" + (month) + "-" + (day);
 
     for (let i = 0; i < rentalAr.length; i++) {
-        var data = new FormData();
-
-        data.append("file", rentalAr[i].img);
-
-        let reservation = {
-            rentalId: "R001",
-            date: today,
-            pickupDate: rentalAr[i].pickupDate,
-            amount: rentalAr[i].amount,
-            returnDate: rentalAr[i].rentalDate,
-            total_damage_viewer_payment: rentalAr[i].totalDamageWaiverPayment,
-            pickupLocation: rentalAr[i].pickupLocation,
-            returnLocation: rentalAr[i].returnLocation,
-            bankSlip:rentalAr[i].img.name,
-            noOfDays:dayCount,
-            reservationStatus: "Pending",
-            driverStatus: rentalAr[i].driver,
-            customer: {
-                customerId:loggedCustomerId,
-                name:"",
-                address:"",
-                nic:"",
-                drivingLicenseNumber:"",
-                contactNumber:"",
-                email:"",
-                password:"",
-                imageLocation:"",
-                userName:""
-            },
-            car: {
-                registrationId: rentalAr[i].rentalId
-            },
-        }
-        data.append("reservation", new Blob([JSON.stringify(reservation)], {type: "application/json"}));
 
         $.ajax({
-            url: baseUrl + "reservation",
-            method: 'post',
-            async: true,
-            contentType:  false,
-            processData: false,
-            data: data,
+            url: baseUrl + "reservation/generateReservationId",
+            method: 'get',
+            async:false,
             success: function (resp) {
                 console.log(resp.data)
+
+                console.log("Response D :"+resp.data);
+
+
+
+                var data = new FormData();
+
+                data.append("file", rentalAr[i].img);
+
+
+                let reservation = {
+                    rentalId: resp.data,
+                    date: today,
+                    pickupDate: rentalAr[i].pickupDate,
+                    returnDate: rentalAr[i].rentalDate,
+                    amount: rentalAr[i].amount,
+                    total_damage_viewer_payment: rentalAr[i].totalDamageWaiverPayment,
+                    pickupLocation: rentalAr[i].pickupLocation,
+                    returnLocation: rentalAr[i].returnLocation,
+                    bankSlip:rentalAr[i].img.name,
+                    noOfDays:dayCount,
+                    reservationStatus: "Pending",
+                    driverStatus: rentalAr[i].driver,
+                    customer: {
+                        customerId:loggedCustomerId
+                    },
+                    car: {
+                        registrationId: rentalAr[i].rentalId
+                    },
+                }
+                data.append("reservation", new Blob([JSON.stringify(reservation)], {type: "application/json"}));
+
+                $.ajax({
+                    url: baseUrl + "reservation",
+                    method: 'post',
+                    async: true,
+                    contentType:  false,
+                    processData: false,
+                    data: data,
+                    success: function (resp) {
+                        console.log(resp.data)
+                    },
+                    error: function (err) {
+                        console.log(err);
+
+                    }
+                });
+
             },
             error: function (err) {
                 console.log(err);
 
             }
-        });
+        })
+
+
     }
 
 }
@@ -319,7 +395,7 @@ function rentalVerification(){
                                 <div class="card-body">
                                     <div class="d-flex align-items-center" style="margin-top: 5px">
                                         <div class="col-sm-3">
-                                            <h6 style="color: black; font-size: 15px">${rental.customerId}</h6>
+                                            <h6 style="color: black; font-size: 15px">${rental.customer.customerId}</h6>
                                             <p style="font-size: 15px">Customer</p>
                                         </div>
 
@@ -359,7 +435,7 @@ function rentalVerification(){
 
                                     <div class="d-flex align-items-center">
                                         <div class="col-sm-3">
-                                            <h6 style="color: black; font-size: 15px">${rental.registrationId}</h6>
+                                            <h6 style="color: black; font-size: 15px">${rental.car.registrationId}</h6>
                                             <p style="font-size: 15px">Vehicle</p>
                                         </div>
 
