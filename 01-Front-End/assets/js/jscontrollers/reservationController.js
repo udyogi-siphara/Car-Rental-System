@@ -62,7 +62,7 @@ function rentalVerification(){
                                         </div>
 
                                         <div class="col-sm-3">
-                                            <p style="color: blue; font-size: 15px"><a href="">View Image</a></p>
+                                           <a href=${"http://localhost:8080/02_Back_End_war_exploded/" + rental.bankSlip} target="_blank"><img src=${"http://localhost:8080/02_Back_End_war_exploded/" + rental.bankSlip} alt="" style="background-color: black;width:85px; height:50px; margin-left: 28px;"></a>
                                         </div>
 
                                         <div class="col-sm-3">
