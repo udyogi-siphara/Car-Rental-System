@@ -18,6 +18,9 @@ public interface RentalRepo extends JpaRepository<Rental,String> {
     @Query(value = "SELECT rentalId FROM rental ORDER BY rentalId DESC limit 1", nativeQuery = true)
     String generateReservationId();
 
+    @Query(value = "SELECT * FROM rental WHERE reservationStatus='Pending'", nativeQuery = true)
+    List<Rental> getRentalByReservationStatus();
+
     /*@Query(value = "SELECT customerId,pickupDate,returnDate,returnLocation,pickupLocation,registrationId,driverStatus from rental where rentalId=rentalId", nativeQuery = true)
     List<Rental> getAllReservation();*/
 }
