@@ -113,7 +113,7 @@ function acceptClick() {
                 if (res.status === 200) {
                     alert(res.message)
                 } else {
-                    alert('Updated!');
+
                 }
             }
         });
@@ -141,7 +141,7 @@ function denyClick() {
                 if (res.status === 200) {
                     alert(res.message)
                 } else {
-                    alert('Updated!');
+
                 }
             }
         });
