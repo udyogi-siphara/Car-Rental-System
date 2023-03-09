@@ -65,7 +65,7 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Override
     public void updateReservation(ReservationDTO reservationDTO) {
-        if (carRepo.existsById(reservationDTO.getRentalId())){
+        if (carReservationRepo.existsById(reservationDTO.getRentalId())){
             Optional<Rental> updateReservation = carReservationRepo.findById(reservationDTO.getRentalId());
             Rental rental = updateReservation.get();
             rental.setReservationStatus(reservationDTO.getReservationStatus());
