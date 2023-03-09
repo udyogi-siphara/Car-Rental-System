@@ -56,39 +56,10 @@ public class ReservationController {
         return new ResponseUtil("200", "Done", carReservationService.generateReservationId());
     }
 
-    @PutMapping(params = {"reserve_id", "driver_id", "status"}, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil updateReservationStatus(@RequestParam String reserve_id, @RequestParam String driver_id, @RequestParam String status) {
-        carReservationService.updateReservationStatus(reserve_id, driver_id, status);
-        return new ResponseUtil("200", status + " Request Successfully", null);
-    }
-
     @PutMapping
     public ResponseUtil updateReservation(@RequestBody ReservationDTO dto){
         carReservationService.updateReservation(dto);
         return new ResponseUtil("200",dto.getRentalId()+"Updated.!",null);
-    }
-
-    //return reservations they are in pending status
-    @GetMapping(path = "pendingReservation", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil getAllPendingReservation() {
-        return new ResponseUtil("200", "Done", carReservationService.getAllPendingReservation());
-    }
-
-    @GetMapping(path = "getReservation/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil getReservationDetail(@PathVariable String id) {
-        return new ResponseUtil("200", "Done", carReservationService.getReservationDetail(id));
-    }
-
-    //return all today reserve reservations
-    @GetMapping(path = "todayReservation", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil getAllTodayReservation() {
-        return new ResponseUtil("200", "Done", carReservationService.getAllTodayReservation());
-    }
-
-    //return all reservations they are picking up today
-    @GetMapping(path = "todayPickUps", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil getAllTodayPickUps() {
-        return new ResponseUtil("200", "Done", carReservationService.getAllTodayPickUps());
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
@@ -99,6 +70,13 @@ public class ReservationController {
     @GetMapping(path = "getDriverId/{rid}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil getDriverId(@PathVariable String rid) {
         return new ResponseUtil("200", "Done", carReservationService.getDriverIdByScheduleId(rid));
+    }
+
+    @GetMapping(path = "getCustomerId/{cid}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil getReservationDetail(@PathVariable String cid) {
+        System.out.println("cid"+cid);
+        return new ResponseUtil("200", "Done", carReservationService.getReservationDetail(cid));
+
     }
 
 }

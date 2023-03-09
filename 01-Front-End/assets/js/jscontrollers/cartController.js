@@ -380,5 +380,50 @@ function setSlip(){
     });
 }
 
+/*function getDetailToOverView(){
+    $("#car-overView").empty();
 
+    $.ajax({
+        url: baseUrl + "reservation/getReservation="+cid,
+        method: "GET",
+        success: function (resp) {
+            for (const reser of resp.data) {
+                let row = `<tr><td>${reser.b}</td><td>${driver.name}</td><td>${driver.address}</td><td>${driver.dob}</td><td>${driver.nic}</td><td>${driver.drivingLicenseNumber}</td><td>${driver.status}</td></tr>`;
+                $("#admin-view-driver").append(row);
+
+
+            }
+
+        }
+    });
+}*/
+
+$('#btnSendRequest').click(function (){
+    saveRental();
+    $("#car-overView").empty();
+    $.ajax({
+        url: baseUrl + "reservation?getCustomerId/"+loggedCustomerId,
+        method: "GET",
+        success: function (resp) {
+            loggedCustomerId=resp.data.customerId;
+
+            $('#spaMainIndex').css('display','none');
+            $('#spaCarStoreIndex').css('display','none');
+            $('#spaCartIndex').css('display','none');
+            $('#spaCarDetailsIndex').css('display','none');
+            $('#spaOverviewIndex').css('display','block');
+            $('#spaSignupIndex').css('display','none');
+            $('#spaLoginIndex').css('display','none');
+            $('#spaUpdateIndex').css('display','none');
+            for (const reser of resp.data) {
+                let row = `<tr><td>${reser.model}</td><td>${reser.driverStatus}</td><td>${reser.pickupD}</td><td>${reser.returnD}</td><td>${reser.pickupLocation}</td><td>${reser.returnLocation}</td><td>${reser.amount}</td><td>${reser.reservationStatus}</td><td><i class="bi bi-x-circle-fill"></i></td></tr>`;
+                $("#car-overView").append(row);
+                console.log(row);
+
+
+            }
+
+        }
+    });
+});
 

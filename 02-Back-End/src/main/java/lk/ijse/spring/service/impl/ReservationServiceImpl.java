@@ -130,37 +130,6 @@ public class ReservationServiceImpl implements ReservationService {
       }
 
 
-
-    @Override
-    public void updateReservationStatus(String reserve_id, String driver_id, String status) {
-
-    }
-
-    @Override
-    public List<ReservationDTO> getAllPendingReservation() {
-        return null;
-    }
-
-    @Override
-    public ReservationDTO getReservationDetail(String id) {
-        return null;
-    }
-
-    @Override
-    public List<ReservationDTO> getAllTodayReservation() {
-        return null;
-    }
-
-    @Override
-    public List<ReservationDTO> getAllTodayPickUps() {
-        return null;
-    }
-
-    @Override
-    public List<ReservationDTO> getAllReservation() {
-        return null;
-    }
-
     @Override
     public List<ReservationDTO> getAllReservationByStatus() {
         return mapper.map(carReservationRepo.getRentalByReservationStatus(), new TypeToken<List<ReservationDTO>>() {}.getType());
@@ -172,7 +141,9 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
-    public List<ReservationDTO> getCustomerReservationByStatus(String id, String status) {
-        return null;
+    public  List<ReservationDTO> getReservationDetail(String id) {
+        return mapper.map(carReservationRepo.getRentalByCustomerId(id),new TypeToken<List<ReservationDTO>>(){}.getType());
     }
+
+
 }

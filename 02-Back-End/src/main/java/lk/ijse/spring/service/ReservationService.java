@@ -21,21 +21,11 @@ public interface ReservationService {
 
     void requestReservation(ReservationDTO ReservationDTO);
 
-    void updateReservationStatus(String reserve_id, String driver_id, String status);
-
-    List<ReservationDTO> getAllPendingReservation();
-
-    ReservationDTO getReservationDetail(String id);
-
-    List<ReservationDTO> getAllTodayReservation();
-
-    List<ReservationDTO> getAllTodayPickUps();
-
-    List<ReservationDTO> getAllReservation();
-
     List<ReservationDTO> getAllReservationByStatus();
 
     DriverScheduleDTO getDriverIdByScheduleId(String id);
 
-    List<ReservationDTO> getCustomerReservationByStatus(String id, String status);
+    List<ReservationDTO> getReservationDetail(String id);
+
+
 }
