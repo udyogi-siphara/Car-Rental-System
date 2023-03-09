@@ -7,6 +7,7 @@
 
 package lk.ijse.spring.controller;
 
+import lk.ijse.spring.dto.CarDTO;
 import lk.ijse.spring.dto.ReservationDTO;
 import lk.ijse.spring.service.ReservationService;
 import lk.ijse.spring.util.ResponseUtil;
@@ -60,7 +61,12 @@ public class ReservationController {
         carReservationService.updateReservationStatus(reserve_id, driver_id, status);
         return new ResponseUtil("200", status + " Request Successfully", null);
     }
-    
+
+    @PutMapping
+    public ResponseUtil updateReservation(@RequestBody ReservationDTO dto){
+        carReservationService.updateReservation(dto);
+        return new ResponseUtil("200",dto.getRentalId()+"Updated.!",null);
+    }
 
     //return reservations they are in pending status
     @GetMapping(path = "pendingReservation", produces = MediaType.APPLICATION_JSON_VALUE)
