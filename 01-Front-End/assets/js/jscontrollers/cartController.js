@@ -416,7 +416,7 @@ $('#btnSendRequest').click(function (){
             $('#spaLoginIndex').css('display','none');
             $('#spaUpdateIndex').css('display','none');
             for (const reser of resp.data) {
-                let row = `<tr><td>${reser.model}</td><td>${reser.driverStatus}</td><td>${reser.pickupD}</td><td>${reser.returnD}</td><td>${reser.pickupLocation}</td><td>${reser.returnLocation}</td><td>${reser.amount}</td><td>${reser.reservationStatus}</td><td><i class="bi bi-x-circle-fill"></i></td></tr>`;
+                let row = `<tr><td>${reser.rentalId}</td><td>${reser.driverStatus}</td><td>${reser.pickupDate}</td><td>${reser.returnDate}</td><td>${reser.pickupLocation}</td><td>${reser.returnLocation}</td><td>${reser.amount}</td><td>${reser.reservationStatus}</td><td><i class="bi bi-x-circle-fill"></i></td></tr>`;
                 $("#car-overView").append(row);
                 console.log(row);
 
