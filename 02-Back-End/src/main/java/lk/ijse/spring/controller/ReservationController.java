@@ -89,4 +89,9 @@ public class ReservationController {
         return new ResponseUtil("200", "Done", carReservationService.getAllReservationByStatus());
     }
 
+    @GetMapping(path = "getDriverId/{rid}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil getDriverId(@PathVariable String rid) {
+        return new ResponseUtil("200", "Done", carReservationService.getDriverIdByScheduleId(rid));
+    }
+
 }

@@ -6,6 +6,14 @@ function rentalVerification(){
         method: "GET",
         success: function (resp) {
             for (const rental of resp.data) {
+                $.ajax({
+                    url: baseUrl + "reservation?getDriverId/rid="+rental.rentalId,
+                    method: "GET",
+                    success: function (resp1){
+                        console.log("driverId: "+ rental.rentalId.driver.driverId);
+                    }
+                });
+
                 let row = `<!-- Sales Card -->
                         <div class="col-xxl-4 col-md-12">
                             <div class="card info-card sales-card mt-5">
